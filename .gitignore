@@ -1,0 +1,21 @@
+#Filesystem
+.DS_Store
+
+# IDE
+.idea
+
+# Node
+.npm
+.grunt
+node_modules
+npm-debug.log*
+
+# Logs
+logs
+*.log
+
+# Project
+uploads
+
+# Etc
+.sass-cache
