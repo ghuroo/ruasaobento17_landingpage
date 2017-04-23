@@ -1,0 +1,37 @@
+@mixin breakpoint($class) {
+
+    // mobile
+    @if $class == mobile {
+        @media (max-width: 767px) { @content; }
+    }
+
+    // tablet
+    @else if $class == tablet {
+        @media (min-width: 768px) { @content; }
+    }
+
+    // desktop
+    @else if $class == desktop {
+        @media (min-width: 992px) { @content; }
+    }
+
+    // desktop+
+    @else if $class == desktop_plus {
+        @media (min-width: 1200px) { @content; }
+    }
+
+    @else {
+        @warn "Breakpoint mixin supports: mobile, tablet, desktop, desktop+";
+    }
+}
+
+// usage:
+// .button {
+//     float: right;
+//     width: 350px;
+// 
+//     @include breakpoint(mobile) {
+//         float: none;
+//         width: 100%;
+//     }
+// }

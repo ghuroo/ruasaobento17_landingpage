@@ -1,0 +1,13 @@
+$color_black: #000000;
+$color_white: #FFFFFF;
+
+.button {
+	background-color: $color_black;
+	padding: 15px 25px;
+	font-family: $roboto;
+	font-weight: $font_light;
+	font-size: 1.8em;
+	text-transform: uppercase;
+	color: $color_white;
+	float: left;
+}

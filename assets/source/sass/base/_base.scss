@@ -1,0 +1,40 @@
+$white: #d6d5d5;
+$black: #000000;
+$gold: #dcb647;
+
+html {
+    font-size: 62.5% !important;
+    background: $white;
+    color: $black;
+}
+
+body {
+    font-size: 1.0em;
+    font-family: $roboto;
+    font-weight: $font_light;
+    overflow-x: hidden;
+    min-width: 810px;
+}
+
+.grid-container {
+    max-width: 810px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+body > section {
+    background: $black;
+    color: $white;
+
+    padding: 35px 0px !important;
+    float: left;
+    display: block;
+}
+
+h1 {
+    text-align: center;
+    padding: 0px 15px;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+}

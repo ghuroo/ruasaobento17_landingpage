@@ -1,0 +1,132 @@
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+// debug
+pre.debug {
+    background: #fefefe;
+    color: #000;
+    display: block;
+    width: 98%;
+    margin: 5px auto;
+    padding: 1%;
+    border-top: 2px red solid;
+    border-bottom: 2px red solid;
+}
+
+address, code, img
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+h1, h2, h3, h4, h5, h6,
+article, aside, canvas,
+figure, figcaption, footer, header, nav, audio, video, div {
+    float: left;
+}
+
+.ngi-inspector * {
+    float: initial;
+}
+
+// reticencias
+.truncated {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// relative
+* {
+    position: relative;
+}
+
+// phone numbers
+a[href^="tel"], a[href^="sms"] {
+    color: initial;
+    text-decoration: none;
+}
+
+// vertial align
+.va-parent { display: table; height: 100%; width: 100%; }
+.va-parent-inline { display: inline-table; height: 100% }
+.va-child { display: table-cell; vertical-align: middle; float: none; }
+.va-child-bottom { display: table-cell; vertical-align: bottom; float: none; }
+.va-child-top { display: table-cell; vertical-align: top; float: none; }
+
+// images
+img {
+    width: 100%;
+    display: block;
+}
+
+// height
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+// ux hacks
+button, a {
+    outline: none !important;
+    // tap-highlight-color: transparent;
+}
+
+button {
+    background: none;
+    border: none;
+}
+
+// background
+.background {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+// forms
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+// form appearance
+// input, textarea { appearance: none; }
+
+// input border
+input, textarea, button {
+    border: 1px solid #000;
+    backface-visibility: hidden !important;
+}
+
+textarea:focus, input:focus {
+    outline: 0;
+}
+
+label {
+    cursor: pointer;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+// static (for position: absolute purposes)
+// .static { position: static; }
+
+// unsemantic
+.grid-10, .grid-100, .grid-15, .grid-20, .grid-25, .grid-30, .grid-33, .grid-35, .grid-40, .grid-45, .grid-5, .grid-50, .grid-55, .grid-60, .grid-65, .grid-66, .grid-70, .grid-75, .grid-80, .grid-85, .grid-90, .grid-95, .mobile-grid-10, .mobile-grid-100, .mobile-grid-15, .mobile-grid-20, .mobile-grid-25, .mobile-grid-30, .mobile-grid-33, .mobile-grid-35, .mobile-grid-40, .mobile-grid-45, .mobile-grid-5, .mobile-grid-50, .mobile-grid-55, .mobile-grid-60, .mobile-grid-65, .mobile-grid-66, .mobile-grid-70, .mobile-grid-75, .mobile-grid-80, .mobile-grid-85, .mobile-grid-90, .mobile-grid-95 {
+    padding: 0px;
+}
