@@ -1,0 +1,65 @@
+page's tree:
+    home
+    about
+    blog
+        photos
+        videos
+
+build tree (attach to session, to reduce db requests):
+    get all pages
+        create object with:
+            [
+                locale
+                    parent
+                        child
+                            nephew
+            ]
+
+build page localizations object:
+    get all pages with same parent (& child & nephew)
+        for each page
+            if iterated page slug matches current page's slug
+                add locale parameter to iterated page url
+
+    version 1:
+        example 1:
+            [
+                { parent: blog, child: photos, locale: pt, url: /blogue/fotos },
+                { parent: blog, child: photos, locale: en, url: /blog/photos }
+            ]
+        
+        example 2:
+            [
+                { parent: home, locale: pt, url: /?locale=pt },
+                { parent: home, locale: en, url: /?locale=en }
+            ]
+
+view call with redirect:
+    get all parameters
+        find locale (if not found, continue)
+
+view call without redirect:
+    find page with request url (if not found, redirect home or 404)
+        match page locale with current locale
+            if different, switch locale & continue (if not different, continue)
+
+view call redirect:
+    get tree (from middleware)
+        get desired page with same locale & parent (& child & nephew)
+            redirect to designated page's url
+
+template page call:
+    tree.[locale].parent(.child).url
+
+middlewares:
+    page
+        changeLocale(locale)
+        findLocale(req.parameters)
+
+local variables:
+    locale
+    page
+        tree
+        current
+        localizations
+        path
