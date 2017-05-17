@@ -10,16 +10,19 @@ html {
 
 body {
     font-size: 1.0em;
-    font-family: $roboto;
-    font-weight: $font_light;
+    // font-family: $roboto;
+    // font-weight: $light;
     overflow-x: hidden;
     min-width: 810px;
+    padding-top: 90px;
+    box-sizing: border-box;
 }
 
 .grid-container {
-    max-width: 810px;
+    max-width: 1170px;
     padding-left: 0px;
     padding-right: 0px;
+    float: none;
 }
 
 body > section {
@@ -29,12 +32,4 @@ body > section {
     padding: 35px 0px !important;
     float: left;
     display: block;
-}
-
-h1 {
-    text-align: center;
-    padding: 0px 15px;
-    box-sizing: border-box;
-    display: block;
-    width: 100%;
 }

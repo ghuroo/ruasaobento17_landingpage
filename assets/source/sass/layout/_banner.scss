@@ -1,0 +1,48 @@
+$gold: #c59b70;
+
+.banner {
+    width: 100%;
+
+    .text-holder {
+        position: absolute;
+        top: 200px;
+        top: 30%;
+
+        font-family: $crimson;
+		font-weight: $light;
+		font-style: italic;
+		text-transform: none;
+
+        h3, h1 {
+            padding: 20px 20px;
+            border: 1px solid $gold;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            display: table;
+            margin: 0 auto;
+            float: none;
+            margin-top: 10px;
+        }
+
+        h3 {
+            font-size: 3.3em;
+        }
+
+        h1 {
+            font-size: 6.2em;
+        }
+    }
+
+    .button-holder {
+        width: 100%;
+        position: absolute;
+        bottom: 50px;
+        left: 0px;
+
+        .button {
+            display: table;
+            margin: 0 auto;
+            float: none;
+        }
+    }
+}

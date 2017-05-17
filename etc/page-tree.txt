@@ -40,8 +40,11 @@ view call with redirect:
 
 view call without redirect:
     find page with request url (if not found, redirect home or 404)
-        match page locale with current locale
-            if different, switch locale & continue (if not different, continue)
+        if page with same url but multiple languages
+            match page locale with current locale
+                if different, switch locale & continue (if not different, continue)
+        else
+            switch locale (with the one from the page), continue
 
 view call redirect:
     get tree (from middleware)

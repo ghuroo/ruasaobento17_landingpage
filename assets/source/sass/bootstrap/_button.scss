@@ -1,13 +1,51 @@
-$color_black: #000000;
-$color_white: #FFFFFF;
+$black: #000000;
+$white: #FFFFFF;
+$green: #00a453;
+$gold: #c59b70;
 
-.button {
-	background-color: $color_black;
-	padding: 15px 25px;
-	font-family: $roboto;
-	font-weight: $font_light;
-	font-size: 1.8em;
-	text-transform: uppercase;
-	color: $color_white;
-	float: left;
+a, button {
+	&.button {
+		border-radius: 3px;
+		float: left;
+
+		font-family: $lato;
+		font-weight: $regular;
+		font-style: normal;
+		text-transform: none;
+		font-size: 1.8em;
+
+		line-height: 40px;
+		padding: 0px 25px;
+
+		&.type1 {
+			text-transform: uppercase;
+		}
+
+		&.green {
+			background: $green;
+			color: $white;
+
+			&:hover {
+				background: $white;
+				border: 1px solid $green;
+				color: $green;
+				position: relative;
+				transition: all 0.1s;
+			}
+		}
+
+		&.transparent {
+			background: none;
+			color: $white;
+			border: 1px solid $white;
+
+			&:hover {
+				// background: $white;
+				border: 1px solid $gold;
+				color: $gold;
+				position: relative;
+				transition: all 0.1s;
+			}
+		}
+	}
 }

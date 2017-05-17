@@ -16,9 +16,9 @@ keystone.pre('routes', i18n.init);
 // keystone.pre('routes', errors);
 
 // development
-keystone.pre('routes', dev);
+// keystone.pre('routes', dev);
 
-keystone.pre('render', flashMessages);
+// keystone.pre('render', flashMessages);
 keystone.pre('render', locals);
 
 // load routes

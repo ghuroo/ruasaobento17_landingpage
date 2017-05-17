@@ -22,11 +22,18 @@
 @import "bootstrap/select";
 @import "bootstrap/checkbox";
 
+@import "bootstrap/text";
+
 // base
 @import "base/base";
 
 // layout
 @import "layout/header";
+@import "layout/banner";
+@import "layout/keypoint";
+@import "layout/quote";
+@import "layout/location";
+@import "layout/slogan";
 
 // sections
 @import "section/home";

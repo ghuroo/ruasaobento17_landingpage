@@ -1,0 +1,59 @@
+extends ../../layouts/base
+
+include ../../mixins/keypoint
+
+block content
+    
+    .banner.grid-100.mobile-grid-100
+        img(src="./images/_placeholders/slider-1.jpg")
+
+        .text-holder.grid-100.mobile-grid-100
+            h3 Em Lisboa fique na casa onde morou
+            h1 Fernando Pessoa
+
+        .button-holder
+            a(href="#").button.transparent Ver fotos
+
+    .keypoints.grid-100.mobile-grid-100
+        .grid-container
+            each item, index in [{'title':'Uma experiência inesquecível', 'body': 'A partir de agora vai poder viver uma  Lisboa diferente , de uma maneira mais exclusiva e inspiradora : venha se hospedar no mesmo apartamento onde morou o grande poeta Fernando Pessoa entre 1905-1906. Aqui, nesse mesmo ambiente ele viveu, escreveu e sonhou. Por essas mesmas janelas ele viu a Lisboa do inicio do século passar.<br/>É essa experiência que o convidamos a viver agora.'}]
+                +keypoint(item.title, item.body)
+
+    .quote.grid-100.mobile-grid-100
+        .grid-container
+            img(src="./images/_placeholders/quote.png")
+    
+    .location.grid-100.mobile-grid-100
+        .grid-container
+            .information.grid-50.mobile-grid-100
+                .va-parent
+                    .va-child
+                        span.title.type1 Localização
+                        span.body.type2 Rua de São Bento, nº 17, Lisboa.
+                        span.body.type1.
+                            10 minutos á pé do Bairro Alto e Chiado, vizinho
+                            a supermercados, padarias, livrarias, museus
+                            e restaurantes.
+                        .button-holder.grid-100.mobile-grid-100
+                            a(href="#").button.type1.transparent Google Maps
+
+            .grid-50.mobile-grid-100
+                img(src="./images/_placeholders/google-maps.jpg")
+
+    .slogan.grid-100.mobile-grid-100
+        .grid-container
+            span.title.type1.grid-100.mobile-grid-100 Roteiros exclusivos
+            span.title.type2.grid-100.mobile-grid-100 Conheça a vida e a obra de Fernando Pessoa com os mais conceituados especialistas Pessoanos
+            span.body.type1.grid-100.mobile-grid-100!= "Já pensou em tomar um café enquanto discute sobre a obra de Fernando Pessoa? Ou quem sabe, programar colóquios exclusivos e passeios personalizados pela Lisboa de Pessoa? Aproveite a sua estadia e viva essa experiência. Aqui você encontra o contato de conceituados pesquisadores Pessoanos, que irão lhe guiar pelo fascinante universo de Fernando Pessoa. <br> Uma experiência exclusiva para os hospedes da “Rua de São Bento, 17”"
+
+    .agents.grid-100.mobile-grid-100
+        .grid-container
+            span.title.grid-100.mobile-grid-100 Antonio Cardiello
+            span.body.grid-100.mobile-grid-100!= "Doutor em filosofia pela Faculdade de Letras da Universidade de Lisboa. <br> É membro do Centro de Filosofia (CFUL) do mesmo instituto e membro do Nietzsche International Lab (NIL) do Instituto de Filosofia da Universidade Nova de Lisboa (IFILNOVA). Co-director do projecto... da Biblioteca de Fernando Pessoa (on-line desde 2010), editou  Uma Stirpe incognita  (EDB Edizioni, 2016) e  co-editou  A Biblioteca particular de Fernando Pessoa  (D. Quixote, 2010) e  Nietzsche e Pessoa. Ensaios  (Tinta-da-china, 2016). Comissário de exposições internacionais sobre Fernando Pessoa, interessa-se pelo pensamento português contemporâneo e pela aproximação entre tradições filosóficas ocidentais e orientais."
+            a.grid-100.mobile-grid-100(href="#") Ler mais
+            .flags.grid-100.mobile-grid-100
+                span.pt
+                span.fr
+            .contacts
+                a.mail(href="mailto:teste@teste.abc") Ler mais
+                a.phone(href="tel:+351930000000") +351 930 000 000

@@ -3,6 +3,8 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 // var uglify = require('gulp-uglify');
 
+require('dotenv').config({ path: __dirname + '/.env' });
+
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
@@ -39,7 +41,7 @@ gulp.task('js', function() {
 
 gulp.task('default', ['sass', 'js'], function() {
     browserSync({
-        proxy: 'localhost:3004'
+        proxy: 'localhost:'+process.env.PORT
     });
 
     gulp.watch('./assets/source/sass/**/*.scss', ['sass']);

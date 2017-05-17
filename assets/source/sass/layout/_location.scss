@@ -1,0 +1,40 @@
+$brown: #c4a674;
+
+.location {
+    height: 525px;
+
+    > div {
+        height: 100%;
+    }
+
+    .information {
+        padding: 0px 100px;
+        position: relative;
+        height: 100%;
+        background: #343434;
+    }
+
+    .title {
+        color: $brown;
+        display: block;
+    }
+
+    .body {
+        padding-top: 60px;
+        color: $brown;
+        display: block;
+    }
+
+    .button-holder {
+        // float: none;
+        // margin: 0 auto;
+        // display: table;
+        margin-top: 60px;
+
+        .button {
+            float: none;
+            margin: 0 auto;
+            display: table;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.slogan {
+    padding: 50px 0px;
+
+    .title, .body {
+        display: block;
+        text-align: center;
+        width: 100%;
+        padding-top: 40px;
+    }
+
+    .title {
+        padding-left: 280px;
+        padding-right: 280px;
+    }
+
+    .body {
+        padding-left: 90px;
+        padding-right: 90px;
+    }
+
+}
