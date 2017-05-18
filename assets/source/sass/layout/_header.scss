@@ -1,6 +1,7 @@
 $red: #930f20;
 $white: #FFFFFF;
 $gold: #c59b70;
+$blackish: #232323;
 
 #header {
     background: $white;
@@ -35,6 +36,7 @@ $gold: #c59b70;
                 font-size: 2.4em;
                 position: relative;
                 left: -5px;
+                color: $blackish;
 
                 &:hover {
                     color: $gold;
@@ -43,8 +45,8 @@ $gold: #c59b70;
 
             &.logo {
                 background: $white;
-                padding: 20px 30px 30px 30px;
-                font-size: 3em;
+                padding: 10px 30px 5px 30px;
+                font-size: 4.5em;
                 border-radius: 50%;
             }
         }

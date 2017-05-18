@@ -3,6 +3,7 @@ $white: #FFFFFF;
 $black: #000000;
 
 #home {
+    padding-bottom: 140px;
 
     @include breakpoint(mobile) {
         .category .container label .text {

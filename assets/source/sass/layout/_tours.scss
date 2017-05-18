@@ -1,0 +1,133 @@
+.tours {
+
+    &:nth-child(odd) { padding-right: 5px; }
+    &:nth-child(even) { padding-left: 5px; }
+
+    .wrapper {
+        background: #343434;
+        padding: 40px 45px 40px 45px;
+    }
+
+    .title {
+        color: #c4a674;
+        font-size: 3.7em;
+        font-family: $crimson;
+        font-weight: $bold;
+        font-style: italic;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .body {
+        margin-top: 40px;
+        padding: 0px 10px;
+        color: #afafaf;
+        font-size: 1.4em;
+        font-family: $lato;
+        font-weight: $regular;
+        text-align: center;
+        max-height: 75px;
+        overflow: hidden;
+
+        .elipsis {
+            position: absolute;
+            bottom: 2px;
+            left: 93%;
+            margin-left: 3px;
+        }
+
+        &.full {
+            max-height: auto;
+            overflow: hidden;
+
+            .elipsis {
+                display: none;
+            }
+        }
+    }
+
+    .read-more {
+        cursor: pointer;
+        padding-top: 25px;
+        color: #c4a674;
+        font-size: 1.4em;
+        font-family: $lato;
+        font-weight: $bold;
+        text-align: right;
+        float: right;
+
+        &:hover {
+            color: #afafaf;
+        }
+
+        &:after {
+            font-family: 'icomoon';
+            content: "\e900";
+            visibility: visible;
+            position: relative;
+            left: 10px;
+            top: 0px;
+            line-height: 1;
+            font-size: 0.9em;
+            width: auto;
+            height: auto;
+            display: inline-block;
+        }
+    }
+
+    .flags {
+        text-align: center;
+        padding: 10px 0px;
+
+        .flag {
+            display: inline-block;
+            position: relative;
+            float: none;
+            margin: 0px 5px;
+
+            img {
+                box-shadow: 0px 0px 9px 1px #34273e;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    .contacts {
+        padding-top: 30px;
+        text-align: center;
+
+        .mail, .phone {
+            display: inline-block;
+            float: none;
+            padding: 0px 15px;
+        }
+
+        .mail {
+            color: #c4a674;
+            font-size: 1.8em;
+            font-family: $lato;
+            font-weight: $bold;
+        }
+
+        .phone {
+            color: #afafaf;
+            font-size: 1.6em;
+            font-family: $lato;
+            font-weight: $regular;
+
+            &:before {
+                color: #c4a674;
+                font-family: 'icomoon';
+                content: "\e908";
+                visibility: visible;
+                position: relative;
+                line-height: 1;
+                font-size: 0.9em;
+                width: auto;
+                height: auto;
+                display: inline-block;
+                padding-right: 7px;
+            }
+        }
+    }
+}

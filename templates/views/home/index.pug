@@ -4,6 +4,7 @@ include ../../mixins/keypoint
 
 block content
     
+    a(name="home")
     .banner.grid-100.mobile-grid-100
         img(src="./images/_placeholders/slider-1.jpg")
 
@@ -14,21 +15,24 @@ block content
         .button-holder
             a(href="#").button.transparent Ver fotos
 
+    a(name="o-apartamento")
     .keypoints.grid-100.mobile-grid-100
         .grid-container
-            each item, index in [{'title':'Uma experiência inesquecível', 'body': 'A partir de agora vai poder viver uma  Lisboa diferente , de uma maneira mais exclusiva e inspiradora : venha se hospedar no mesmo apartamento onde morou o grande poeta Fernando Pessoa entre 1905-1906. Aqui, nesse mesmo ambiente ele viveu, escreveu e sonhou. Por essas mesmas janelas ele viu a Lisboa do inicio do século passar.<br/>É essa experiência que o convidamos a viver agora.'}]
+            each item, index in keypoints
                 +keypoint(item.title, item.body)
 
     .quote.grid-100.mobile-grid-100
         .grid-container
-            img(src="./images/_placeholders/quote.png")
+            //- img(src="./images/_placeholders/quote.png")
+            i.icon-quote
     
+    a(name="localizacao")
     .location.grid-100.mobile-grid-100
         .grid-container
             .information.grid-50.mobile-grid-100
                 .va-parent
                     .va-child
-                        span.title.type1 Localização
+                        span.title.type1: span.ornament.white Localização
                         span.body.type2 Rua de São Bento, nº 17, Lisboa.
                         span.body.type1.
                             10 minutos á pé do Bairro Alto e Chiado, vizinho
@@ -40,20 +44,99 @@ block content
             .grid-50.mobile-grid-100
                 img(src="./images/_placeholders/google-maps.jpg")
 
+    a(name="fernando-pessoa")
+    .apartment.grid-100.mobile-grid-100
+        .background2
+        
+        .grid-container
+            .wrapper.grid-100.mobile-grid-100
+                .copy.grid-55.mobile-grid-100
+                    .title.type3.grid-100.mobile-grid-100
+                        span.ornament.black
+                            | Fernado Pessoa
+                            br
+                            | e este apartamento
+                    .body.type1.grid-100.mobile-grid-100
+                        | O período em que Fernando Pessoa morou neste apartamento (1905 – 1906 ) é extremamente importante na vida dele , pois marca o seu reencontro com Portugal depois de 9 anos vivendo em Durban - Africa do Sul, com a sua mãe, irmãos e o padrasto que havia sido transferido. Em 1905 , Pessoa regressa sozinho á Lisboa a bordo do navio Herzog para frequentar o Curso Superior de Letras, indo morar com a irmã da sua mãe, a tia Anica, na Rua de São Bento nº 17, 2º andar esquerdo –  exatamente neste mesmo apartamento que temos o prazer de lhe receber.
+                    .quote.grid-100.mobile-grid-100
+                        span.mark “
+                        | A formação intelectual de Fernando Pessoa atravessa um ponto de viragem entre 1905 e 1906, coincidente com o surgimento dos proto-heterónimos Charles Robert Anon e Alexander Search. São os anos em que o escritor frequenta o então chamado Curso Superior de Letras na Universidade de Lisboa. Durante esta fase de estudo e pesquisa de carácter mais académico, teve a possibilidade de estabelecer os primeiros densos e extensos convívios com diversos autores, linhas ou correntes de pensamento universais.
+                        span.mark ”
+                    .author.grid-100.mobile-grid-100
+                        | _ Antonio Cardiello – Pesquisador Pessoano
+
+                .picture.grid-45 .mobile-grid-100
+                    img(src="/images/_placeholders/picture-1.jpg")
+
+            .content-script.grid-100.mobile-grid-100(ng-app="app" ng-controller="flipbook")
+                img.background(src="/images/scripts-background.png")
+
+                #flipbook-wrapper.grid-100.mobile-grid-100(ng-show="flipbook1" ng-init="flipbook1 = false")
+                    #flipbook
+                        div: img(src="/images/manuscritos/diario-pessoal/01.jpg")
+                        div: img(src="/images/manuscritos/diario-pessoal/02.jpg")
+                        div: img(src="/images/manuscritos/diario-pessoal/03.jpg")
+                        div: img(src="/images/manuscritos/diario-pessoal/04.jpg")
+                    .close(ng-click="flipbook1 = false") &times;
+
+                .grid-60.mobile-grid-100.prefix-40
+                    .title.type1.grid-100.mobile-grid-100: span.ornament.black Manuscritos originais de Fernando Pessoa                    
+                    .body.type3.grid-100.mobile-grid-100 Alguns manuscritos originais de Fernando Pessoa do período em que ele viveu na Rua de São Bento, 17.
+                    .buttons.grid-100.mobile-grid-100
+                        button.button.type2(ng-click="flipbook1 = true") Diário pessoal
+                        button.button.type2(ng-click="flipbook1 = true") Diário de Leitura
+                        button.button.type2(ng-click="flipbook1 = true") Alguns textos & anotações
+
+    a(name="roteiros")
     .slogan.grid-100.mobile-grid-100
         .grid-container
-            span.title.type1.grid-100.mobile-grid-100 Roteiros exclusivos
+            span.title.type1.grid-100.mobile-grid-100: span.ornament.gold Roteiros exclusivos
             span.title.type2.grid-100.mobile-grid-100 Conheça a vida e a obra de Fernando Pessoa com os mais conceituados especialistas Pessoanos
             span.body.type1.grid-100.mobile-grid-100!= "Já pensou em tomar um café enquanto discute sobre a obra de Fernando Pessoa? Ou quem sabe, programar colóquios exclusivos e passeios personalizados pela Lisboa de Pessoa? Aproveite a sua estadia e viva essa experiência. Aqui você encontra o contato de conceituados pesquisadores Pessoanos, que irão lhe guiar pelo fascinante universo de Fernando Pessoa. <br> Uma experiência exclusiva para os hospedes da “Rua de São Bento, 17”"
 
-    .agents.grid-100.mobile-grid-100
+    .tours.grid-100.mobile-grid-100
         .grid-container
-            span.title.grid-100.mobile-grid-100 Antonio Cardiello
-            span.body.grid-100.mobile-grid-100!= "Doutor em filosofia pela Faculdade de Letras da Universidade de Lisboa. <br> É membro do Centro de Filosofia (CFUL) do mesmo instituto e membro do Nietzsche International Lab (NIL) do Instituto de Filosofia da Universidade Nova de Lisboa (IFILNOVA). Co-director do projecto... da Biblioteca de Fernando Pessoa (on-line desde 2010), editou  Uma Stirpe incognita  (EDB Edizioni, 2016) e  co-editou  A Biblioteca particular de Fernando Pessoa  (D. Quixote, 2010) e  Nietzsche e Pessoa. Ensaios  (Tinta-da-china, 2016). Comissário de exposições internacionais sobre Fernando Pessoa, interessa-se pelo pensamento português contemporâneo e pela aproximação entre tradições filosóficas ocidentais e orientais."
-            a.grid-100.mobile-grid-100(href="#") Ler mais
-            .flags.grid-100.mobile-grid-100
-                span.pt
-                span.fr
-            .contacts
-                a.mail(href="mailto:teste@teste.abc") Ler mais
-                a.phone(href="tel:+351930000000") +351 930 000 000
+            .script.grid-50.mobile-grid-100
+                .wrapper
+                    .title.grid-100.mobile-grid-100 Antonio Cardiello
+                    .body.grid-100.mobile-grid-100!= "Doutor em filosofia pela Faculdade de Letras da Universidade de Lisboa. <br>É membro do Centro de Filosofia (CFUL) do mesmo instituto e membro do Nietzsche International Lab (NIL) do Instituto de Filosofia da Universidade Nova de Lisboa (IFILNOVA). Co-director do projecto da Biblioteca de Fernando Pessoa (on-line desde 2010), editou  Uma Stirpe incognita  (EDB Edizioni, 2016) e  co-editou  A Biblioteca particular de Fernando Pessoa  (D. Quixote, 2010) e  Nietzsche e Pessoa. Ensaios  (Tinta-da-china, 2016). Comissário de exposições internacionais sobre Fernando Pessoa, interessa-se pelo pensamento português contemporâneo e pela aproximação entre tradições filosóficas ocidentais e orientais."
+                        span.elipsis ...
+                    .read-more.grid-100.mobile-grid-100 Ler mais
+                    .flags.grid-100.mobile-grid-100
+                        .flag: img(src="/images/flag-pt.png")
+                        .flag: img(src="/images/flag-fr.png")
+                    .contacts.grid-100.mobile-grid-100
+                        a.mail(href="mailto:teste@teste.abc") Ler mais
+                        a.phone(href="tel:+351930000000") +351 930 000 000
+                
+            .script.grid-50.mobile-grid-100
+                .wrapper
+                    .title.grid-100.mobile-grid-100 Fabrízio Boscalia
+                    .body.grid-100.mobile-grid-100!= "Doutor (PhD) em Filosofia pela  Universidade de Lisboa  e membro do Centro de Filosofia da Universidade de Lisboa. Desenvolve investigação sobre a  cultura islâmica  na literatura e  no pensamento  portuguveses, especialmente na obra de  Fernando Pessoa. Participou na digitalização da biblioteca particular tem colaborado  como docente na  Universidade de Lisboa  e na  Universidade Lusófona. É conferencista e autor de publicações em Portugal e no estrangeiro. <br>É coordenador do projeto turístico-cultural “Lisboa com Fernando Pessoa”."
+                        span.elipsis ...
+                    .read-more.grid-100.mobile-grid-100 Ler mais
+                    .flags.grid-100.mobile-grid-100
+                        .flag: img(src="/images/flag-pt.png")
+                        .flag: img(src="/images/flag-fr.png")
+                    .contacts.grid-100.mobile-grid-100
+                        a.mail(href="mailto:teste@teste.abc") Ler mais
+                        a.phone(href="tel:+351930000000") +351 930 000 000
+
+block scripts
+    script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js")
+    script(src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js")
+    script(src="//turnjs.com/lib/turn.min.js")
+    script.
+        $("#flipbook").turn({
+            width: 1000,
+            height: 382,
+            autoCenter: false
+        });
+
+        var app = angular.module('app', []);
+
+        app.controller('flipbook', function ($scope) {
+            var vm = $scope;
+            
+        });
+        

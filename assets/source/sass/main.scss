@@ -9,7 +9,7 @@
 @import "vendor/core";
 
 // icons
-// @import "base/icomoon";
+@import "base/icomoon";
 
 // fonts
 @import "base/fonts";
@@ -34,6 +34,8 @@
 @import "layout/quote";
 @import "layout/location";
 @import "layout/slogan";
+@import "layout/tours";
+@import "layout/apartment";
 
 // sections
 @import "section/home";
