@@ -86,6 +86,8 @@ block content
                         button.button.type2(ng-click="flipbook1 = true") Diário pessoal
                         button.button.type2(ng-click="flipbook1 = true") Diário de Leitura
                         button.button.type2(ng-click="flipbook1 = true") Alguns textos & anotações
+    
+    .separator
 
     a(name="roteiros")
     .slogan.grid-100.mobile-grid-100
@@ -101,7 +103,7 @@ block content
                     .title.grid-100.mobile-grid-100 Antonio Cardiello
                     .body.grid-100.mobile-grid-100!= "Doutor em filosofia pela Faculdade de Letras da Universidade de Lisboa. <br>É membro do Centro de Filosofia (CFUL) do mesmo instituto e membro do Nietzsche International Lab (NIL) do Instituto de Filosofia da Universidade Nova de Lisboa (IFILNOVA). Co-director do projecto da Biblioteca de Fernando Pessoa (on-line desde 2010), editou  Uma Stirpe incognita  (EDB Edizioni, 2016) e  co-editou  A Biblioteca particular de Fernando Pessoa  (D. Quixote, 2010) e  Nietzsche e Pessoa. Ensaios  (Tinta-da-china, 2016). Comissário de exposições internacionais sobre Fernando Pessoa, interessa-se pelo pensamento português contemporâneo e pela aproximação entre tradições filosóficas ocidentais e orientais."
                         span.elipsis ...
-                    .read-more.grid-100.mobile-grid-100 Ler mais
+                    .read-more.down.gold.grid-100.mobile-grid-100 Ler mais
                     .flags.grid-100.mobile-grid-100
                         .flag: img(src="/images/flag-pt.png")
                         .flag: img(src="/images/flag-fr.png")
@@ -114,7 +116,7 @@ block content
                     .title.grid-100.mobile-grid-100 Fabrízio Boscalia
                     .body.grid-100.mobile-grid-100!= "Doutor (PhD) em Filosofia pela  Universidade de Lisboa  e membro do Centro de Filosofia da Universidade de Lisboa. Desenvolve investigação sobre a  cultura islâmica  na literatura e  no pensamento  portuguveses, especialmente na obra de  Fernando Pessoa. Participou na digitalização da biblioteca particular tem colaborado  como docente na  Universidade de Lisboa  e na  Universidade Lusófona. É conferencista e autor de publicações em Portugal e no estrangeiro. <br>É coordenador do projeto turístico-cultural “Lisboa com Fernando Pessoa”."
                         span.elipsis ...
-                    .read-more.grid-100.mobile-grid-100 Ler mais
+                    .read-more.down.gold.grid-100.mobile-grid-100 Ler mais
                     .flags.grid-100.mobile-grid-100
                         .flag: img(src="/images/flag-pt.png")
                         .flag: img(src="/images/flag-fr.png")
@@ -122,10 +124,55 @@ block content
                         a.mail(href="mailto:teste@teste.abc") Ler mais
                         a.phone(href="tel:+351930000000") +351 930 000 000
 
+    .casa-fernando.grid-100.mobile-grid-100
+        .title.type2.grid-100.mobile-grid-100
+            | Conheça
+            br
+            | a Casa Fernando Pessoa
+
+        .logo.grid-100.mobile-grid-100: img(src="/images/logo-casa-fernando.png")
+        .read-more.right.grey.grid-100.mobile-grid-100 Ver site
+    
+    .separator
+
+    .news.grid-100.mobile-grid-100
+        .grid-container
+            .title.type3.grid-100.mobile-grid-100
+                span.ornament.black Notícias sobre o nosso apartamento
+
+            .grid-100.mobile-grid-100
+                each val in [1, 2, 3]
+                    article.grid-33.mobile-grid-100
+                        .title Titulo da Matéria
+                        .body “O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto...”
+                        .grid-100.mobile-grid-100.side-by-side
+                            .text-ornament.child: .object
+                            .read-more.right.brown.child ler mais
+
+    .separator
+
+    .booking.grid-100.mobile-grid-100
+        .grid-container
+            .logo.grid-40.mobile-grid-100
+                img(src="/images/logo2.svg")
+            .grid-60.mobile-grid-100
+                .title.type1.grid-100.mobile-grid-100
+                    span.ornament.gold Faça a sua reserva
+                .body.type1.grid-100.mobile-grid-100
+                    |Venha viver uma Lisboa diferente.
+                    br
+                    | A gente espera por você.
+                .buttons.grid-100.mobile-grid-100
+                    a(href="#" target="_blank").airbnb Airbnb
+                    a(href="#" target="_blank").uniplaces Uniplaces
+                    a(href="#" target="_blank").luxury Luxury
+
+
 block scripts
-    script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js")
-    script(src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js")
-    script(src="//turnjs.com/lib/turn.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js")
+    //- script(src="http://turnjs.com/lib/turn.min.js")
+    script(src="/js/turn.js")
     script.
         $("#flipbook").turn({
             width: 1000,

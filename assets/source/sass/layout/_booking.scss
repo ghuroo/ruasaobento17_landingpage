@@ -1,0 +1,50 @@
+.booking {
+    
+    .logo {
+        max-width: 580px;
+    }
+
+    .buttons {
+        // margin-top: 65px;
+        text-align: center;
+        padding: 65px 30px 0px 30px;
+
+        > * {
+            padding: 0px 35px;
+            line-height: 40px;
+            border-radius: 3px;
+            margin: 0px 20px;
+            display: inline-block;
+            float: none;
+
+            font-family: $lato;
+            font-weight: $bold;
+            font-style: normal;
+            font-size: 1.8em;
+            color: #fff;
+            text-transform: uppercase;
+
+            &:nth-child(1) {
+                margin-left: 0px;
+            }
+
+            &:nth-child(3) {
+                margin-right: 0px;
+            }
+
+            &:hover {
+				background: #fff !important;
+				color: $gold;
+				border-color: $gold !important;
+                box-sizing: border-box;
+				transform: scale(1.05);
+				transition: all 0.2s;
+                position: static;
+			}
+        }
+
+        .airbnb { background: #ff5a5f; border: 1px solid #ff5a5f; }
+        .uniplaces { background: #00adf2; border: 1px solid #00adf2; }
+        .luxury { background: #62a43e; border: 1px solid #62a43e; }
+    }
+}

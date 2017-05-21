@@ -46,35 +46,6 @@
         }
     }
 
-    .read-more {
-        cursor: pointer;
-        padding-top: 25px;
-        color: #c4a674;
-        font-size: 1.4em;
-        font-family: $lato;
-        font-weight: $bold;
-        text-align: right;
-        float: right;
-
-        &:hover {
-            color: #afafaf;
-        }
-
-        &:after {
-            font-family: 'icomoon';
-            content: "\e900";
-            visibility: visible;
-            position: relative;
-            left: 10px;
-            top: 0px;
-            line-height: 1;
-            font-size: 0.9em;
-            width: auto;
-            height: auto;
-            display: inline-block;
-        }
-    }
-
     .flags {
         text-align: center;
         padding: 10px 0px;

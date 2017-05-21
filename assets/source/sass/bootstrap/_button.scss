@@ -84,3 +84,71 @@ a, button {
 		}
 	}
 }
+
+.read-more {
+	cursor: pointer;
+	padding-top: 25px;
+	font-size: 1.4em;
+	font-family: $lato;
+	font-weight: $bold;
+	text-align: right;
+	float: right;
+	padding-left: 20px;
+    left: -20px;
+
+	&.gold {
+		color: #c4a674;
+
+		&:hover {
+			color: #afafaf;
+		}
+	}
+
+	&.grey {
+		color: #343434;
+
+		&:hover {
+			color: #c4a674;
+		}
+	}
+
+	&.brown {
+		color: #78674c;
+
+		&:hover {
+			color: #343434;
+		}
+	}
+
+	&.down {
+		&:after {
+			font-family: 'icomoon';
+			content: "\e900";
+			visibility: visible;
+			position: relative;
+			left: 10px;
+			top: 0px;
+			line-height: 1;
+			font-size: 0.9em;
+			width: auto;
+			height: auto;
+			display: inline-block;
+		}
+	}
+
+	&.right {
+		&:after {
+			font-family: 'icomoon';
+			content: "\e906";
+			visibility: visible;
+			position: relative;
+			left: 10px;
+			top: 0px;
+			line-height: 1;
+			font-size: 0.9em;
+			width: auto;
+			height: auto;
+			display: inline-block;
+		}
+	}
+}

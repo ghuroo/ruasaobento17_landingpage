@@ -1,0 +1,39 @@
+$size: 150px;
+
+.circle {
+    background: #9e978e;
+    display: inline-block;
+    margin: 0 1em 1em 0;
+
+    &.top,
+    &.bottom {
+        height: $size;
+        width: $size * 2;
+    }
+
+    &.right,
+    &.left {
+        height: $size * 2;
+        width: $size;
+    }
+
+    &.top {
+        border-top-left-radius: $size * 2;
+        border-top-right-radius: $size * 2;
+    }
+
+    &.right {
+        border-bottom-right-radius: $size * 2;
+        border-top-right-radius: $size * 2;
+    }
+
+    &.bottom {
+        border-bottom-left-radius: $size * 2;
+        border-bottom-right-radius: $size * 2;
+    }
+
+    &.left {
+        border-bottom-left-radius: $size * 2;
+        border-top-left-radius: $size * 2;
+    }
+}
