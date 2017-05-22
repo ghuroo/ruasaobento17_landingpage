@@ -17,9 +17,12 @@ var sass_path = {
 var js_path = {
     source: [
         // vendor
-        './assets/source/js/vendor/jquery.min.js',
+        // './assets/source/javascript/vendor/jquery.min.js',
+        './assets/source/javascript/vendor/turn.js',
+        // js
+        './assets/source/javascript/main.js',
     ],
-    destination: './assets/public/js',
+    destination: './assets/public/javascript',
     output: 'main.min.js'
 };
 
@@ -45,6 +48,6 @@ gulp.task('default', ['sass', 'js'], function() {
     });
 
     gulp.watch('./assets/source/sass/**/*.scss', ['sass']);
-    gulp.watch('./assets/source/js/**/*.js', ['js']);
+    gulp.watch('./assets/source/javascript/**/*.js', ['js']);
     gulp.watch('./templates/**/*.pug').on('change', browserSync.reload);
 });

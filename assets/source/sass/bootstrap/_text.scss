@@ -63,12 +63,12 @@ $black: #343434;
     text-align: center;
     line-height: 1.4;
 
-    &.type1 {
-        font-family: $lato;
-        font-weight: $light;
-        font-style: normal;
-        font-size: 1.8em;
+    font-family: $lato;
+    font-weight: $light;
+    font-style: normal;
 
+    &.type1 {
+        font-size: 1.8em;
         color: $gold;
         padding-top: 55px;
         color: #343434;
@@ -79,9 +79,6 @@ $black: #343434;
     }
 
     &.type3 {
-        font-family: $crimson;
-        font-weight: $light;
-        font-style: normal;
         font-size: 2.2em;
 
         color: #343434;

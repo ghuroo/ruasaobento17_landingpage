@@ -4,31 +4,36 @@ include ../../mixins/keypoint
 
 block content
     
-    a(name="home")
-    .banner.grid-100.mobile-grid-100
+    .waypoint.banner.grid-100.mobile-grid-100(data-index="0")
+        a(name="home")
+        
         img.image(src="./images/_placeholders/slider-1.jpg")
 
-        .text-holder.grid-100.mobile-grid-100
+        .text-holder.grid-100.mobile-grid-100.fadein
             h3 Em Lisboa fique na casa onde morou
             h1 Fernando Pessoa
 
-        .button-holder
+        .button-holder.fadein
             a(href="#").button.transparent Ver fotos
 
-    a(name="o-apartamento")
-    .keypoints.grid-100.mobile-grid-100
+    .waypoint.keypoints.grid-100.mobile-grid-100(data-index="1")
+        a(name="o-apartamento")
+
         .grid-container
             each item, index in keypoints
                 +keypoint(item.title, item.body)
 
-    .quote.grid-100.mobile-grid-100
-        .grid-container
+    .waypoint.quote.grid-100.mobile-grid-100(data-index="2")
+        a(name="escrito")
+
+        .grid-container.fadein
             //- img(src="./images/_placeholders/quote.png")
             i.icon-quote
     
-    a(name="localizacao")
-    .location.grid-100.mobile-grid-100
-        .grid-container
+    .waypoint.location.grid-100.mobile-grid-100(data-index="3")
+        a(name="localizacao")
+
+        .grid-container.fadein
             .information.grid-50.mobile-grid-100
                 .va-parent
                     .va-child
@@ -46,13 +51,14 @@ block content
 
     .separator.type2
 
-    a(name="fernando-pessoa")
-    .apartment.grid-100.mobile-grid-100
+    .waypoint.apartment.grid-100.mobile-grid-100(data-index="4")
+        a(name="fernando-pessoa")
+
         .background2
         
         .grid-container
             .wrapper.grid-100.mobile-grid-100
-                .copy.grid-60.mobile-grid-100
+                .copy.grid-60.mobile-grid-100.fadein
                     .title.type3.grid-100.mobile-grid-100
                         span.ornament.black
                             | Fernado Pessoa
@@ -74,10 +80,10 @@ block content
                             li.grid-100.mobile-grid-100
                                 a(href="#" target="_blank") Fernando Pessoa - infância
 
-                .picture.grid-40.mobile-grid-100
+                .picture.grid-40.mobile-grid-100.fadein
                     img(src="/images/_placeholders/picture-1.jpg")
 
-            .content-script.grid-100.mobile-grid-100(ng-app="app" ng-controller="flipbook")
+            .content-script.grid-100.mobile-grid-100(ng-app="app" ng-controller="flipbook").fadein
                 img.background(src="/images/scripts-background.png")
 
                 #flipbook-wrapper.grid-100.mobile-grid-100(ng-show="flipbook1" ng-init="flipbook1 = false")
@@ -98,48 +104,53 @@ block content
     
     .separator
 
-    a(name="roteiros")
-    .slogan.grid-100.mobile-grid-100
-        .grid-container
-            span.title.type1.grid-100.mobile-grid-100: span.ornament.gold Roteiros exclusivos
-            span.title.type2.grid-100.mobile-grid-100 Conheça a vida e a obra de Fernando Pessoa com os mais conceituados especialistas Pessoanos
-            span.body.type1.grid-100.mobile-grid-100!= "Já pensou em tomar um café enquanto discute sobre a obra de Fernando Pessoa? Ou quem sabe, programar colóquios exclusivos e passeios personalizados pela Lisboa de Pessoa? Aproveite a sua estadia e viva essa experiência. Aqui você encontra o contato de conceituados pesquisadores Pessoanos, que irão lhe guiar pelo fascinante universo de Fernando Pessoa. <br> Uma experiência exclusiva para os hospedes da “Rua de São Bento, 17”"
+    .waypoint.grid-100.mobile-grid-100
+        .slogan.grid-100.mobile-grid-100(data-index="5")
+            a(name="roteiros")
 
-    .tours.grid-100.mobile-grid-100
-        .grid-container
-            each val in [1, 2]
-                .item.grid-50.mobile-grid-100
-                    .wrapper
-                        .title.grid-100.mobile-grid-100 Antonio Cardiello
-                        .body.grid-100.mobile-grid-100!= "Doutor em filosofia pela Faculdade de Letras da Universidade de Lisboa. <br>É membro do Centro de Filosofia (CFUL) do mesmo instituto e membro do Nietzsche International Lab (NIL) do Instituto de Filosofia da Universidade Nova de Lisboa (IFILNOVA). Co-director do projecto da Biblioteca de Fernando Pessoa (on-line desde 2010), editou  Uma Stirpe incognita  (EDB Edizioni, 2016) e  co-editou  A Biblioteca particular de Fernando Pessoa  (D. Quixote, 2010) e  Nietzsche e Pessoa. Ensaios  (Tinta-da-china, 2016). Comissário de exposições internacionais sobre Fernando Pessoa, interessa-se pelo pensamento português contemporâneo e pela aproximação entre tradições filosóficas ocidentais e orientais."
-                            span.elipsis ...
-                        .read-more.down.gold.grid-100.mobile-grid-100 Ler mais
-                        .flags.grid-100.mobile-grid-100
-                            .flag: img(src="/images/flag-pt.png")
-                            .flag: img(src="/images/flag-fr.png")
-                        .contacts.grid-100.mobile-grid-100
-                            a.mail(href="mailto:teste@teste.abc") Enviar email
-                            a.phone(href="tel:+351930000000") +351 930 000 000
+            .grid-container.fadein
+                span.title.type1.grid-100.mobile-grid-100: span.ornament.gold Roteiros exclusivos
+                span.title.type2.grid-100.mobile-grid-100 Conheça a vida e a obra de Fernando Pessoa com os mais conceituados especialistas Pessoanos
+                span.body.type1.grid-100.mobile-grid-100!= "Já pensou em tomar um café enquanto discute sobre a obra de Fernando Pessoa? Ou quem sabe, programar colóquios exclusivos e passeios personalizados pela Lisboa de Pessoa? Aproveite a sua estadia e viva essa experiência. Aqui você encontra o contato de conceituados pesquisadores Pessoanos, que irão lhe guiar pelo fascinante universo de Fernando Pessoa. <br> Uma experiência exclusiva para os hospedes da “Rua de São Bento, 17”"
 
-    .casa-fernando.grid-100.mobile-grid-100
-        .title.type2.grid-100.mobile-grid-100
+        .tours.grid-100.mobile-grid-100
+            .grid-container
+                each val in [1, 2]
+                    .item.grid-50.mobile-grid-100.fadein
+                        .wrapper
+                            .title.grid-100.mobile-grid-100 Antonio Cardiello
+                            .body.grid-100.mobile-grid-100!= "Doutor em filosofia pela Faculdade de Letras da Universidade de Lisboa. <br>É membro do Centro de Filosofia (CFUL) do mesmo instituto e membro do Nietzsche International Lab (NIL) do Instituto de Filosofia da Universidade Nova de Lisboa (IFILNOVA). Co-director do projecto da Biblioteca de Fernando Pessoa (on-line desde 2010), editou  Uma Stirpe incognita  (EDB Edizioni, 2016) e  co-editou  A Biblioteca particular de Fernando Pessoa  (D. Quixote, 2010) e  Nietzsche e Pessoa. Ensaios  (Tinta-da-china, 2016). Comissário de exposições internacionais sobre Fernando Pessoa, interessa-se pelo pensamento português contemporâneo e pela aproximação entre tradições filosóficas ocidentais e orientais."
+                                span.elipsis ...
+                            .read-more.down.gold.grid-100.mobile-grid-100 Ler mais
+                            .flags.grid-100.mobile-grid-100
+                                .flag: img(src="/images/flag-pt.png")
+                                .flag: img(src="/images/flag-fr.png")
+                            .contacts.grid-100.mobile-grid-100
+                                a.mail(href="mailto:teste@teste.abc") Enviar email
+                                a.phone(href="tel:+351930000000") +351 930 000 000
+
+    .waypoint.casa-fernando.grid-100.mobile-grid-100(data-index="6")
+        a(name="casa-fernando")
+
+        .title.type2.grid-100.mobile-grid-100.fadein
             | Conheça
             br
             | a Casa Fernando Pessoa
 
-        .logo.grid-100.mobile-grid-100: img(src="/images/logo-casa-fernando.png")
-        .read-more.right.grey.grid-100.mobile-grid-100 Ver site
+        .logo.grid-100.mobile-grid-100: img(src="/images/logo-casa-fernando.png").fadein
+        .read-more.right.grey.grid-100.mobile-grid-100.fadein Ver site
     
     .separator
 
-    .news.grid-100.mobile-grid-100
+    .waypoint.news.grid-100.mobile-grid-100(data-index="7")
+        a(name="noticias")
         .grid-container
-            .title.type3.grid-100.mobile-grid-100
+            .title.type3.grid-100.mobile-grid-100.fadein
                 span.ornament.black Notícias sobre o nosso apartamento
 
             .grid-100.mobile-grid-100
                 each val in [1, 2, 3]
-                    article.grid-33.mobile-grid-100
+                    article.grid-33.mobile-grid-100.fadein
                         .title Titulo da Matéria
                         .body “O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto...”
                         .grid-100.mobile-grid-100.side-by-side
@@ -148,11 +159,13 @@ block content
 
     .separator
 
-    .booking.grid-100.mobile-grid-100
+    .waypoint.booking.grid-100.mobile-grid-100(data-index="8")
+        a(name="reservar")
+
         .grid-container
-            .logo.grid-40.mobile-grid-100
+            .logo.grid-40.mobile-grid-100.fadein
                 img(src="/images/logo2.svg")
-            .grid-60.mobile-grid-100
+            .grid-60.mobile-grid-100.fadein
                 .title.type1.grid-100.mobile-grid-100
                     span.ornament.gold Faça a sua reserva
                 .body.type1.grid-100.mobile-grid-100
@@ -164,23 +177,4 @@ block content
                     a(href="#" target="_blank").uniplaces Uniplaces
                     a(href="#" target="_blank").luxury Luxury
 
-
-block scripts
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js")
-    //- script(src="http://turnjs.com/lib/turn.min.js")
-    script(src="/js/turn.js")
-    script.
-        $("#flipbook").turn({
-            width: 1000,
-            height: 382,
-            autoCenter: false
-        });
-
-        var app = angular.module('app', []);
-
-        app.controller('flipbook', function ($scope) {
-            var vm = $scope;
-            
-        });
         
