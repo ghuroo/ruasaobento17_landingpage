@@ -2,6 +2,11 @@ $white: #fff;
 $black: #000000;
 $gold: #dcb647;
 
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
+
 html {
     font-size: 62.5% !important;
     background: $white;
@@ -9,14 +14,15 @@ html {
 }
 
 body {
-    height: auto;
+    // height: auto;
     float: left;
     font-size: 1.0em;
     // font-family: $roboto;
     // font-weight: $light;
     overflow-x: hidden;
     min-width: 810px;
-    padding-top: 90px;
+    min-height: 600px;
+    // padding-top: 90px;
     box-sizing: border-box;
 
     @media (min-width: 0px) and (max-width: 1000px) {
@@ -57,6 +63,12 @@ body {
         width: 50px;
         height: 1px;
         display: inline-block;
+        top: -7px;
+        position: relative;
+    }
+
+    &.type2 {
+        margin: 90px 0px;
     }
 }
 

@@ -3,15 +3,8 @@ $white: #FFFFFF;
 $black: #000000;
 
 #home {
-    padding-bottom: 140px;
 
     @include breakpoint(mobile) {
-        .category .container label .text {
-            width: 238px;
-        }
-
-        .category.small label .text {
-            width: 310px;
-        }
+        .category .container label .text { width: 238px; }
     };
 }

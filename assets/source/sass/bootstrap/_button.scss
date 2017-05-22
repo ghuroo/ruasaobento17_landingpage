@@ -26,13 +26,15 @@ a, button {
 			border-top: 2px solid #343434;
 			border-bottom: 2px solid #343434;
 			color: #343434;
+			border-left: 0px;
+    		border-right: 0px;
 
 			&:before {
 				font-family: 'icomoon';
 				content: "\e90b";
 				visibility: visible;
 				position: absolute;
-				left: -6px;
+				left: -8px;
     			font-size: 43px;
 				top: 1px;
 			}
@@ -42,7 +44,7 @@ a, button {
 				content: "\e90c";
 				visibility: visible;
 				position: absolute;
-				right: -6px;
+				right: -8px;
     			font-size: 43px;
 				top: 1px;
 			}
@@ -73,13 +75,14 @@ a, button {
 			background: none;
 			color: $white;
 			border: 1px solid $white;
+			box-sizing: border-box;
 
 			&:hover {
 				// background: $white;
-				border: 1px solid $gold;
-				color: $gold;
+				background: rgba(255, 255, 255, 0.30);
+				// color: $gold;
 				position: relative;
-				transition: all 0.1s;
+				transition: all 0.5s;
 			}
 		}
 	}

@@ -1,7 +1,9 @@
 .tours {
 
-    &:nth-child(odd) { padding-right: 5px; }
-    &:nth-child(even) { padding-left: 5px; }
+    .item {
+        &:nth-child(odd) { padding-right: 7px; }
+        &:nth-child(even) { padding-left: 7px; }
+    }
 
     .wrapper {
         background: #343434;
