@@ -42,7 +42,7 @@ $height: 90px;
                 color: $blackish;
                 z-index: 1;
 
-                &:hover {
+                &:hover, &.active {
                     color: $gold;
                 }
             }

@@ -86,27 +86,30 @@ block content
             .content-script.grid-100.mobile-grid-100(ng-app="app" ng-controller="flipbook").fadein
                 img.background(src="/images/scripts-background.png")
 
-                #flipbook-wrapper.grid-100.mobile-grid-100(ng-show="flipbook1" ng-init="flipbook1 = false")
-                    #flipbook
-                        div: img(src="/images/manuscritos/diario-pessoal/01.jpg")
-                        div: img(src="/images/manuscritos/diario-pessoal/02.jpg")
-                        div: img(src="/images/manuscritos/diario-pessoal/03.jpg")
-                        div: img(src="/images/manuscritos/diario-pessoal/04.jpg")
-                    .close(ng-click="flipbook1 = false") &times;
+                #flipbook-wrapper.grid-100.mobile-grid-100
+                    #flipbook.book0(data-flipbook="0").hidden
+                        .content
+                            div: img(src="/images/manuscritos/diario-pessoal/cover-front.png")
+                            div: img(src="/images/manuscritos/diario-pessoal/1.jpg")
+                            div: img(src="/images/manuscritos/diario-pessoal/2.jpg")
+                            div: img(src="/images/manuscritos/diario-pessoal/3.jpg")
+                            div: img(src="/images/manuscritos/cover-back.png")
+                    .close &times;
 
                 .grid-60.mobile-grid-100.prefix-40
                     .title.type1.grid-100.mobile-grid-100: span.ornament.black Manuscritos originais de Fernando Pessoa                    
                     .body.type3.grid-100.mobile-grid-100 Alguns manuscritos originais de Fernando Pessoa do período em que ele viveu na Rua de São Bento, 17.
                     .buttons.grid-100.mobile-grid-100
-                        button.button.type2(ng-click="flipbook1 = true") Diário pessoal
-                        button.button.type2(ng-click="flipbook1 = true") Diário de Leitura
-                        button.button.type2(ng-click="flipbook1 = true") Alguns textos & anotações
+                        button.button.type2(data-flipbook="0") Diário pessoal
+                        button.button.type2(data-flipbook="1") Diário de Leitura
+                        button.button.type2(data-flipbook="2") Alguns textos & anotações
     
     .separator
 
-    .waypoint.grid-100.mobile-grid-100
-        .slogan.grid-100.mobile-grid-100(data-index="5")
-            a(name="roteiros")
+    .waypoint.grid-100.mobile-grid-100(data-index="5")
+        a(name="roteiros")
+
+        .slogan.grid-100.mobile-grid-100
 
             .grid-container.fadein
                 span.title.type1.grid-100.mobile-grid-100: span.ornament.gold Roteiros exclusivos
@@ -144,6 +147,7 @@ block content
 
     .waypoint.news.grid-100.mobile-grid-100(data-index="7")
         a(name="noticias")
+        
         .grid-container
             .title.type3.grid-100.mobile-grid-100.fadein
                 span.ornament.black Notícias sobre o nosso apartamento

@@ -1,3 +1,34 @@
+function scroll(element) {
+    // On-page links
+    if (
+        location.pathname.replace(/^\//, '') == element.pathname.replace(/^\//, '') &&
+        location.hostname == element.hostname
+    ) {
+        // Figure out element to scroll to
+        var target = $(element.hash);
+        target = target.length ? target : $('[name=' + element.hash.slice(1) + ']');
+        // Does a scroll target exist?
+        if (target.length) {
+            // Only prevent default if animation is actually gonna happen
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: target.offset().top - 120
+            }, 1000, function () {
+                // Callback after animation
+                // Must change focus!
+                var $target = $(target);
+                $target.focus();
+                if ($target.is(":focus")) { // Checking if the target was focused
+                    return false;
+                } else {
+                    $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                    $target.focus(); // Set focus again
+                }
+            });
+        }
+    }
+}
+
 var Arrayzer = {
     array: [],
     filter: function(element) {
@@ -47,73 +78,53 @@ gh.fade.out = function() {
 };
 
 $(document).ready(function () {
-    $("#flipbook").turn({
-        width: 1000,
-        height: 382,
-        autoCenter: false
-    });
-
-    // Select all links with hashes
     $('#header ul li>a').click(function (event) {
-        // On-page links
-        if (
-            location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
-            location.hostname == this.hostname
-        ) {
-            // Figure out element to scroll to
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-            // Does a scroll target exist?
-            if (target.length) {
-                // Only prevent default if animation is actually gonna happen
-                event.preventDefault();
-                $('html, body').animate({
-                    scrollTop: target.offset().top - 120
-                }, 1000, function () {
-                    // Callback after animation
-                    // Must change focus!
-                    var $target = $(target);
-                    $target.focus();
-                    if ($target.is(":focus")) { // Checking if the target was focused
-                        return false;
-                    } else {
-                        $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
-                        $target.focus(); // Set focus again
-                    }
-                });
-            }
-        }
+        scroll(this);
     });
 
     $(".waypoint").waypoint(function (direction) {
-        var index = $(this).data('index');
+        var index = $(this.element).data('index');
         var anchor = $(this.element).find('> a');
 
         if (direction == "down") {
-            console.log('Direction: ' + direction);
             console.log('Waypoint: ' + anchor.attr('name'));
             gh.fade.out();
             gh.fade.in($(this.element));
-            //- $(".marcas-navigation").find("li").removeClass("active");
-            //- $(".marcas-navigation").find("li[data-index='" + index + "']").addClass("active")
+            $('#header ul li>a').removeClass('active');
+            $('#header ul li>a[data-index="' + index + '"]').addClass('active');
         }
     }, {
-        offset: "60%"
+        offset: "50%"
     });
 
     $(".waypoint").waypoint(function (direction) {
+        var index = $(this.element).data('index');
+
         if (direction == "up") {
             gh.fade.out();
             gh.fade.in($(this.element));
+            $('#header ul li>a').removeClass('active');
+            $('#header ul li>a[data-index="' + index + '"]').addClass('active');
         }
     }, {
-        offset: "-30%"
+        offset: "-70%"
     });
 
-    //- var app = angular.module('app', []);
+    var dimensions = {
+        width: $('#flipbook-wrapper').width(),
+        height: ($('#flipbook-wrapper').width() * 417)/1120
+    };
 
-    //- app.controller('flipbook', function ($scope) {
-    //-     var vm = $scope;
+    $("#flipbook .flip").turn({
+        width: dimensions.width,
+        height: dimensions.height,
+        autoCenter: false
+    });
+});
 
-    //- });
+$('.content-script button').on('click', function() {
+    var index = $(this).data('flipbook');
+    var flipbook = $('.flipbook[data='+index+']');
+
+    flipbook.removeClass('hidden');
 });
