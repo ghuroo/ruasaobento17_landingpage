@@ -1,4 +1,8 @@
-#flipbook .content-wrapper {
+#flipbook-wrapper {
+    display: none;
+}
+
+#flipbook {
     position: fixed;
     z-index: 2;
     top: 0px;
