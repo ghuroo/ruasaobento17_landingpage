@@ -39,7 +39,8 @@ $black: #343434;
             visibility: visible;
             position: absolute;
             left: -60px;
-            line-height: 70px;
+            // line-height: 70px;
+            line-height: 3;
             font-size: 20px;
         }
 
@@ -49,7 +50,8 @@ $black: #343434;
             visibility: visible;
             position: absolute;
             right: -60px;
-            line-height: 70px;
+            // line-height: 70px;
+            line-height: 3;
             font-size: 20px;
         }
 

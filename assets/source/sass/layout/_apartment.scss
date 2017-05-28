@@ -60,6 +60,18 @@ $gold: #c4a674;
         .anchors {
             padding: 50px 0px;
 
+            ul {
+                &:before {
+                    font-family: 'icomoon';
+                    content: "\e90a";
+                    visibility: visible;
+                    position: absolute;
+                    left: -60px;
+                    font-size: 60px;
+                    color: #343434;
+                }
+            }
+
             li {
                 padding: 5px 0px;
             }
@@ -71,7 +83,7 @@ $gold: #c4a674;
                 font-style: normal;
                 font-size: 1.7em;
                 text-decoration: underline;
-                color: #fff;
+                color: #343434;
 
                 &:before {
                     content: "●";
@@ -85,7 +97,7 @@ $gold: #c4a674;
                 }
 
                 &:hover {
-                    color: #343434;
+                    color: #fff;
                 }
             }
         }
@@ -111,7 +123,8 @@ $gold: #c4a674;
         .title {
             padding: 55px 110px 25px 110px;
 
-            font-size: 5.7em;
+            font-size: 3.8em;
+            line-height: 1.6;
         }
 
         .body {
@@ -124,6 +137,7 @@ $gold: #c4a674;
             text-align: center;
 
             .button {
+                cursor: pointer;
                 display: inline-block;
                 margin: 10px 20px;
                 float: none;

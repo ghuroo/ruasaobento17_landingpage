@@ -3,7 +3,7 @@ $white: #FFFFFF;
 $gold: #c59b70;
 $blackish: #232323;
 
-$height: 90px;
+$height: 115px;
 
 #header {
     background: $white;
@@ -17,6 +17,49 @@ $height: 90px;
     font-family: $crimson;
     font-weight: $light;
     font-style: italic;
+
+    transition: height 0.2s;
+    transition-delay: 0.2s;
+
+    &.smaller {
+        $size: 70px;
+
+        height: $size;
+
+        .circle.top, .circle.bottom {
+            height: 120px;
+            width: 240px;
+            transition-delay: none;
+        }
+
+        .circle.bottom {
+            border-bottom-left-radius: 150px;
+            border-bottom-right-radius: 150px;
+        }
+
+        ul li {
+            line-height: $size;
+
+            .top {
+                display: none;
+            }
+            .bottom {
+                padding-top: 0px;
+            }
+
+            &.button {
+                height: $size;
+            }
+
+            &.logo {
+                font-size: 3em;
+
+                .circle:after {
+                    height: $size;
+                }
+            }
+        }
+    }
 
     ul {
         height: 100%;
@@ -85,6 +128,52 @@ $height: 90px;
                         top: -2px;
                         left: -2%;
                         z-index: 1;
+                    }
+                }
+            }
+
+            .top {
+                position: absolute;
+                top: -40px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .bottom {
+                padding-top: 40px;
+            }
+
+            .locale {
+                float: none;
+                font-style: normal;
+
+                a {
+                    line-height: 1;
+                    padding: 0px 8px;
+                    text-transform: uppercase;
+                    box-sizing: border-box;
+
+                    font-family: $lato;
+                    font-weight: $regular;
+                    font-style: normal;
+                    font-size: 1.4em;
+
+                    color: #343434;
+
+                    &:hover {
+                        position: relative;
+                        display: inline-block;
+                        transform: none;
+                        transition: none;
+                        font-weight: $bold;
+                    }
+
+                    &:nth-child(1) {
+                        border-right: 1px solid #343434;
+                    }
+
+                    &.active {
+                        font-weight: $bold;
                     }
                 }
             }

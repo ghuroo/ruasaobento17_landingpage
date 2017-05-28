@@ -4,6 +4,7 @@ exports = module.exports = function(req, res, next) {
     var view = new keystone.View(req, res);
     var locals = res.locals;
 
+    // keypoints
     var keypoints = [];
     
     keypoints.push({
@@ -17,7 +18,52 @@ exports = module.exports = function(req, res, next) {
         'body': 'A localização também é um ponto alto. O apartamento fica no centro histórico de Lisboa , na Rua de São Bento, nº 17.<br>Apenas 10 minutos a pé do Bairro Alto e Chiado , vizinho a supermercados, padarias, livrarias, museus, restaurantes e com transporte passando na porta de casa – o tradicional elétrico 28, o mesmo que o Fernando Pessoa costumava apanhar e que opera até hoje interligando toda a cidade antiga.'
     });
 
+    // flipbook
+    var flipbooks = [
+        {
+            title: 'Diário Pessoal',
+            slug: 'diario-pessoal',
+            covers: {
+                front: '/images/manuscritos/diario-pessoal/front.jpg',
+                back: '/images/manuscritos/back.jpg'
+            },
+            pages: [
+                '/images/manuscritos/diario-pessoal/1.jpg',
+                '/images/manuscritos/diario-pessoal/2.jpg',
+                '/images/manuscritos/diario-pessoal/3.jpg',
+            ]
+        },
+        {
+            title: 'Diários de Leitura',
+            slug: 'diarios-de-leitura',
+            covers: {
+                front: '/images/manuscritos/diarios-leitura/front.png',
+                back: '/images/manuscritos/back.jpg'
+            },
+            pages: [
+                '/images/manuscritos/diarios-leitura/1.jpg',
+                '/images/manuscritos/diarios-leitura/2.jpg',
+                '/images/manuscritos/diarios-leitura/3.jpg',
+            ]
+        },
+        {
+            title: 'Textos & Anotações',
+            slug: 'textos-and-anotacoes',
+            covers: {
+                front: '/images/manuscritos/textos-anotacoes/front.png',
+                back: '/images/manuscritos/back.jpg'
+            },
+            pages: [
+                '/images/manuscritos/textos-anotacoes/1.jpg',
+                '/images/manuscritos/textos-anotacoes/2.jpg',
+                '/images/manuscritos/textos-anotacoes/3.jpg',
+            ]
+        }
+    ];
+
+    // locals
     locals.keypoints = keypoints;
+    locals.flipbooks = flipbooks;
 
     view.render('home');
 };

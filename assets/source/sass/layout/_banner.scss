@@ -55,3 +55,76 @@ $gold: #c59b70;
         }
     }
 }
+
+.swiper-container {
+    float: none;
+    width: 100%;
+    height: 100%;
+
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.85);
+
+    display: none;
+
+    &.visible {
+        display: block;
+    }
+    
+    .close {
+        border: 1px solid #fff;
+        background: #fff;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 10;
+        right: 20px;
+        top: 20px;
+        padding: 20px;
+        font-size: 3em;
+        line-height: 0.5;
+        cursor: pointer;
+        float: none;
+        display: block;
+
+        &:hover {
+            color: #dcb647;
+            border-color: #dcb647;
+            background: rgba(255, 255, 255, 0.2);
+        }
+    }
+}
+
+.swiper-wrapper {
+    width: 100%;
+    height: 100%;
+    float: none;
+}
+
+.swiper-slide {
+    float: none;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 18px;
+    background: none;
+
+    img {
+        width: 90%;
+        max-height: 85%;
+    }
+}
+
+.swiper-pagination {
+    padding: 10px 0px;
+}
+
+.swiper-pagination-bullet {
+    width: 18px;
+    height: 18px;
+}
+
+.swiper-pagination-bullet-active {
+    // background: #dcb647;
+}

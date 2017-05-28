@@ -1,6 +1,6 @@
 .booking {
     margin-top: 30px;
-    margin-bottom: 60px;
+    // margin-bottom: 60px;
     
     .logo {
         max-width: 580px;
@@ -48,5 +48,11 @@
         .airbnb { background: #ff5a5f; border: 1px solid #ff5a5f; }
         .uniplaces { background: #00adf2; border: 1px solid #00adf2; }
         .luxury { background: #62a43e; border: 1px solid #62a43e; }
+    }
+
+    .bar {
+        background: #343434;
+        height: 50px;
+        margin-top: 160px;
     }
 }

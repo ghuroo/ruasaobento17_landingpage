@@ -59,6 +59,7 @@ a, button {
 		}
 
 		&.green {
+			border: 1px solid $green;
 			background: $green;
 			color: $white;
 

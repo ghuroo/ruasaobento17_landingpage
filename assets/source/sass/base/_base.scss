@@ -25,6 +25,10 @@ body {
     // padding-top: 90px;
     box-sizing: border-box;
 
+    &.hide-overflow {
+        overflow: hidden;
+    }
+
     @media (min-width: 0px) and (max-width: 1000px) {
         display: none;
     }
