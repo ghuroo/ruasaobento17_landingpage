@@ -18,7 +18,7 @@ function buildMenu(joint) {
 
     return query
     .then((result) => {
-        if (!result) return;
+        if (!result) throw new Error('Cannot build navigation menu: missing languages.');
 
         language = result;
 
@@ -29,7 +29,7 @@ function buildMenu(joint) {
 
         return query;
     }).then((result) => {
-        if (!result) return;
+        if (!result) throw new Error('Cannot build navigation menu: missing pages.');
 
         pages = result;
 
@@ -37,11 +37,11 @@ function buildMenu(joint) {
         // (so we can retrieve pages with pages['page-name'].URL)
         for (var i = 0; i < pages.length; i++) {
             var name = pages[i].parent;
-            if (pages[i].child) name += 'joint' + pages[i].child;
+            if (pages[i].child) name += joint + pages[i].child;
             newPages[name] = pages[i];
         }
 
-        return newPages;
+        return { menu: newPages, language: language };
     }).catch((error) => {
 
         throw new Error(error);
@@ -56,7 +56,9 @@ exports = module.exports = function(req, res, next) {
 
     return buildMenu('_')
     .then((result) => {
-        menu = result;
+        menu = result.menu;
+
+        req.language = result.language;
 
         if (req.navigation) req.navigation.menu = menu;
         else req.navigation = { menu: menu };

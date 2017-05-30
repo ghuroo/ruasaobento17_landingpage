@@ -55,7 +55,7 @@ keystone.init({
     'cloudinary folders': true,
 
     // helpers
-    'languages': languages, // languages array to be populated in Types.Select
+    'languages': languages,
 
 });
 
@@ -67,20 +67,14 @@ keystone.set('routes', require('./routes'));
 require('./routes/authentication/passport');
 
 keystone.set('nav', {
-    'utilizadores': 'users',
+    'utilizadores': 'User',
     'definições': [
         'Page',
         'Language'
     ]
-    // 'ínicio': [
-    //     'HomeSlide',
-    //     'HomeHighlight',
-    //     'HomeTestimonial',
-    //     'HomeBanner360'
-    // ],
 });
 
-keystone.set('signin logo', '../imgages/favicon/favicon-160.png');
+keystone.set('signin logo', '../images/favicon/favicon-160.png');
 
 keystone.set('admin path', 'admin');
 
