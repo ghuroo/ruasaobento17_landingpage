@@ -6,6 +6,7 @@ var keystone = require('keystone'),
     flashMessages = require('./middlewares/flashMessages.js'), // flash messages
     dev = require('./middlewares/dev.js'), // setup dev variables
     page = require('./middlewares/page.js'), // setup dev variables
+    menu = require('./middlewares/menu.js'); // setup menu object
     locals = require('./middlewares/locals.js'); // handle locals to front-end
 
 keystone.pre('routes', passport.initialize());
@@ -23,7 +24,8 @@ keystone.pre('render', locals);
 
 // load routes
 var routes = {
-    views: importRoutes('./views')
+    views: importRoutes('./views'),
+    api: importRoutes('./api')
 };
 
 function signout(req, res) {
@@ -42,7 +44,10 @@ exports = module.exports = function(app) {
     app.get('/user/signout', signout);
 
     // home
-    app.get('/', page, routes.views.home);
+    app.get('/', [page, menu], routes.views.home);
+
+    // api
+    app.get('/api/test', [menu], routes.api.test);
 
     // admin
     app.get('/keystone', (req, res) =>  { res.redirect(301, '/admin'); });

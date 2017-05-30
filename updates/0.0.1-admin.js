@@ -14,7 +14,7 @@ var items = [{
 
 function createItem(admin, done) {
     User.model.findOne({ email: admin.email }).exec(function (err, result) {
-        if (err || result) next();
+        if (err || result) done();
 
         new User.model(admin).save(function (err) {
 

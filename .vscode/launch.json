@@ -10,14 +10,16 @@
             "name": "Launch Program",
             "program": "${workspaceRoot}/index.js",
             "protocol": "inspector",
-            "args": []
-        },
-        {
-            "type": "node",
-            "request": "attach",
-            "name": "Attach to Process",
-            "address": "localhost",
-            "port": 3074
+            "args": [],
+            "runtimeArgs": ["--trace-warnings"]
         }
+        // {
+        //     "type": "node",
+        //     "request": "attach",
+        //     "name": "Attach to Process",
+        //     "address": "localhost",
+        //     "port": 3074,
+        //     "runtimeArgs": ["--trace-warnings"]
+        // }
     ]
 }

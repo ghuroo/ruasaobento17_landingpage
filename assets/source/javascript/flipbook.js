@@ -77,7 +77,7 @@ var turn = {
         $('.book-container').addClass('opened');
 
         setTimeout(function() {
-            $(me.el).turn('page', 2);
+            // $(me.el).turn('page', 2);
         }, 600);
     }
 };

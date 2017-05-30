@@ -6,7 +6,10 @@ var keystone = require('keystone'),
 var items = [
 	// pt
     { language: 'pt', url: '/', parent: 'home', name: 'Ínicio' },
-	{ language: 'pt', url: '/about', parent: 'about', name: 'Sobre Nós' },
+	{ language: 'pt', url: '/sobre-nos', parent: 'about', name: 'Sobre Nós' },
+    // en
+    { language: 'en', url: '/', parent: 'home', name: 'Home' },
+	{ language: 'en', url: '/about', parent: 'about', name: 'About Us' },
 ];
 
 function createItem(item, done) {

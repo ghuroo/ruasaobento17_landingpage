@@ -2,7 +2,9 @@ var keystone = require('keystone'),
     Types = keystone.Field.Types;
 
 var Language = new keystone.List('Language', {
-    hidden: true,
+    label: 'Línguas', singular: 'Língua', plural: 'Línguas',
+    
+    noedit: true,
 });
 
 Language.add({

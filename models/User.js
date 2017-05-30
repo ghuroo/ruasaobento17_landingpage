@@ -2,7 +2,7 @@ var keystone = require('keystone'),
     Types = keystone.Field.Types;
 
 var User = new keystone.List('User', {
-    label: 'Utilizadores', singular: "Utilizador", plural: "Utilizadores",
+    label: 'Utilizadores', singular: 'Utilizador', plural: 'Utilizadores',
     
     autokey: { path: 'slug', from: 'email', unique: true },
     track: true

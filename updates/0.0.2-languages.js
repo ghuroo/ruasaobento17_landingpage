@@ -9,7 +9,7 @@ _.each(languagesConfig, function(object){ languages.push({ iso: object.value, na
 
 function createItem(item, done) {
 	Language.model.findOne({ iso: item.iso }).exec(function(err, result) {
-		if (err || result) next();
+		if (err || result) done();
 
 		new Language.model(item).save(function(err) {
 

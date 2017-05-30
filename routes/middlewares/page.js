@@ -5,49 +5,10 @@ var Promise = require('bluebird'),
     Language = keystone.list('Language'),
     Page = keystone.list('Page');
 
-function changeLocale(locale) {
-    if (locale) {
-        locale = i18n.changeLocale(locale);
-    } else {
-        locale = i18n.getLocale();
-    }
-    
-    return locale;
-}
+function findPage(url) {
 
-function findPage(page, locale) {
-    return new Promise((resolve, reject) => {
-        
-        var newPage;
+    var page, locale = i18n.getLocale();
 
-        // if it has same url for multiple languages
-        // search for correct one based on current language
-        if (page.length > 1) {
-            
-            for (var i=0; i<page.length; i++) {
-                if (page[i].language.iso == locale) {
-                    newPage = page[0];
-                }
-            }
-
-        } else { // if not, return it
-            newPage = page[0];
-        }
-
-        if (!newPage) return reject(new Error('Page not found.'));
-
-        return resolve(newPage);
-    });
-}
-
-exports = module.exports = function(req, res, next) {
-    var locals = res.locals;
-
-    // change locale if requested, if not continue with previous
-    var locale = changeLocale(req.query.locale);
-    
-    // find page with url
-    var url = req.route.path || req.path || req.originalUrl;
     var query = Page.model.find()
     .where('url', url)
     .populate('language')
@@ -56,19 +17,98 @@ exports = module.exports = function(req, res, next) {
 
     return query
     .then((result) => {
-        if (!result) return next(new Error(error));
+        if (!result) throw new Error(error);
 
-        return findPage(result, locale);
+        page = result;
+
+        var newPage;
+
+        // if it has same url for multiple languages
+        // search for correct one based on current language
+        if (page.length > 1) {
+            
+            for (var i=0; i<page.length; i++) {
+                if (page[i].language.iso == locale) {
+                    newPage = page[i];
+                }
+            }
+
+        } else { // if not, return it
+            newPage = page[0];
+        }
+
+        if (!newPage) throw new Error('Page not found.');
+
+        return { page: newPage, language: newPage.language };
+    }).catch((error) => {
+
+        throw new Error(error);
+    });
+}
+
+function buildLocaleVariationsMenu(currentPage) {
+
+    var query = Page.model.find()
+    .where('parent', currentPage.parent);
+
+    if (currentPage.child) query.where('child', currentPage.child);
+    
+    query.populate('language')
+    .lean()
+    .exec();
+
+    var variations;
+
+    return query
+    .then((result) => {
+        if (!result) throw new Error('Cannot build variations menu: missing pages.');
+
+        variations = result;
+
+        // if current page locale versions share same URL:
+        // add ?locale query parameter to each item, except for current page
+        if (variations.length > 1) {
+            for (var i = 0; i < variations.length; i++) {
+                if (variations[i].slug !== currentPage.slug) {
+                    if (variations[i].url == currentPage.url) {
+                        variations[i].url += '?locale='+ variations[i].language.iso;
+                    }
+                }
+            }
+        }
+
+        return variations;
+    }).catch((error) => {
+
+        throw new Error(error);
+    });
+}
+
+exports = module.exports = function(req, res, next) {
+    var locals = res.locals;
+
+    // change locale if requested, if not, continue with previous
+    var locale = req.query.locale ? i18n.setLocale(req.query.locale) : i18n.getLocale();
+    
+    var page, language, variations;
+    
+    // find page with url
+    return findPage(req.route.path || req.path || req.originalUrl)
+    .then((result) => {
+        page = result.page;
+        language = result.language;
+
+        return buildLocaleVariationsMenu(page);
     }).then((result) => {
+        variations = result;
 
-        req.session.language = result.language;
-        req.session.page = result;
+        req.page = page;
+        req.language = language;
+        req.navigation = { variations: variations };
 
         return next();
     }).catch((error) => {
-        req.flash(error.message);
         
         return next(new Error(error));
-    }); 
-
+    });
 };

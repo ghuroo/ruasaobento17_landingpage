@@ -6,8 +6,10 @@ exports = module.exports = function(req, res, next) {
 
     locals.utils = keystone.utils;
     locals.user = req.user;
-    locals.page = req.session.page;
-    locals.language = req.session.language;
+
+    locals.page = req.page;
+    locals.language = req.language;
+    locals.navigation = req.navigation;
 
     next();
 

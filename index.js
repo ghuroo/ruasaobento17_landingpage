@@ -68,6 +68,10 @@ require('./routes/authentication/passport');
 
 keystone.set('nav', {
     'utilizadores': 'users',
+    'definições': [
+        'Page',
+        'Language'
+    ]
     // 'ínicio': [
     //     'HomeSlide',
     //     'HomeHighlight',
@@ -76,7 +80,7 @@ keystone.set('nav', {
     // ],
 });
 
-keystone.set('signin logo', '../img/favicon/favicon-160.png');
+keystone.set('signin logo', '../imgages/favicon/favicon-160.png');
 
 keystone.set('admin path', 'admin');
 

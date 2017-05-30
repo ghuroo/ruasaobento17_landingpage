@@ -2,8 +2,11 @@ var keystone = require('keystone'),
     Types = keystone.Field.Types;
 
 var Page = new keystone.List('Page', {
+    label: 'Páginas', singular: 'Página', plural: 'Páginas',
+
     autokey: { path: 'slug', from: 'parent child language.iso', unique: true, index: true },
     
+    nocreate: true,
     nodelete: true,
 });
 
@@ -46,6 +49,6 @@ Page.schema.pre('save', function(next) {
 });
 
 // ui columns
-Page.defaultColumns = 'name, parent, child, language';
+Page.defaultColumns = 'name, language';
 
 Page.register();
