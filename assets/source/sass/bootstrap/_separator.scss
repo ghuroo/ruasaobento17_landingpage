@@ -26,5 +26,9 @@
 
     &.type2 {
         margin: 90px 0px;
+
+        @include breakpoint(mobile) {
+            margin: 40px 0px;
+        }
     }
 }

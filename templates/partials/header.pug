@@ -1,53 +1,57 @@
-p= page.name
-p= page.slug
-p= page.url
-p= page.parent
-p= page.child
-br
-br
-p= language.name
-p= language.iso
-br
-br
-if navigation
-    if navigation.variations
-        each item in navigation.variations
-            //- p= item.name
-            //- p= item.slug
-            //- p= item.url
-            //- p= item.parent
-            //- p= item.child
-            a(href=item.url target="_parent")= item.language.iso
-            br
-    br
-    if navigation.menu
-        each item in navigation.menu
-            //- p= item.name
-            //- p= item.slug
-            //- p= item.url
-            //- p= item.parent
-            //- p= item.child
-            a(href=item.url target="_parent")= item.name
-            br
+//- p= page.name
+//- p= page.slug
+//- p= page.url
+//- p= page.parent
+//- p= page.child
+//- br
+//- br
+//- p= language.name
+//- p= language.iso
+//- br
+//- br
+//- if navigation
+//-     if navigation.variations
+//-         each item in navigation.variations
+//-             //- p= item.name
+//-             //- p= item.slug
+//-             //- p= item.url
+//-             //- p= item.parent
+//-             //- p= item.child
+//-             a(href=item.url target="_parent")= item.language.iso
+//-             br
+//-     br
+//-     if navigation.menu
+//-         each item in navigation.menu
+//-             //- p= item.name
+//-             //- p= item.slug
+//-             //- p= item.url
+//-             //- p= item.parent
+//-             //- p= item.child
+//-             a(href=item.url target="_parent")= item.name
+//-             br
 
-//- #header.grid-100.mobile-grid-100
-//-     .grid-container
-//-         ul
-//-             li: a(href="#o-apartamento" data-index="1") O apartamento
-//-             li: a(href="#localizacao" data-index="3") Localização
-//-             //- li.logo: a(href="#"): img(src="/images/_placeholders/logo.png")
-//-             li.logo
-//-                 .circle.bottom
-//-                 a(href="#home" data-index="0"): i.icon-logo
-//-             li: a(href="#fernando-pessoa" data-index="4") Fernando Pessoa
-//-             li: a(href="#roteiros" data-index="5") Roteiros
-//-             li.button
-//-                 .va-parent
-//-                     .va-child
-//-                         .content
-//-                             .top
-//-                                 .locale
-//-                                     a(href="#").active pt
-//-                                     a(href="#") en
-//-                             .bottom
-//-                                 a(href="#").button.type1.green Reservar
+#header.grid-100.mobile-grid-100
+    .grid-container
+        ul
+            li: a(href="#o-apartamento" data-index="1") O apartamento
+            li: a(href="#localizacao" data-index="3") Localização
+            //- li.logo: a(href="#"): img(src="/images/_placeholders/logo.png")
+            li.logo
+                .circle.bottom
+                a(href="#home" data-index="0"): i.icon-logo
+            li: a(href="#fernando-pessoa" data-index="4") Fernando Pessoa
+            li: a(href="#roteiros" data-index="5") Roteiros
+            li.button
+                .va-parent
+                    .va-child
+                        .content
+                            .top
+                                .locale
+                                    //- a(href="#").active pt
+                                    //- a(href="#") en
+                                    if navigation && navigation.variations
+                                        each item in navigation.variations
+                                            a(href=item.url class=item.language.iso == language.iso ? 'active' : '')= item.language.iso
+
+                            .bottom
+                                a(href="#").button.type1.green Reservar

@@ -37,4 +37,21 @@ $brown: #c4a674;
             display: table;
         }
     }
+
+    @include breakpoint(mobile) {
+        height: auto;
+
+        .information {
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        .body {
+            @include breakpoint(mobile) {
+                padding-top: 30px;
+            }
+        }
+    }
 }

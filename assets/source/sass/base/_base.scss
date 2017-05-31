@@ -29,9 +29,10 @@ body {
         overflow: hidden;
     }
 
-    @media (min-width: 0px) and (max-width: 1000px) {
-        display: none;
-    }
+    @include breakpoint(mobile) {
+        min-width: auto;
+        min-height: auto;
+    };
 }
 
 .grid-container {

@@ -18,8 +18,8 @@ $height: 115px;
     font-weight: $light;
     font-style: italic;
 
-    transition: height 0.2s;
-    transition-delay: 0.2s;
+    // transition: height 0.2s;
+    // transition-delay: 0.2s;
 
     &.smaller {
         $size: 70px;
@@ -29,7 +29,7 @@ $height: 115px;
         .circle.top, .circle.bottom {
             height: 120px;
             width: 240px;
-            transition-delay: none;
+            // transition-delay: none;
         }
 
         .circle.bottom {
@@ -44,7 +44,7 @@ $height: 115px;
                 display: none;
             }
             .bottom {
-                padding-top: 0px;
+                margin-top: 0px;
             }
 
             &.button {
@@ -52,7 +52,7 @@ $height: 115px;
             }
 
             &.logo {
-                font-size: 3em;
+                font-size: 3.4em;
 
                 .circle:after {
                     height: $size;
@@ -137,10 +137,11 @@ $height: 115px;
                 top: -40px;
                 width: 100%;
                 text-align: center;
+                height: 80px;
             }
 
             .bottom {
-                padding-top: 40px;
+                margin-top: 40px;
             }
 
             .locale {
@@ -179,4 +180,9 @@ $height: 115px;
             }
         }
     }
+
+    @include breakpoint(mobile) {
+        display: none;
+    };
+
 }

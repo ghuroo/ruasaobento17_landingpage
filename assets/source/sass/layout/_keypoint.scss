@@ -2,6 +2,10 @@ $gold: #c59b70;
 
 .keypoints {
     padding-top: 80px;
+
+    @include breakpoint(mobile) {
+        padding-top: 0px;
+    }
 }
 
 .keypoint {
@@ -9,5 +13,9 @@ $gold: #c59b70;
 
     .title, .body {
         text-align: center;
+    }
+
+    @include breakpoint(mobile) {
+        padding: 50px 20px 0px 20px;
     }
 }

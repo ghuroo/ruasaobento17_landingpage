@@ -5,6 +5,6 @@ $black: #000000;
 #home {
 
     @include breakpoint(mobile) {
-        .category .container label .text { width: 238px; }
+        // .category .container label .text { width: 238px; }
     };
 }

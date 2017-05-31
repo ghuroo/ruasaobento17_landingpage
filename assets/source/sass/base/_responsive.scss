@@ -2,18 +2,18 @@
 
     // mobile
     @if $class == mobile {
-        @media (max-width: 767px) { @content; }
+        @media (min-width: 0) and (max-width: 767px) { @content; }
     }
 
     // tablet
     @else if $class == tablet {
-        @media (min-width: 768px) { @content; }
+        @media (min-width: 768px) and (max-width: 1199px) { @content; }
     }
 
-    // desktop
-    @else if $class == desktop {
-        @media (min-width: 992px) { @content; }
-    }
+    // // desktop
+    // @else if $class == desktop {
+    //     @media (min-width: 992px) and (max-width: 1199px) { @content; }
+    // }
 
     // desktop+
     @else if $class == desktop_plus {

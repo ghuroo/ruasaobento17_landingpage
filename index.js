@@ -57,6 +57,9 @@ keystone.init({
     // helpers
     'languages': languages,
 
+    // custom styles
+    'adminui custom styles': 'assets/source/sass/base/_adminui.less',
+
 });
 
 require('./models');
@@ -74,7 +77,7 @@ keystone.set('nav', {
     ]
 });
 
-keystone.set('signin logo', '../images/favicon/favicon-160.png');
+keystone.set('signin logo', '../favicon/favicon-160.png');
 
 keystone.set('admin path', 'admin');
 
