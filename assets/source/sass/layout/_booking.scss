@@ -54,5 +54,33 @@
         background: #343434;
         height: 50px;
         margin-top: 160px;
+        // margin-bottom: 60px;
+    }
+
+    @include breakpoint(mobile) {
+        margin-top: 0px;
+
+        .logo {
+            padding-bottom: 30px;
+        }
+
+        .buttons {
+            float: none;
+            display: table;
+            padding: 0px;
+            margin: 0 auto;
+            margin-top: 10px;
+
+            .airbnb,
+            .uniplaces,
+            .luxury {
+                margin: 0px 0px;
+                margin-top: 20px;
+            }
+        }
+
+        .bar {
+            margin-top: 60px;
+        }
     }
 }

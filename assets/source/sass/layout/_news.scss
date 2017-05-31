@@ -69,4 +69,20 @@
     .read-more {
         white-space: nowrap;
     }
+
+    @include breakpoint(mobile) {
+        margin: 0px 0px;
+        padding: 45px 0px;
+
+        article {
+            padding-top: 40px;
+            padding-left: 0px;
+            padding-right: 0px;
+
+            .title,
+            .body {
+                font-size: 1.3em;
+            }
+        } 
+    }
 }

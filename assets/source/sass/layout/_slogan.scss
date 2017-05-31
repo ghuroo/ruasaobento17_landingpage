@@ -19,4 +19,21 @@
         padding-right: 90px;
     }
 
+    @include breakpoint(mobile) {
+        .title {
+            padding-left: 0px;
+            padding-right: 0px;
+            
+            &.type1 {
+                padding-top: 0px;
+            }
+        }
+
+        .body {
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-top: 20px;
+        }
+    }
+
 }

@@ -5,6 +5,10 @@
     
     .grid-container
         .wrapper.grid-100.mobile-grid-100
+
+            .picture.mobile-grid-100.hide-on-desktop
+                img(src="/images/_placeholders/picture-1.jpg")
+
             .copy.grid-60.mobile-grid-100
                 .title.type3.grid-100.mobile-grid-100
                     span.ornament.black
@@ -27,11 +31,11 @@
                         li.grid-100.mobile-grid-100
                             a(href="#" target="_blank") Fernando Pessoa - infância
 
-            .picture.grid-40.mobile-grid-100
+            .picture.grid-40.hide-on-mobile
                 img(src="/images/_placeholders/picture-1.jpg")
 
         .content-script.grid-100.mobile-grid-100
-            img.background(src="/images/scripts-background.png")
+            img.background(src="/images/scripts-background.png").hide-on-mobile
 
             include ./flipbook
 

@@ -56,6 +56,10 @@ a, button {
 				transform: scale(1.05);
 				transition: all 0.2s;
 			}
+
+            @include breakpoint(mobile) {
+                font-size: 1.4em;
+            }
 		}
 
 		&.green {
