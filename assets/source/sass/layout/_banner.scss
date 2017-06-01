@@ -91,7 +91,7 @@ $gold: #c59b70;
 }
 
 // swiper
-.swiper-container {
+.banner .swiper-container {
     float: none;
     width: 100%;
     height: 100%;
@@ -101,7 +101,9 @@ $gold: #c59b70;
     left: 0px;
     z-index: 10;
     background: rgba(0, 0, 0, 0.85);
+}
 
+.swiper-container {
     display: none;
 
     &.visible {
@@ -131,13 +133,13 @@ $gold: #c59b70;
     }
 }
 
-.swiper-wrapper {
+.banner .swiper-wrapper {
     width: 100%;
     height: 100%;
     float: none;
 }
 
-.swiper-slide {
+.banner .swiper-slide {
     float: none;
     width: 100%;
     height: 100%;

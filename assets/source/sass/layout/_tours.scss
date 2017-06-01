@@ -107,6 +107,9 @@
     @include breakpoint(mobile) {
         .wrapper {
             padding: 40px 20px 40px 20px;
+            display: table;
+            float: none;
+            margin: 0 auto;
         }
         
         .item {
@@ -132,5 +135,68 @@
         .contacts {
             padding-top: 20px;
         }
+
+        .button-container {
+            padding-top: 20px;
+
+            .button {
+                display: table;
+                float: none;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    // swiper
+    .swiper-container {
+        position: relative;
+        height: auto;
+        top: initial;
+        left: initial;
+        z-index: initial;
+        background: none;
+        // overflow: auto;
+        width: auto;
+        float: none;
+
+        .close {
+            display: none;
+        }
+
+        .swiper-wrapper {
+            position: relative;
+            
+            .swiper-slide {
+                &:nth-child(1) {
+                    // left: -10px;
+                    width: 75%;
+                }
+
+                &:nth-child(2) {
+                    // left: -30px;
+                    width: 80%;
+                }
+            }
+        }
+
+        .wrapper {
+            padding: 20px 20px;
+            margin: 0px;
+        }
+    }
+
+    .swiper-slide {
+        width: auto;
+        opacity: 0.7;
+    }
+
+    .swiper-slide-active {
+        opacity: 1;
+    }
+
+    .swiper-pagination {
+        position: relative;
+        float: left;
+        margin-top: 20px;
     }
 }
