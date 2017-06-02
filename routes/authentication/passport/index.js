@@ -14,5 +14,5 @@ passport.deserializeUser(function (userID, callback) {
     });
 });
 
-require('./facebook.js');
-require('./local.js');
+// require('./facebook.js');
+// require('./local.js');
