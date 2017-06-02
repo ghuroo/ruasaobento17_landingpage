@@ -7,6 +7,8 @@ function addBannerSlider() {
     bannerSwiper = new Swiper('.banner .swiper-container', {
         pagination: '.banner .swiper-pagination',
         paginationClickable: true,
+        nextButton: '.banner .swiper-button-next',
+        prevButton: '.banner .swiper-button-prev',
         onDestroy: function() {
             $('body').removeClass('hide-overflow');
             $('.banner .swiper-container').removeClass('visible');
@@ -36,6 +38,8 @@ function addTourSwiper() {
         slidesPerView: 'auto',
         spaceBetween: 5,
         centeredSlides: true,
+        nextButton: '.tours .swiper-button-next',
+        prevButton: '.tours .swiper-button-prev',
         onDestroy: function() {
             $('.tours .swiper-container').removeClass('visible');
         },
