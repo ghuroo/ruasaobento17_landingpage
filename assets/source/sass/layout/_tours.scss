@@ -31,6 +31,11 @@
         max-height: 75px;
         overflow: hidden;
 
+        &.opened {
+            max-height: none;
+            overflow: visible;
+        }
+
         .elipsis {
             position: absolute;
             bottom: 2px;
@@ -198,5 +203,13 @@
         position: relative;
         float: left;
         margin-top: 20px;
+    }
+
+    @include breakpoint(tablet) {
+
+        .item:nth-child(even),
+        .item:nth-child(odd) {
+            padding: 0px 10px;
+        }
     }
 }

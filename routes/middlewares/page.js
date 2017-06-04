@@ -6,7 +6,6 @@ var Promise = require('bluebird'),
     Page = keystone.list('Page');
 
 function findPage(url) {
-
     var page, locale = i18n.getLocale();
 
     var query = Page.model.find()
@@ -17,7 +16,7 @@ function findPage(url) {
 
     return query
     .then((result) => {
-        if (!result) throw new Error(error);
+        if (!result) throw error;
 
         page = result;
 
@@ -42,12 +41,11 @@ function findPage(url) {
         return { page: newPage, language: newPage.language };
     }).catch((error) => {
 
-        throw new Error(error);
+        throw error;
     });
 }
 
 function buildLocaleVariationsMenu(currentPage) {
-
     var query = Page.model.find()
     .where('parent', currentPage.parent);
 
@@ -80,7 +78,7 @@ function buildLocaleVariationsMenu(currentPage) {
         return variations;
     }).catch((error) => {
 
-        throw new Error(error);
+        throw error;
     });
 }
 
@@ -109,6 +107,6 @@ exports = module.exports = function(req, res, next) {
         return next();
     }).catch((error) => {
         
-        return next(new Error(error));
+        return next(error);
     });
 };

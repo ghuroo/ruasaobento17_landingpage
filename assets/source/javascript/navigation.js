@@ -121,3 +121,25 @@ $(document).ready(function () {
         height: ($('#flipbook-wrapper').width() * 417)/1120
     };
 });
+
+// mobile menu
+mobileMenu = {
+    element: $('#header'),
+    button:  $('#header .burger-menu'),
+
+    switch: function() {
+        return this.element.hasClass('opened') ? this.close() : this.open();
+    },
+
+    open: function() {
+        this.button.addClass('active');
+        return this.element.addClass('opened');
+    },
+    
+    close: function() {
+        this.button.removeClass('active');
+        return this.element.removeClass('opened');
+    }
+};
+
+$('#header li:not(.logo)').on('click', function() { mobileMenu.switch(); });

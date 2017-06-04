@@ -128,35 +128,34 @@ a, button {
 		}
 	}
 
+    &:after {
+        font-family: 'icomoon';
+        visibility: visible;
+        position: relative;
+        left: 10px;
+        top: 0px;
+        line-height: 1;
+        font-size: 0.9em;
+        width: auto;
+        height: auto;
+        display: inline-block;
+    }
+
 	&.down {
 		&:after {
-			font-family: 'icomoon';
 			content: "\e900";
-			visibility: visible;
-			position: relative;
-			left: 10px;
-			top: 0px;
-			line-height: 1;
-			font-size: 0.9em;
-			width: auto;
-			height: auto;
-			display: inline-block;
+		}
+	}
+
+    &.up {
+		&:after {
+			content: "\e905";
 		}
 	}
 
 	&.right {
 		&:after {
-			font-family: 'icomoon';
 			content: "\e906";
-			visibility: visible;
-			position: relative;
-			left: 10px;
-			top: 0px;
-			line-height: 1;
-			font-size: 0.9em;
-			width: auto;
-			height: auto;
-			display: inline-block;
 		}
 	}
 }

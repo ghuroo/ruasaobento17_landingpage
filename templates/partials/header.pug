@@ -32,26 +32,39 @@
 
 #header.grid-100.mobile-grid-100
     .grid-container
-        ul
-            li: a(href="#o-apartamento" data-index="1") O apartamento
-            li: a(href="#localizacao" data-index="3") Localização
-            //- li.logo: a(href="#"): img(src="/images/_placeholders/logo.png")
+        ul.mobile-grid-100
+            li.hide-on-desktop.burger-menu: span
+            li.hide-on-mobile: a(href="#o-apartamento" data-index="1") O apartamento
+            li.hide-on-mobile: a(href="#localizacao" data-index="3") Localização
             li.logo
                 .circle.bottom
                 a(href="#home" data-index="0"): i.icon-logo
-            li: a(href="#fernando-pessoa" data-index="4") Fernando Pessoa
-            li: a(href="#roteiros" data-index="5") Roteiros
+            li.hide-on-mobile: a(href="#fernando-pessoa" data-index="4") Fernando Pessoa
+            li.hide-on-mobile: a(href="#roteiros" data-index="5") Roteiros
             li.button
                 .va-parent
                     .va-child
                         .content
                             .top
                                 .locale
-                                    //- a(href="#").active pt
-                                    //- a(href="#") en
                                     if navigation && navigation.variations
                                         each item in navigation.variations
                                             a(href=item.url class=item.language.iso == language.iso ? 'active' : '')= item.language.iso
 
                             .bottom
                                 a(href="#").button.type1.green Reservar
+
+    .grid-100.mobile-grid-100.mobile
+        ul.grid-100.mobile-grid-100
+            li: a(href="#o-apartamento" data-index="1") O apartamento
+            li: a(href="#localizacao" data-index="3") Localização
+            li: a(href="#fernando-pessoa" data-index="4") Fernando Pessoa
+            li: a(href="#roteiros" data-index="5") Roteiros
+            li
+                .locale
+                    if navigation && navigation.variations
+                        each item in navigation.variations
+                            a(href=item.url class=item.language.iso == language.iso ? 'active' : '')= item.language.iso
+            li.no-border
+                .read-more.up Fechar
+            

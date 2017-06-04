@@ -34,7 +34,7 @@ function addTourSwiper() {
     tourSwiper = new Swiper('.tours .swiper-container', {
         pagination: '.tours .swiper-pagination',
         paginationClickable: true,
-        // autoHeight: true,
+        autoHeight: true,
         slidesPerView: 'auto',
         spaceBetween: 5,
         centeredSlides: true,
@@ -48,8 +48,8 @@ function addTourSwiper() {
     tourSwiper.removeAllSlides();
 
     tourSwiper.appendSlide([
-        '<div class="swiper-slide">'+$('.tours .item').eq(0).html()+'</div>',
-        '<div class="swiper-slide">'+$('.tours .item').eq(0).html()+'</div>'
+        '<div class="swiper-slide box"><div class="item">'+$('.tours .item').eq(0).html()+'</div></div>',
+        '<div class="swiper-slide box"><div class="item">'+$('.tours .item').eq(1).html()+'</div></div>'
     ]);
 }
 

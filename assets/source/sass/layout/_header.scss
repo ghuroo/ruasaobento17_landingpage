@@ -73,7 +73,7 @@ $height: 115px;
 
             &.button {
                 position: absolute;
-                right: 0px;
+                // right: 0px;
                 height: $height;
                 left: 100%;
             }
@@ -92,7 +92,7 @@ $height: 115px;
 
             a:hover {
                 position: relative;
-                display: block;
+                // display: block;
                 transform: scale(1.02);
                 transition: all 0.2s;
             }
@@ -104,6 +104,10 @@ $height: 115px;
                 // border-radius: 50%;
                 background: none;
                 z-index: 0;
+
+                a.active {
+                    color: #343434;
+                }
 
                 .circle {
                     position: absolute;
@@ -181,8 +185,208 @@ $height: 115px;
         }
     }
 
-    @include breakpoint(mobile) {
+    .mobile {
         display: none;
-    };
+        background: #c4a674;
+        z-index: -1;
+        padding: 45px 40px 0px 40px;
+        height: auto;
+        float: left;
+        
+        ul {
+            height: auto;
+        }
+
+        li {
+            text-align: center;
+            width: 100%;
+            padding: 0px;
+            float: left;
+            line-height: 50px !important;
+
+            border-top: 1px solid #fff;
+
+            &.no-border {
+                border: none;
+            }
+
+            .locale {
+                .active {
+                    color: #fff;
+                }
+            }
+
+            &>span:hover,
+            &>span.active,
+            &>a:hover,
+            &>a.active {
+                color: #fff;
+            }
+        }
+
+        .read-more {
+            margin: 0 auto;
+            float: none;
+            display: block;
+            text-align: center;
+            padding: 0px 0px 10px 0px;
+            left: 0px;
+            font-style: normal;
+            color: #343434;
+        }
+    }
+
+    .burger-menu {
+        $width: 25px;
+
+        width: $width;
+        top: 0px;
+        left: 0px;
+        position: absolute;
+        padding: 0px;
+        padding-top: 3px;
+        padding-left: 5px;
+
+        span {
+            position: relative;
+            display: block;
+            width: $width;
+            height: 4px;
+            top: $width;
+            left: 50%;
+            margin-left: -10px;
+            background: #343434;
+            -webkit-transition: all .2s ease-in-out;
+            -moz-transition: all .2s ease-in-out;
+            -o-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+            
+            &:before,
+            &:after {
+                position: absolute;
+                background: #343434;
+                content: '';
+                width: $width;
+                height: 4px;
+                -webkit-transition: all .2s ease-in-out;
+                -moz-transition: all .2s ease-in-out;
+                -o-transition: all .2s ease-in-out;
+                transition: all .2s ease-in-out;
+            }
+
+            &:before { top: -8px; }
+            &:after { top: 8px; }
+        }
+
+        &.active span {
+            background: transparent;
+        }
+
+        &.active span:before {
+            -webkit-transform: rotate(45deg) translate(5px, 6px);
+            -moz-transform: rotate(45deg) translate(5px, 6px);
+            -ms-transform: rotate(45deg) translate(5px, 6px);
+            -o-transform: rotate(45deg) translate(5px, 6px);
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+
+        &.active span:after {
+            -webkit-transform: rotate(-45deg) translate(5px, -6px);
+            -moz-transform: rotate(-45deg) translate(5px, -6px);
+            -ms-transform: rotate(-45deg) translate(5px, -6px);
+            -o-transform: rotate(-45deg) translate(5px, -6px);
+            transform: rotate(-45deg) translate(5px, -6px);
+        }
+    }
+
+    @include breakpoint(mobile) {
+        $size: 60px;
+
+        height: $size;
+
+        &.smaller {
+            height: $size;
+        }
+
+        .grid-container {
+            padding: 0px 10px;
+        }
+        
+        .hide-on-mobile {
+            display: none;
+        }
+
+        .circle.top,
+        .circle.bottom,
+        &.smaller .circle.top,
+        &.smaller .circle.bottom {
+            width: 120px;
+            height: 85px;
+        }
+
+        .circle.bottom,
+        &.smaller .circle.bottom {
+            border-bottom-left-radius: 100px;
+            border-bottom-right-radius: 100px;
+        }
+
+        a.button,
+        &.smaller a.button {
+            line-height: 2.2em;
+            font-size: 1.2em;
+            font-weight: 300;
+            padding: 0px 10px;
+        }
+
+        ul {
+            width: 100%;
+            display: block;
+            height: $size;
+        }
+
+        ul li,
+        &.smaller ul li {
+            line-height: $size;
+
+            .top {
+                display: none;
+            }
+
+            .bottom {
+                margin-top: 0px;
+            }
+
+            &.button {
+                height: $size;
+                left: initial;
+                right: 0px;
+                top: 0px;
+                padding: 0px;
+            }
+
+            &.logo {
+                font-size: 2.4em;
+                float: none;
+                display: table;
+                margin: 0 auto;
+
+                .circle {
+                    left: 10px;
+                    
+                    &:after {
+                        height: $size;
+                    }
+                }
+            }
+        }
+    }
+
+    @include breakpoint(mobile) {
+        &.opened { height: auto; .mobile { display: block; } }
+    }
+
+    @include breakpoint(tablet) {
+        &.opened { height: auto; .mobile { display: block; } }
+    }
 
 }

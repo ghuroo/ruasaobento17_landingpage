@@ -2,7 +2,7 @@
 
     // mobile
     @if $class == mobile {
-        @media (min-width: 0) and (max-width: 767px) { @content; }
+        @media (min-width: 0) and (max-width: 1199px) { @content; }
     }
 
     // tablet

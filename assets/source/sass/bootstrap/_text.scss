@@ -14,7 +14,7 @@ $black: #343434;
         color: #343434;
 
         @include breakpoint(mobile) {
-            font-size: 3.6em;
+            font-size: 3.0em;
         }
     }
 
@@ -40,7 +40,7 @@ $black: #343434;
         color: #ffffff;
 
         @include breakpoint(mobile) {
-            font-size: 3.6em;
+            font-size: 3.0em;
         }
     }
 
@@ -121,4 +121,43 @@ $black: #343434;
 
         color: #343434;
     }
+}
+
+.text-ornament {
+    width: 100%;
+    padding-right: 20px;
+
+    .object {
+        display: table;
+        width: 100%;
+
+        &:before {
+            color: #a18a64;
+            content: "";
+            visibility: visible;
+            font-family: 'icomoon';
+            content: "\e904";
+            visibility: visible;
+            position: relative;
+            top: 2px;
+            padding-right: 1px;
+        }
+
+        &:after {
+            content: "";
+            visibility: visible;
+            position: relative;
+            display: table-cell;
+            float: none;
+            overflow-y: hidden;
+            border-bottom: 1px solid #a18a64;
+            top: -4px;
+            width: 100%;
+        }
+    }
+}
+
+.read-more {
+    white-space: nowrap;
+    cursor: pointer;
 }

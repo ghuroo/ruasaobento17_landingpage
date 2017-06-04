@@ -23,6 +23,7 @@ var js_path = {
         './assets/source/javascript/main.js',
         './assets/source/javascript/navigation.js',
         './assets/source/javascript/flipbook.js',
+        './assets/source/javascript/box.js',
     ],
     destination: './assets/public/javascript',
     output: 'main.min.js'

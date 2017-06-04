@@ -163,5 +163,34 @@ $gold: #c59b70;
 }
 
 .swiper-pagination-bullet-active {
-    // background: #dcb647;
+    background: #dcb647;
+}
+
+.swiper-button-prev {
+    background: none;
+
+    &:after {
+        font-family: "icomoon";
+        content: "\e909";
+        visibility: visible;
+        display: block;
+        float: left;
+        font-size: 4.0em;
+        color: #dcb647;
+        transform: rotate(180deg);
+    }
+}
+
+.swiper-button-next {
+    background: none;
+
+    &:after {
+        font-family: "icomoon";
+        content: "\e909";
+        visibility: visible;
+        display: block;
+        float: left;
+        font-size: 4.0em;
+        color: #dcb647;
+    }
 }

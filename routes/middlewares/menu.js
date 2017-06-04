@@ -44,7 +44,7 @@ function buildMenu(joint) {
         return { menu: newPages, language: language };
     }).catch((error) => {
 
-        throw new Error(error);
+        throw error;
     });
 }
 
@@ -66,6 +66,6 @@ exports = module.exports = function(req, res, next) {
         next();
     }).catch((error) => {
         
-        next(new Error(error));
+        next(error);
     });
 };

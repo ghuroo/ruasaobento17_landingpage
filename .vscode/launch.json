@@ -7,19 +7,20 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "Node",
             "program": "${workspaceRoot}/index.js",
             "protocol": "inspector",
             "args": [],
             "runtimeArgs": ["--trace-warnings"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Gulp",
+            "program": "${workspaceRoot}/node_modules/gulp/bin/gulp.js",
+            "args": [
+                "default"
+            ]
         }
-        // {
-        //     "type": "node",
-        //     "request": "attach",
-        //     "name": "Attach to Process",
-        //     "address": "localhost",
-        //     "port": 3074,
-        //     "runtimeArgs": ["--trace-warnings"]
-        // }
     ]
 }
