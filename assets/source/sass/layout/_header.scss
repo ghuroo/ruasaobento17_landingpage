@@ -53,9 +53,14 @@ $height: 115px;
 
             &.logo {
                 font-size: 3.4em;
+                margin: 0px 40px;
 
                 .circle:after {
                     height: $size;
+                }
+
+                a {
+                    left: -10px;
                 }
             }
         }
@@ -81,7 +86,7 @@ $height: 115px;
             > span, > a {
                 font-size: 2.4em;
                 position: relative;
-                left: -5px;
+                left: 0px;
                 color: $blackish;
                 z-index: 1;
 
@@ -90,12 +95,12 @@ $height: 115px;
                 }
             }
 
-            a:hover {
-                position: relative;
-                // display: block;
-                transform: scale(1.02);
-                transition: all 0.2s;
-            }
+            // a:hover {
+            //     position: relative;
+            //     // display: block;
+            //     transform: scale(1.02);
+            //     transition: all 0.2s;
+            // }
 
             &.logo {
                 background: $white;
@@ -120,6 +125,7 @@ $height: 115px;
                     padding: 0px;
                     margin: 0px;
                     border: 1px solid $gold;
+                    -webkit-background-clip: padding-box;
 
                     &:after {
                         content: "";
@@ -247,6 +253,8 @@ $height: 115px;
         padding-top: 3px;
         padding-left: 5px;
 
+        display: none;
+
         span {
             position: relative;
             display: block;
@@ -316,6 +324,10 @@ $height: 115px;
             display: none;
         }
 
+        .burger-menu {
+            display: block;
+        }
+
         .circle.top,
         .circle.bottom,
         &.smaller .circle.top,
@@ -378,6 +390,17 @@ $height: 115px;
                     }
                 }
             }
+        }
+
+        &.smaller ul li.logo a,
+        ul li.logo a {
+            left: -5px;
+        }
+    }
+
+    @include breakpoint(tablet) {
+        .burger-menu {
+            display: block;
         }
     }
 

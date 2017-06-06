@@ -1,25 +1,33 @@
 box = {
     element: $('.box .item'),
-    button:  $('.box .read-more'),
+    buttons:  $('.box .read-more'),
+    button:  null,
 
     switch: function(index) {
         return this.element.find('.quote').hasClass('opened') ? this.close() : this.open();
     },
 
     open: function() {
-        this.button.addClass('up');
-        this.button.removeClass('down');
-        return this.element.find('.quote').addClass('opened');
+        box.button.addClass('up');
+        box.button.removeClass('down');
+        this.element.find('.quote').addClass('opened');
+        if (tourSwiper) tourSwiper.update(true);
+
+        return true;
     },
     
     close: function() {
-        this.button.addClass('down');
-        this.button.removeClass('up');
-        return this.element.find('.quote').removeClass('opened');
+        box.button.addClass('down');
+        box.button.removeClass('up');
+        this.element.find('.quote').removeClass('opened');
+        if (tourSwiper) tourSwiper.update(true);
+        
+        return true;
     }
 };
 
-box.button.on('click', function() {
+box.buttons.on('click', function() {
     box.element = $(this).parents('.item');
+    box.button = box.element.find('.read-more');
     box.switch();
 });

@@ -11,22 +11,27 @@
     .tours.grid-100.mobile-grid-100
         .grid-container
 
+            .note.grid-100.mobile-grid-100 * importante fazer as marcações com antecedência
+
             .box.grid-100.hide-on-mobile
                 each val in [1, 2]
                     .item.grid-50.mobile-grid-100
                         .wrapper.mobile-grid-85
                             .title.grid-100.mobile-grid-100 Antonio Cardiello
                             .body.quote.grid-100.mobile-grid-100!= "Doutor em filosofia pela Faculdade de Letras da Universidade de Lisboa. <br>É membro do Centro de Filosofia (CFUL) do mesmo instituto e membro do Nietzsche International Lab (NIL) do Instituto de Filosofia da Universidade Nova de Lisboa (IFILNOVA). Co-director do projecto da Biblioteca de Fernando Pessoa (on-line desde 2010), editou  Uma Stirpe incognita  (EDB Edizioni, 2016) e  co-editou  A Biblioteca particular de Fernando Pessoa  (D. Quixote, 2010) e  Nietzsche e Pessoa. Ensaios  (Tinta-da-china, 2016). Comissário de exposições internacionais sobre Fernando Pessoa, interessa-se pelo pensamento português contemporâneo e pela aproximação entre tradições filosóficas ocidentais e orientais."
-                                span.elipsis.hide-on-mobile ...
                             .read-more.down.gold.grid-100.mobile-grid-100 Ler mais
                             .flags.grid-100.mobile-grid-100
+                                .flag: img(src="/images/flag-uk.png")
                                 .flag: img(src="/images/flag-pt.png")
                                 .flag: img(src="/images/flag-fr.png")
                             .contacts.grid-100.mobile-grid-100
-                                a.mail(href="mailto:teste@teste.abc").hide-on-mobile Enviar email
-                                a.phone(href="tel:+351930000000") +351 930 000 000
-                                .mobile-grid-100.hide-on-desktop.button-container
-                                    a(href="mailto:teste@teste.abc").button.transparent Enviar email
+                                .body.grid-100.mobile-grid-100 Reservas
+                                .element.grid-100.mobile-grid-100
+                                    a.phone(href="tel:+351968733859") Bernardo: +351 968733859
+                                    a.mail(href="mailto:teste@teste.abc") bs@staywithus.pt
+                                .element.grid-100.mobile-grid-100
+                                    a.phone(href="tel:+351968733859") Ana Rita: +351 919202563
+                                    a.mail(href="mailto:teste@teste.abc") ars@staywithus.pt
             
         .mobile-grid-100.hide-on-desktop
             include ./slider

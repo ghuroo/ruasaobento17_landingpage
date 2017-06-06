@@ -82,14 +82,16 @@ $(document).ready(function () {
         scroll(this);
     });
 
+    $(window).scroll(function() {
+        if ($(this).scrollTop() == 0) $('#header').removeClass('smaller');
+    });
+
     $(".waypoint").waypoint(function (direction) {
         var index = $(this.element).data('index');
         var anchor = $(this.element).find('> a');
 
         if (direction == "down") {
-            if (index == 1) {
-                $('#header').addClass('smaller');
-            }
+            if (index == 1) $('#header').addClass('smaller');
             // console.log('Waypoint: ' + anchor.attr('name'));
             // gh.fade.out();
             // gh.fade.in($(this.element));
@@ -104,9 +106,7 @@ $(document).ready(function () {
         var index = $(this.element).data('index');
 
         if (direction == "up") {
-            if (index === 0) {
-                $('#header').removeClass('smaller');
-            }
+            if (index === 0) $('#header').removeClass('smaller');
             // gh.fade.out();
             // gh.fade.in($(this.element));
             $('#header ul li>a').removeClass('active');

@@ -7,7 +7,7 @@ $gold: #c4a674;
     .wrapper {
 
         .copy {
-            padding: 110px 50px 0px 50px;
+            padding: 110px 50px 0px 20px;
         }
 
         .body {
@@ -82,7 +82,7 @@ $gold: #c4a674;
         }
 
         .anchors {
-            padding: 50px 0px;
+            padding: 50px 0px 50px 80px;
 
             ul {
                 &:before {
@@ -145,20 +145,20 @@ $gold: #c4a674;
         }
 
         .title {
-            padding: 55px 110px 25px 110px;
+            padding: 40px 80px 0px 80px;
 
-            font-size: 3.8em;
-            line-height: 1.6;
-        }
-
-        .body {
-            padding: 0px 150px 30px 150px;
-
-            font-size: 1.9em;
+            font-size: 3.4em;
+            line-height: 1;
+            
+            .ornament:before,
+            .ornament:after {
+                line-height: 2;
+            }
         }
 
         .buttons {
             text-align: center;
+            padding-top: 40px;
 
             .button {
                 cursor: pointer;
@@ -167,6 +167,18 @@ $gold: #c4a674;
                 float: none;
             }
 
+        }
+
+        .footnote {
+            padding: 30px 50px 0px 50px;
+            text-align: center;
+
+            span {
+                padding-top: 40px;
+                font-family: $lato;
+                font-weight: $regular;
+                font-size: 1.1em;
+            }
         }
     }
 
@@ -284,12 +296,18 @@ $gold: #c4a674;
             }
             
             .buttons {
+                padding-top: 0px;
 
                 .button {
                     width: 70%;
                     margin: 10px auto;
                     padding: 0px;
                 }
+            }
+
+            .footnote {
+                padding-left: 30px;
+                padding-right: 30px;
             }
 
             .mobile-center {

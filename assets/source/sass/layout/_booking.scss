@@ -6,10 +6,14 @@
         max-width: 580px;
     }
 
+    .body {
+        padding: 30px 0px;
+    }
+
     .buttons {
         // margin-top: 65px;
         text-align: center;
-        padding: 65px 30px 0px 30px;
+        padding: 0px 30px 0px 30px;
 
         > * {
             padding: 0px 35px;
@@ -48,6 +52,47 @@
         .airbnb { background: #ff5a5f; border: 1px solid #ff5a5f; }
         .uniplaces { background: #00adf2; border: 1px solid #00adf2; }
         .luxury { background: #62a43e; border: 1px solid #62a43e; }
+    }
+    
+    .contacts {
+        padding-top: 10px;
+        text-align: center;
+
+        .body {
+            font-size: 1.6em;
+            text-transform: uppercase;
+            padding: 20px 0px 10px 0px;
+        }
+
+        .element {
+            padding-top: 10px;
+        }
+
+        .mail, .phone {
+            display: inline-block;
+            float: none;
+            font-size: 1.6em;
+        }
+
+        .phone {
+            color: #afafaf;
+            font-family: $lato;
+            font-weight: $regular;
+
+            &:after {
+                content: "|";
+                visibility: visible;
+                padding: 0px 10px;
+                display: inline-block;
+                position: relative;
+            }
+        }
+
+        .mail {
+            color: #c4a674;
+            font-family: $lato;
+            font-weight: $bold;
+        }
     }
 
     .bar {

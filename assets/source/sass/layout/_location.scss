@@ -2,13 +2,14 @@ $brown: #c4a674;
 
 .location {
     height: 525px;
+    margin-top: 100px;
 
     > div {
         height: 100%;
     }
 
     .information {
-        padding: 0px 100px;
+        padding: 0px 70px;
         position: relative;
         height: 100%;
         background: #343434;
@@ -49,8 +50,8 @@ $brown: #c4a674;
     }
 
     @include breakpoint(mobile) {
-        // height: auto;
-        height: 370px;
+        height: auto;
+        // height: 370px;
 
         .information {
             padding-left: 20px;
@@ -64,5 +65,10 @@ $brown: #c4a674;
                 padding-top: 30px;
             }
         }
+    }
+    
+    @include breakpoint(tablet) {
+        // height: auto;
+        height: 400px;
     }
 }
