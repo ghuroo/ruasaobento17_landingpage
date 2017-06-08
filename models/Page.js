@@ -13,17 +13,17 @@ var Page = new keystone.List('Page', {
 Page.add(
     'Details',
     {
-        name: { type: Types.Text, required: true, initial: true },
-        url: { type: Types.Text, required: true, initial: true }
+        name: { type: Types.Text, required: true, initial: true, label: 'Título' },
+        url: { type: Types.Text, required: true, initial: true, label: 'Url' }
     },
     'Hierarchy',
     {
-        parent: { type: Types.Text, initial: true, required: true },
-        child: { type: Types.Text, initial: true, collapse: true }
+        parent: { type: Types.Text, initial: true, required: true, noedit: true },
+        child: { type: Types.Text, initial: true, collapse: true, noedit: true }
     },
     'Language',
     {
-        language: { type: Types.Relationship, ref: 'Language', required: true, initial: true },
+        language: { type: Types.Relationship, ref: 'Language', required: true, initial: true, label: 'Língua' },
     }
 );
 

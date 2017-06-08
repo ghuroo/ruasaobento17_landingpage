@@ -8,8 +8,8 @@ var Language = new keystone.List('Language', {
 });
 
 Language.add({
-    name: { type: Types.Text, initial: true, required: true },
-    iso: { type: Types.Text, initial: true, required: true }
+    name: { type: Types.Text, initial: true, required: true, label: 'Nome' },
+    iso: { type: Types.Text, initial: true, required: true, label: 'Código ISO' }
 });
 
 Language.register();

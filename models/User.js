@@ -9,10 +9,10 @@ var User = new keystone.List('User', {
 });
 
 User.add({
-    name: { type: Types.Name, initial: true, required: true, hidden: false },
-    email: { type: Types.Email, initial: true, required: true, hidden: false, unique: true },
-    password: { type: Types.Password, initial: true, required: true },
-    isAdmin: { type: Types.Boolean, initial: false, required: false, default: false }
+    name: { type: Types.Name, initial: true, required: true, hidden: false, label: 'Nome' },
+    email: { type: Types.Email, initial: true, required: true, hidden: false, unique: true, label: 'E-Mail' },
+    password: { type: Types.Password, initial: true, required: true, label: 'Palavra-passe' },
+    isAdmin: { type: Types.Boolean, initial: false, required: false, default: false, label: 'Administrador' }
 });
 
 // virtual schema
