@@ -4,8 +4,8 @@ var keystone = require('keystone'),
     _ = require('underscore');
 
 languagesConfig = keystone.get('languages');
-var languages = [];
-_.each(languagesConfig, function(object){ languages.push({ iso: object.value, name: object.label }); });
+var items = [];
+_.each(languagesConfig, function(object){ items.push({ iso: object.value, name: object.label }); });
 
 function createItem(item, done) {
 	Language.model.findOne({ iso: item.iso }).exec(function(err, result) {
@@ -26,5 +26,5 @@ function createItem(item, done) {
 }
 
 exports = module.exports = function(done) {
-	async.forEach(languages, createItem, done);
+	async.forEach(items, createItem, done);
 };

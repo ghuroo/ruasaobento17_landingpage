@@ -4,8 +4,8 @@ var keystone = require('keystone'),
 
 var items = [{
     name: {
-        first: 'Administrator',
-        last: 'Account'
+        first: 'Administrador',
+        last: 'Principal'
     },
     email: 'admin@app.com',
     password: 'changethis',

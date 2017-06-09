@@ -71,6 +71,13 @@ require('./routes/authentication/passport');
 
 keystone.set('nav', {
     'utilizadores': 'User',
+    'áreas': [
+        'HomeBanner',
+        'HomeHighlights',
+        'HomeLocation',
+        'HomeAbout',
+        'HomeTourGuide'
+    ],
     'definições': [
         'Page',
         'Language'

@@ -1,19 +1,26 @@
-var keystone = require('keystone');
+var keystone = require('keystone'),
+    _ = require('underscore');
+
+var Banner = keystone.list('HomeBanner'),
+    Highlights = keystone.list('HomeHighlights'),
+    Location = keystone.list('HomeLocation'),
+    About = keystone.list('HomeAbout'),
+    TourGuide = keystone.list('HomeTourGuide');
 
 exports = module.exports = function(req, res, next) {
     var view = new keystone.View(req, res);
     var locals = res.locals;
 
-    // highlights
-    var highlights = [];
+    // // highlights
+    // var highlights = [];
     
-    highlights.push({
-        'title': 'Uma experiência inesquecível',
-        'body': 'A partir de agora vai poder viver uma  Lisboa diferente , de uma maneira mais exclusiva e inspiradora : venha se hospedar no mesmo apartamento onde morou o grande poeta Fernando Pessoa entre 1905-1906. Aqui, nesse mesmo ambiente ele viveu, escreveu e sonhou. Por essas mesmas janelas ele viu a Lisboa do inicio do século passar.<br/>É essa experiência que o convidamos a viver agora.'
-    },{
-        'title': 'O apartamento',
-        'body': 'Este espaçoso apartamento de 120 m2, fica situado no 2º andar de um prédio histórico datado de 1857.<br/>A sua planta é toda original e foi cuidadosamente decorado, criando um ambiente charmoso e muito aconchegante.<br/>São 2 quartos com ar condicionado, 2 salas ( sala de estar e sala de jantar ) , 1 casa de banho e cozinha adornada com raros azuleijos portugueses do final do século 19. O apartamento também conta com um confortável canto de leitura.'
-    });
+    // highlights.push({
+    //     'title': 'Uma experiência inesquecível',
+    //     'body': 'A partir de agora vai poder viver uma  Lisboa diferente , de uma maneira mais exclusiva e inspiradora : venha se hospedar no mesmo apartamento onde morou o grande poeta Fernando Pessoa entre 1905-1906. Aqui, nesse mesmo ambiente ele viveu, escreveu e sonhou. Por essas mesmas janelas ele viu a Lisboa do inicio do século passar.<br/>É essa experiência que o convidamos a viver agora.'
+    // },{
+    //     'title': 'O apartamento',
+    //     'body': 'Este espaçoso apartamento de 120 m2, fica situado no 2º andar de um prédio histórico datado de 1857.<br/>A sua planta é toda original e foi cuidadosamente decorado, criando um ambiente charmoso e muito aconchegante.<br/>São 2 quartos com ar condicionado, 2 salas ( sala de estar e sala de jantar ) , 1 casa de banho e cozinha adornada com raros azuleijos portugueses do final do século 19. O apartamento também conta com um confortável canto de leitura.'
+    // });
 
     // flipbook
     var flipbooks = [
@@ -59,8 +66,52 @@ exports = module.exports = function(req, res, next) {
     ];
 
     // locals
-    locals.highlights = highlights;
+    // locals.highlights = highlights;
     locals.flipbooks = flipbooks;
 
-    view.render('home');
+    // dynamic stuff
+    var query;
+
+    query = Banner.model.find()
+    .where('language', req.language._id)
+    .sort('dateStart')
+    .exec();
+
+    query
+    .then((result) => {
+        locals.banners  = _.filter(result, function(object){ return object.isActive; });
+
+        query = Highlights.model.findOne()
+        .where('language', req.language._id)
+        .lean()
+        .exec()
+
+        return query;
+    }).then((result) => {
+        locals.highlights = result;
+
+        query = Location.model.findOne()
+        .where('language', req.language._id)
+        .lean()
+        .exec()
+
+        return query;
+    }).then((result) => {
+        locals.location = result;
+
+        query = About.model.findOne()
+        .where('language', req.language._id)
+        .lean()
+        .exec()
+
+        return query;
+    }).then((result) => {
+        locals.about = result;
+
+        view.render('home');
+    }).catch((error) => {
+        req.flash('error', error.message);
+
+        res.redirect('back');
+    });
 };

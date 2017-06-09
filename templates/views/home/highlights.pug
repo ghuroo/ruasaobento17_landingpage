@@ -1,8 +1,14 @@
-.waypoint.keypoints.grid-100.mobile-grid-100(data-index="1")
-    a(name="o-apartamento")
+if highlights
+    .waypoint.keypoints.grid-100.mobile-grid-100(data-index="1")
+        a(name="o-apartamento")
 
-    .grid-container
-        each item, index in highlights
-            .keypoint.grid-100.mobile-grid-100
-                .title.type1.grid-100.mobile-grid-100: span.ornament.gold= item.title
-                .body.type1.grid-100.mobile-grid-100!=item.body
+        .grid-container
+            if highlights.experience
+                .keypoint.grid-100.mobile-grid-100
+                    .title.type1.grid-100.mobile-grid-100: span.ornament.gold= highlights.experience.title
+                    .body.type1.grid-100.mobile-grid-100!=highlights.experience.text
+
+            if highlights.apartment
+                .keypoint.grid-100.mobile-grid-100
+                    .title.type1.grid-100.mobile-grid-100: span.ornament.gold= highlights.apartment.title
+                    .body.type1.grid-100.mobile-grid-100!=highlights.apartment.text

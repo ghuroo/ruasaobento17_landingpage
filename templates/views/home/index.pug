@@ -10,3 +10,7 @@ block content
     include ./casa-fernando
     include ./news
     include ./booking
+
+block scripts
+    script
+        | window.banners = !{ JSON.stringify(banners) || '' };

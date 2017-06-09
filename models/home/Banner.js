@@ -40,13 +40,13 @@ HomeBanner.schema.virtual('isActive').get(function() {
 
 // validate dateEnd
 HomeBanner.schema.pre('validate', function(next) {
-    if (this.expires && this.dateEnd && this.dateEnd <= this.dateStart) next(Error('Expiration Date must be posterior to Display Date'));
+    if (this.expires && this.dateEnd && this.dateEnd <= this.dateStart) next(Error('A data de Expiração deve ser posterior à Data de Ínicio'));
     else next();
 });
 
 // validate expires
 HomeBanner.schema.pre('validate', function(next) {
-    if (this.expires && !this.dateEnd) next(Error('Expires: Expiration Date must be set'));
+    if (this.expires && !this.dateEnd) next(Error('A data de Ínicio deve ser preenchida'));
     else next();
 });
 
