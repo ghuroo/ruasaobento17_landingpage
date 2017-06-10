@@ -2,7 +2,7 @@ var keystone = require('keystone'),
     Types = keystone.Field.Types;
 
 var HomeLocation = new keystone.List('HomeLocation', {
-    label: 'Localização', singular: "Localização", plural: "Localizaçãos"
+    label: 'Localização', singular: "Localização", plural: "Localizações"
 });
 
 HomeLocation.add(

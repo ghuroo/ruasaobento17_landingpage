@@ -17,9 +17,9 @@ function addBannerSlider(banner) {
 
     bannerSwiper.removeAllSlides();
 
-    for (var i=0; i<banner.image.length; i++) {
+    for (var i=0; i<banner.images.length; i++) {
         bannerSwiper.appendSlide([
-            '<div class="swiper-slide"><div class="va-parent"><div class="va-child"><img src="'+banner.image[i].url+'" /></div></div></div>',
+            '<div class="swiper-slide"><div class="va-parent"><div class="va-child"><img src="'+banner.images[i].url+'" /></div></div></div>',
         ]);
     }
 
@@ -30,7 +30,7 @@ $('.banner .close').on('click', function() { bannerSwiper.destroy(); });
 
 // tours swiper
 var tourSwiper;
-function addTourSwiper() {
+function addTourSwiper(tourGuides) {
     $('.tours .swiper-container').addClass('visible');
 
     tourSwiper = new Swiper('.tours .swiper-container', {
@@ -49,11 +49,12 @@ function addTourSwiper() {
 
     tourSwiper.removeAllSlides();
 
-    tourSwiper.appendSlide([
-        '<div class="swiper-slide box"><div class="item">'+$('.tours .item').eq(0).html()+'</div></div>',
-        '<div class="swiper-slide box"><div class="item">'+$('.tours .item').eq(1).html()+'</div></div>'
-    ]);
+    for (var i=0; i<tourGuides.length; i++) {
+        tourSwiper.appendSlide([
+            '<div class="swiper-slide box"><div class="item">'+$('.tours .item').eq(0).html()+'</div></div>',
+        ]);
+    }
 }
 
-addTourSwiper();
+addTourSwiper(window.tourGuides);
 $('.tours .close').on('click', function() { tourSwiper.destroy(); });

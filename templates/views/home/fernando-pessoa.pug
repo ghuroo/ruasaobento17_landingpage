@@ -1,15 +1,36 @@
-.waypoint.apartment.grid-100.mobile-grid-100(data-index="4")
-    a(name="fernando-pessoa")
+mixin researchers(researchers)
+    each item in researchers
+        if item.active
+            .item.grid-50.mobile-grid-100
+                .author.grid-100.mobile-grid-100= item.name
+                    span – #{ item.title }
+                .quote.grid-100.mobile-grid-100
+                    span.mark “
+                    | !{ item.text }
+                    span.mark.second ”
+                .grid-100.mobile-grid-100.side-by-side
+                    .text-ornament.child: .object
+                    .read-more.down.brown.child ler mais
+
+mixin articles(articles)
+    each item in articles
+        li.grid-100.mobile-grid-100
+            a(href=item.file target="_blank")= item.name
+
+
+.apartment.grid-100.mobile-grid-100
 
     .background2
     
-    .grid-container
+    .waypoint.grid-container(data-index="4")
+        a(name="fernando-pessoa")
+
         .wrapper.grid-100.mobile-grid-100
 
-            .picture.mobile-grid-100.hide-on-desktop
+            .picture.mobile-grid-100.hide-on-desktop.fadein
                 img(src=about.images[0].url)
 
-            .copy.grid-60.mobile-grid-100
+            .copy.grid-60.mobile-grid-100.fadein
                 .title.type3.grid-100.mobile-grid-100
                     span.ornament.black= about.name
                         //- | Fernado Pessoa
@@ -17,46 +38,18 @@
                         //- | e este apartamento
                 .body.type1.grid-100.mobile-grid-100!= about.text
 
-            .picture.grid-40.hide-on-mobile
+            .picture.grid-40.hide-on-mobile.fadein
                 img(src=about.images[0].url)
 
-            .box.grid-100.mobile-grid-100
-                .item.grid-50.mobile-grid-100
-                    .author.grid-100.mobile-grid-100 Antonio Cardiello
-                        span – Pesquisador Pessoano
-                    .quote.grid-100.mobile-grid-100
-                        span.mark “
-                        | A formação intelectual de Fernando Pessoa atravessa um ponto
-                        | de viragem entre 1905 e 1906, coincidente com o surgimento
-                        | dos proto-heterónimos Charles Robert Anon e Alexander Search
-                        | de viragem entre 1905 e 1906, coincidente com o surgimento
-                        | A formação intelectual de Fernando Pessoa atravessa um ponto
-                        span.mark ”
-                    .grid-100.mobile-grid-100.side-by-side
-                        .text-ornament.child: .object
-                        .read-more.down.brown.child ler mais
+            .box.grid-100.mobile-grid-100.fadein
+                +researchers([about.researcher1, about.researcher2])
 
-                .item.grid-50.mobile-grid-100
-                    .author.grid-100.mobile-grid-100 Antonio Cardiello
-                        span – Pesquisador Pessoano
-                    .quote.grid-100.mobile-grid-100
-                        span.mark “
-                        | A formação intelectual de Fernando Pessoa atravessa um ponto
-                        | de viragem entre 1905 e 1906, coincidente com o surgimento
-                        | dos proto-heterónimos Charles Robert Anon e Alexander Search
-                        | de viragem entre 1905 e 1906, coincidente com o surgimento
-                        | A formação intelectual de Fernando Pessoa atravessa um ponto
-                        span.mark ”
-                    .grid-100.mobile-grid-100.side-by-side
-                        .text-ornament.child: .object
-                        .read-more.down.brown.child ler mais
-
-            .anchors.grid-100.mobile-grid-100
+            .anchors.grid-100.mobile-grid-100.fadein
                 ul
-                    li.grid-100.mobile-grid-100
-                        a(href="#" target="_blank") O regresso de Fernando Pessoa Lisboa
-                    li.grid-100.mobile-grid-100
-                        a(href="#" target="_blank") Fernando Pessoa - infância
+                    +articles([ about.article1, about.article2 ])
+
+    .waypoint.grid-container(data-index="9")
+        a(name="manuscritos")
 
         .content-script.grid-100.mobile-grid-100
             img.background(src="/images/scripts-background.png").hide-on-mobile
@@ -64,11 +57,13 @@
             include ./flipbook
 
             .grid-50.mobile-grid-100.prefix-50.mobile-center
-                .title.type1.grid-100.mobile-grid-100: span.ornament.black Alguns manuscritos originais de Fernando Pessoa no período em que viveu na Rua de São bento, 17
+                .title.type1.grid-100.mobile-grid-100.fadein: span.ornament.black Alguns manuscritos originais de Fernando Pessoa no período em que viveu na Rua de São bento, 17
                 .buttons.grid-100.mobile-grid-100
-                    button.button.type2(data-flipbook-target="diario-pessoal") Diário pessoal
-                    button.button.type2(data-flipbook-target="diarios-de-leitura") Diário de Leitura
-                    button.button.type2(data-flipbook-target="textos-and-anotacoes") Alguns textos & anotações
+                    each item in manuscripts
+                        button.button.type2(data-flipbook-target=item.name).fadein=item.name
+                    //- button.button.type2(data-flipbook-target="Diário Pessoal") Diário pessoal
+                    //- button.button.type2(data-flipbook-target="Diários de Leitura") Diário de Leitura
+                    //- button.button.type2(data-flipbook-target="Textos & Anotações") Alguns textos & anotações
                 .footnote.grid-100.mobile-grid-100
                     span.
                         *Todos os manuscritos encontrados aqui são reproduções de material encontrado na internet

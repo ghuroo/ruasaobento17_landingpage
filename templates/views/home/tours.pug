@@ -4,34 +4,40 @@
     .slogan.grid-100.mobile-grid-100
 
         .grid-container
-            span.title.type1.grid-100.mobile-grid-100: span.ornament.gold Roteiros exclusivos
-            span.title.type2.grid-100.mobile-grid-100 Conheça a vida e a obra de Fernando Pessoa com os mais conceituados especialistas Pessoanos
-            span.body.type1.grid-100.mobile-grid-100!= "Já pensou em tomar um café enquanto discute sobre a obra de Fernando Pessoa? Ou quem sabe, programar colóquios exclusivos e passeios personalizados pela Lisboa de Pessoa? Aproveite a sua estadia e viva essa experiência. Aqui você encontra o contato de conceituados pesquisadores Pessoanos, que irão lhe guiar pelo fascinante universo de Fernando Pessoa. <br> Uma experiência exclusiva para os hospedes da “Rua de São Bento, 17”"
+            span.title.type1.grid-100.mobile-grid-100.fadein: span.ornament.gold= tour.title
+            span.title.type2.grid-100.mobile-grid-100.fadein= tour.subTitle
+            span.body.type1.grid-100.mobile-grid-100.fadein!= tour.text
 
     .tours.grid-100.mobile-grid-100
         .grid-container
 
-            .note.grid-100.mobile-grid-100 * importante fazer as marcações com antecedência
+            .note.grid-100.mobile-grid-100.fadein * importante fazer as marcações com antecedência
 
             .box.grid-100.hide-on-mobile
-                each val in [1, 2]
-                    .item.grid-50.mobile-grid-100
+                each item in tourGuides
+                    .item.grid-50.mobile-grid-100.fadein
                         .wrapper.mobile-grid-85
-                            .title.grid-100.mobile-grid-100 Antonio Cardiello
-                            .body.quote.grid-100.mobile-grid-100!= "Doutor em filosofia pela Faculdade de Letras da Universidade de Lisboa. <br>É membro do Centro de Filosofia (CFUL) do mesmo instituto e membro do Nietzsche International Lab (NIL) do Instituto de Filosofia da Universidade Nova de Lisboa (IFILNOVA). Co-director do projecto da Biblioteca de Fernando Pessoa (on-line desde 2010), editou  Uma Stirpe incognita  (EDB Edizioni, 2016) e  co-editou  A Biblioteca particular de Fernando Pessoa  (D. Quixote, 2010) e  Nietzsche e Pessoa. Ensaios  (Tinta-da-china, 2016). Comissário de exposições internacionais sobre Fernando Pessoa, interessa-se pelo pensamento português contemporâneo e pela aproximação entre tradições filosóficas ocidentais e orientais."
+                            .title.grid-100.mobile-grid-100= item.name
+                            .body.quote.grid-100.mobile-grid-100!= item.text
                             .read-more.down.gold.grid-100.mobile-grid-100 Ler mais
                             .flags.grid-100.mobile-grid-100
-                                .flag: img(src="/images/flag-uk.png")
-                                .flag: img(src="/images/flag-pt.png")
-                                .flag: img(src="/images/flag-fr.png")
+                                each item2 in item.idioms
+                                    case item2.iso
+                                        when 'en'
+                                            .flag: img(src="/images/flag-uk.png")
+                                        when 'pt'
+                                            .flag: img(src="/images/flag-pt.png")
+                                        when 'fr'
+                                            .flag: img(src="/images/flag-fr.png")
                             .contacts.grid-100.mobile-grid-100
                                 .body.grid-100.mobile-grid-100 Reservas
-                                .element.grid-100.mobile-grid-100
-                                    a.phone(href="tel:+351968733859") Bernardo: +351 968733859
-                                    a.mail(href="mailto:teste@teste.abc") bs@staywithus.pt
-                                .element.grid-100.mobile-grid-100
-                                    a.phone(href="tel:+351968733859") Ana Rita: +351 919202563
-                                    a.mail(href="mailto:teste@teste.abc") ars@staywithus.pt
+                                each item3 in contacts
+                                    .element.grid-100.mobile-grid-100
+                                        a.phone(href="tel:+351968733859") #{ item3.name }: #{ item3.phone }
+                                        a.mail(href="mailto:"+item3.email)= item3.email
             
         .mobile-grid-100.hide-on-desktop
             include ./slider
+    
+    script.
+        window.tourGuides = !{ JSON.stringify(tourGuides) || '' };

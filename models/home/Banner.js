@@ -5,17 +5,18 @@ var HomeBanner = new keystone.List('HomeBanner', {
     label: 'Banner', singular: "Banner", plural: "Banners",
 
     track: true,
-    defaultSort: '-dateStart'
+    defaultSort: '-dateStart',
+
+    map: { name: 'title' }
 });
 
 HomeBanner.add(
     'Detalhes',
     {
-        name: { type: Types.Text, initial: true, required: true, label: 'Nome' },
-        image: { type: Types.CloudinaryImages, initial: true, label: 'Imagem' },
-
         title: { type: Types.Text, initial: true, required: true, label: 'Título' },
         subTitle: { type: Types.Text, initial: true, required: true, label: 'Sub-título' },
+
+        images: { type: Types.CloudinaryImages, initial: true, label: 'Imagem' },
     },
     'Agendamento',
     {

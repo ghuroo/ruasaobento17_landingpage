@@ -5,9 +5,10 @@ $gold: #c4a674;
     background: $gold;
 
     .wrapper {
+        padding-top: 20px;
 
         .copy {
-            padding: 110px 50px 0px 20px;
+            padding: 80px 50px 0px 20px;
         }
 
         .body {
@@ -62,6 +63,10 @@ $gold: #c4a674;
             color: #ffffff;
             line-height: 1.2;
 
+            p {
+                display: inline;
+            }
+
             .mark {
                 font-size: 2em;
                 font-weight: $bold;
@@ -70,13 +75,11 @@ $gold: #c4a674;
 
 
                 position: relative;
-                display: inline-block;
+                display: inline;
             
-                &:nth-child(2) {
+                &.second {
                     position: absolute;
-                    bottom: -20px;
-                    transform: translateX(10px);
-                    right: 20px;
+                    margin-left: 10px;
                 }
             }
         }

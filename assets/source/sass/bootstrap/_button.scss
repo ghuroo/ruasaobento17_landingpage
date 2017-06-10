@@ -67,7 +67,7 @@ a, button {
 			background: $green;
 			color: $white;
 
-			&:hover {
+			&:hover, &.active {
 				background: $white;
 				border: 1px solid $green;
 				color: $green;

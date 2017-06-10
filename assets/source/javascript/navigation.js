@@ -77,13 +77,21 @@ gh.fade.out = function() {
     }
 };
 
+// $(document).ready(function() {
+//     if ($(window).width() > 750) {
+//         //if the window is greater than 750px wide then turn on fader..
+//         $("head").append('<style type="text/css">.fadein{ opacity:0; transform: matrix(1,0,0,1,0,-5) }</style>');
+//         window.fader = true;
+//     }
+// });
+
 $(document).ready(function () {
     $('#header ul li>a').click(function (event) {
         scroll(this);
     });
 
     $(window).scroll(function() {
-        if ($(this).scrollTop() == 0) $('#header').removeClass('smaller');
+        if ($(this).scrollTop() === 0) $('#header').removeClass('smaller');
     });
 
     $(".waypoint").waypoint(function (direction) {
@@ -91,12 +99,11 @@ $(document).ready(function () {
         var anchor = $(this.element).find('> a');
 
         if (direction == "down") {
-            if (index == 1) $('#header').addClass('smaller');
-            // console.log('Waypoint: ' + anchor.attr('name'));
-            // gh.fade.out();
-            // gh.fade.in($(this.element));
-            $('#header ul li>a').removeClass('active');
-            $('#header ul li>a[data-index="' + index + '"]').addClass('active');
+            // if (window.fader) gh.fade.out(); gh.fade.in($(this.element));
+
+            if (index !== 1) $('#header').addClass('smaller');
+            $('#header ul li').find('a').removeClass('active');
+            $('#header ul li').find('a[data-index="' + index + '"]').addClass('active');
         }
     }, {
         offset: "50%"
@@ -106,11 +113,11 @@ $(document).ready(function () {
         var index = $(this.element).data('index');
 
         if (direction == "up") {
+            // if (window.fader) gh.fade.out(); gh.fade.in($(this.element));
+
             if (index === 0) $('#header').removeClass('smaller');
-            // gh.fade.out();
-            // gh.fade.in($(this.element));
-            $('#header ul li>a').removeClass('active');
-            $('#header ul li>a[data-index="' + index + '"]').addClass('active');
+            $('#header ul li').find('a').removeClass('active');
+            $('#header ul li').find('a[data-index="' + index + '"]').addClass('active');
         }
     }, {
         offset: "-70%"

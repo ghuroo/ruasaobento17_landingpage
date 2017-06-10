@@ -9,7 +9,8 @@ require('dotenv').config({ path: __dirname + '/.env' });
 // languages
 var languages = [
     { value: 'pt', label: 'Português' },
-    { value: 'en', label: 'English' }
+    { value: 'en', label: 'English' },
+    { value: 'fr', label: 'Français' },
 ];
 
 var locales = _.map(languages, (language) => { return language.value; });
@@ -71,12 +72,16 @@ require('./routes/authentication/passport');
 
 keystone.set('nav', {
     'utilizadores': 'User',
-    'áreas': [
+    'conteúdo': [
         'HomeBanner',
-        'HomeHighlights',
+        'HomeHighlight',
         'HomeLocation',
         'HomeAbout',
-        'HomeTourGuide'
+        'HomeTour',
+        'HomeTourGuide',
+        'HomeManuscript',
+        'HomeArticle',
+        'HomeContact'
     ],
     'definições': [
         'Page',

@@ -1,3 +1,10 @@
 {
-    "hello": "olá"
+    "hello": "olá",
+
+    "view_pictures": "Ver fotos",
+    "book_it": "Faça a sua reserva",
+    "experience_lisbon": "Venha viver uma Lisboa diferente.",
+    "we_wait_for_you": "A gente espera por você.",
+    "stay_with_us": "Stay With Us",
+    "more_information": "Para mais informações"
 }

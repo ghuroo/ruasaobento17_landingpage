@@ -3,13 +3,13 @@ var turn = {
 
     addBook: function(book) {
 
-        var front = '<div class="hard"><img src="'+book.covers.front+'" /></div>',
-            back = '<div class="hard"><img src="'+book.covers.back+'" /></div>';
+        var front = '<div class="hard"><img src="'+book.covers.front.url+'" /></div>',
+            back = '<div class="hard"><img src="'+book.covers.back.url+'" /></div>';
 
         var pages = [];
         for (var index = 0; index < book.pages.length; index++) {
-            if (index === 0 || index === book.pages.length) pages.push('<div class="hard"><img src="'+book.pages[index]+'" /></div>');
-            pages.push('<img src="'+book.pages[index]+'" />');
+            if (index === 0 || index === book.pages.length) pages.push('<div class="hard"><img src="'+book.pages[index].url+'" /></div>');
+            pages.push('<img src="'+book.pages[index].url+'" />');
         }
 
         $(this.el).append(front);
@@ -90,17 +90,17 @@ $('.content-script button').on('click', function() {
     createFlipbook($(this).data('flipbook-target'));
 });
 
-function createFlipbook(slug) {
+function createFlipbook(name) {
     $('body').addClass('hide-overflow');
     $('#flipbook').addClass('visible');
 
     var index;
 
-    for (var i = 0; i < window.flipbooks.length; i++) {
-        if (window.flipbooks[i].slug == slug) index = i;
+    for (var i = 0; i < window.manuscripts.length; i++) {
+        if (window.manuscripts[i].name == name) index = i;
     }
 
-    turn.init(window.flipbooks[index]);
+    turn.init(window.manuscripts[index]);
 }
 
 function destroyFlipbook() {
@@ -115,7 +115,7 @@ function destroyFlipbook() {
             
             turn.destroy();
             creatingFlipbook = false;
-        }, 1000);
+        }, 500);
     }, 500);
 }
 

@@ -5,10 +5,10 @@ var keystone = require('keystone'),
 
 var items = [
 	// pt
-    { language: 'pt', url: '/', parent: 'home', name: 'Ínicio' },
+    { language: 'pt', url: '/', parent: 'home', name: 'Rua de São Bento 17' },
 	// { language: 'pt', url: '/sobre-nos', parent: 'about', name: 'Sobre Nós' },
     // en
-    { language: 'en', url: '/', parent: 'home', name: 'Home' },
+    { language: 'en', url: '/', parent: 'home', name: 'Rua de São Bento 17' },
 	// { language: 'en', url: '/about', parent: 'about', name: 'About Us' },
 ];
 

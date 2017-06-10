@@ -4,27 +4,25 @@
     .grid-container
         
         .grid-60.mobile-grid-100
-            .title.type1.grid-100.mobile-grid-100
-                span.ornament.gold Faça a sua reserva
-            .body.type1.grid-100.mobile-grid-100
+            .title.type1.grid-100.mobile-grid-100.fadein
+                span.ornament.gold #{ __('book_it') }
+            .body.type1.grid-100.mobile-grid-100.fadein
                 |Venha viver uma Lisboa diferente.
                 br
                 | A gente espera por você.
-            .grid-100.mobile-grid-100
+            .grid-100.mobile-grid-100.fadein
                 .buttons.grid-100.mobile-grid-70
                     a(href="#" target="_blank").airbnb.mobile-grid-100 Airbnb
                     a(href="#" target="_blank").uniplaces.mobile-grid-100 Stay With Us
             
-            .contacts.grid-100.mobile-grid-100
+            .contacts.grid-100.mobile-grid-100.fadein
                 .body.grid-100.mobile-grid-100 Para mais informações
-                .element.grid-100.mobile-grid-100
-                    a.phone(href="tel:+351968733859") Bernardo: +351 968733859
-                    a.mail(href="mailto:teste@teste.abc") bs@staywithus.pt
-                .element.grid-100.mobile-grid-100
-                    a.phone(href="tel:+351968733859") Ana Rita: +351 919202563
-                    a.mail(href="mailto:teste@teste.abc") ars@staywithus.pt
+                each item in contacts
+                    .element.grid-100.mobile-grid-100
+                        a.phone(href="tel:+351968733859") #{ item.name }: #{ item.phone }
+                        a.mail(href="mailto:"+item.email)= item.email
 
-        .logo.grid-40.mobile-grid-100
+        .logo.grid-40.mobile-grid-100.fadein
             img(src="/images/logo2.svg")
 
     .bar.grid-100.mobile-grid-100

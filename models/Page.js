@@ -27,27 +27,6 @@ Page.add(
     }
 );
 
-// get language iso
-var Language = keystone.list('Language');
-Page.schema.pre('save', function(next) {
-
-    var Page = this;
-
-    var iso;
-    var language = this.language;
-
-    return Language.model.findById(language)
-    .exec(function(error, result) {
-        if (error) next(new Error(error));
-
-        iso = result.iso;
-
-        Page.slug = Page.slug += iso;
-
-        next();
-    });
-});
-
 // ui columns
 Page.defaultColumns = 'name, language';
 

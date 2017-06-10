@@ -5,8 +5,10 @@ var keystone = require('keystone'),
 
 var items = [
     {
-        name: 'Banner 1',
-        image: [
+        title: 'Em Lisboa fique na casa onde morou',
+        subTitle: 'Fernando Pessoa',
+        
+        images: [
             {
                 "width" : 1400,
                 "height" : 702,
@@ -30,8 +32,6 @@ var items = [
                 "signature" : ""
             },
         ],
-        title: 'Em Lisboa fique na casa onde morou',
-        subTitle: 'Fernando Pessoa',
 
         state: 'published',
         dateStart: Date.now(),
@@ -39,22 +39,22 @@ var items = [
         dateEnd: '',
         language: 'pt',
     }
-]
+];
 
 function createItem(item, done) {
     Language.model.findOne({ iso: item.language }).exec(function(err, result) {
         item.language = [result];
 
-        HomeBanner.model.findOne({ name: item.name }).exec(function(err, result) {
+        HomeBanner.model.findOne({ title: item.title }).exec(function(err, result) {
             if (err || result) done();
 
             new HomeBanner.model(item).save(function(err) {
 
                 if (err) {
-                    console.error("Error adding item " + item.name + " to the database:");
+                    console.error("Error adding item " + item.title + " to the database:");
                     console.error(err);
                 } else {
-                    console.log("Added item " + item.name + " to the database.");
+                    console.log("Added item " + item.title + " to the database.");
                 }
 
                 done();

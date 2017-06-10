@@ -22,7 +22,7 @@ var items = [
 
         language: 'pt',
     }
-]
+];
 
 function createItem(item, done) {
     Language.model.findOne({ iso: item.language }).exec(function(err, result) {

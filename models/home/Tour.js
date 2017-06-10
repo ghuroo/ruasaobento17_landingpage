@@ -1,18 +1,18 @@
 var keystone = require('keystone'),
     Types = keystone.Field.Types;
 
-var HomeArticle = new keystone.List('HomeArticle', {
-    label: 'Notícias', singular: "Notícia", plural: "Notícias",
+var HomeTour = new keystone.List('HomeTour', {
+    label: 'Roteiros', singular: "Roteiro", plural: "Roteiros",
 
     map: { name: 'title' }
 });
 
-HomeArticle.add(
+HomeTour.add(
     'Detalhes',
     {
         title: { type: Types.Text, initial: true, required: true, label: 'Título' },
-        text: { type: Types.Text, initial: true, label: 'Texto' },
-        file: { type: Types.Url, initial: true, label: 'Idiomas' },
+        subTitle: { type: Types.Text, initial: true, required: true, label: 'Sub-título' },
+        text: { type: Types.Html, wysiwyg: true, label: 'Texto' },
     },
 
     'Localização',
@@ -21,6 +21,6 @@ HomeArticle.add(
     }
 );
 
-HomeArticle.defaultColumns = 'title, text, url, language';
+HomeTour.defaultColumns = 'title, subTitle, text, language';
 
-HomeArticle.register();
+HomeTour.register();

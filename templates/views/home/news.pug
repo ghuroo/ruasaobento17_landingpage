@@ -2,15 +2,15 @@
     a(name="noticias")
     
     .grid-container
-        .title.type3.grid-100.mobile-grid-100
+        .title.type3.grid-100.mobile-grid-100.fadein
             span.ornament.black Notícias sobre o nosso apartamento
 
         .grid-100.mobile-grid-100
-            each val in [1, 2, 3]
+            each item in articles
                 article.grid-33.mobile-grid-100
-                    .title Titulo da Matéria
-                    .body “O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto...”
-                    .grid-100.mobile-grid-100.side-by-side
+                    .title.fadein= item.title
+                    .body.fadein= item.text
+                    .grid-100.mobile-grid-100.side-by-side.fadein
                         .text-ornament.child: .object
                         .read-more.right.brown.child ler mais
 

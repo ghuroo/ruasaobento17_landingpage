@@ -1,11 +1,11 @@
 var keystone = require('keystone'),
     Types = keystone.Field.Types;
 
-var HomeHighlights = new keystone.List('HomeHighlights', {
-    label: 'Destaque', singular: "Destaque", plural: "Destaques"
+var HomeHighlight = new keystone.List('HomeHighlight', {
+    label: 'O apartamento', singular: "O apartamento", plural: "O apartamentos"
 });
 
-HomeHighlights.add(
+HomeHighlight.add(
     {
         name: { type: Types.Text, initial: true, required: true, label: 'Nome' },
     },
@@ -29,6 +29,6 @@ HomeHighlights.add(
     }
 );
 
-HomeHighlights.defaultColumns = 'name, experience.title, apartment.title, language';
+HomeHighlight.defaultColumns = 'name, experience.title, apartment.title, language';
 
-HomeHighlights.register();
+HomeHighlight.register();

@@ -1,9 +1,10 @@
 var keystone = require('keystone'),
     importRoutes = keystone.importer(__dirname),
     i18n = require("i18n"), // i18n support
-    passport = require('passport'), // passport support
+    passport = require('passport'); // passport support
+    
+var flashMessages = require('./middlewares/flashMessages.js'), // flash messages
     // errors = require('./middlewares/errors.js'), // error handling
-    flashMessages = require('./middlewares/flashMessages.js'), // flash messages
     dev = require('./middlewares/dev.js'), // setup dev variables
     page = require('./middlewares/page.js'), // setup dev variables
     menu = require('./middlewares/menu.js'); // setup menu object
