@@ -5,8 +5,8 @@ var Promise = require('bluebird'),
     Language = keystone.list('Language'),
     Page = keystone.list('Page');
 
-function findPage(url) {
-    var page, locale = i18n.getLocale();
+function findPage(url, locale) {
+    var page;
 
     var query = Page.model.find()
     .where('url', url)
@@ -86,12 +86,21 @@ exports = module.exports = function(req, res, next) {
     var locals = res.locals;
 
     // change locale if requested, if not, continue with previous
-    var locale = req.query.locale ? i18n.setLocale(req.query.locale) : i18n.getLocale();
+    var locale;
+    if (req.query.locale) {
+        locale = req.query.locale;
+        res.setLocale(locale);
+        req.setLocale(locale);
+        res.cookie('locale', req.query.locale, { maxAge: 900000, httpOnly: true });
+        locale = req.query.locale;
+    } else {
+        locale = res.getLocale();
+    }
     
     var page, language, variations;
     
     // find page with url
-    return findPage(req.route.path || req.path || req.originalUrl)
+    return findPage(req.route.path || req.path || req.originalUrl, locale)
     .then((result) => {
         page = result.page;
         language = result.language;
@@ -101,7 +110,7 @@ exports = module.exports = function(req, res, next) {
         variations = result;
 
         req.page = page;
-        req.language = language;
+        req.languageObject = language;
         req.navigation = { variations: variations };
 
         return next();

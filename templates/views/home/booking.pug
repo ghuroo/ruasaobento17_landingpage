@@ -3,26 +3,26 @@
 
     .grid-container
         
-        .grid-60.mobile-grid-100
-            .title.type1.grid-100.mobile-grid-100.fadein
+        .grid-50.mobile-grid-100
+            .title.type1.grid-100.mobile-grid-100
                 span.ornament.gold #{ __('book_it') }
-            .body.type1.grid-100.mobile-grid-100.fadein
-                |Venha viver uma Lisboa diferente.
-                br
-                | A gente espera por você.
-            .grid-100.mobile-grid-100.fadein
+            //- .body.type1.grid-100.mobile-grid-100
+            //-     |Venha viver uma Lisboa diferente.
+            //-     br
+            //-     | A gente espera por você.
+            .grid-100.mobile-grid-100
                 .buttons.grid-100.mobile-grid-70
                     a(href="#" target="_blank").airbnb.mobile-grid-100 Airbnb
-                    a(href="#" target="_blank").uniplaces.mobile-grid-100 Stay With Us
+                    a(href="#" target="_blank").uniplaces.mobile-grid-100= __('stay_with_us')
             
-            .contacts.grid-100.mobile-grid-100.fadein
-                .body.grid-100.mobile-grid-100 Para mais informações
+            .contacts.grid-100.mobile-grid-100
+                .body.grid-100.mobile-grid-100= __('more_information')
                 each item in contacts
                     .element.grid-100.mobile-grid-100
-                        a.phone(href="tel:+351968733859") #{ item.name }: #{ item.phone }
+                        a.phone(href="tel:+351968733859") #{ item.name } #{ item.phone }
                         a.mail(href="mailto:"+item.email)= item.email
 
-        .logo.grid-40.mobile-grid-100.fadein
+        .logo.grid-50.mobile-grid-100
             img(src="/images/logo2.svg")
 
     .bar.grid-100.mobile-grid-100

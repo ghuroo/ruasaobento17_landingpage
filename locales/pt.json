@@ -1,10 +1,21 @@
 {
-    "hello": "olá",
-
-    "view_pictures": "Ver fotos",
-    "book_it": "Faça a sua reserva",
-    "experience_lisbon": "Venha viver uma Lisboa diferente.",
-    "we_wait_for_you": "A gente espera por você.",
-    "stay_with_us": "Stay With Us",
-    "more_information": "Para mais informações"
+	"view_pictures": "Ver fotos",
+	"book_it": "Faça a sua reserva",
+	"stay_with_us": "Stay With Us",
+	"more_information": "Para mais informações",
+	"stay_width_us": "Fique connosco",
+	"meet_the_house": "Conheça a Casa Fernando Pessoa",
+	"view_webiste": "Ver website",
+	"read_more": "ler mais",
+	"scripts_title": "Alguns manuscritos originais de Fernando Pessoa no período em que viveu na Rua de São bento, 17",
+	"scripts_footnote": "*Todos os manuscritos encontrados aqui são reproduções de material encontrado na internet da cópia pública do espólio de Fernando Pessoa albergado na Biblioteca Nacional de Portugal.",
+	"news_title": "Notícias sobre o nosso apartamento",
+	"booking": "Reservas",
+	"tours_more_info": "Mais sobre o passeio",
+	"tours_note": "* importante fazer as marcações com antecedência",
+	"close": "Fechar",
+	"the_apartment": "O apartamento",
+	"location": "Localização",
+	"tours": "Roteiros",
+	"book": "Reservar"
 }

@@ -1,7 +1,9 @@
 $brown: #c4a674;
 
+$height: 525px;
+
 .location {
-    height: 525px;
+    height: $height;
     margin-top: 100px;
 
     > div {
@@ -9,10 +11,38 @@ $brown: #c4a674;
     }
 
     .information {
-        padding: 0px 70px;
+        padding: 50px 70px;
         position: relative;
         height: 100%;
         background: #343434;
+        
+        display: table-cell;
+        float: none;
+    }
+
+    .image {
+        display: table-cell;
+        float: none;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        // overflow: hidden;
+        // height: 100%;
+
+        // img {
+        //     width: auto;
+        //     max-width: 100%;
+        //     height: 100%;
+
+        //     position: absolute;
+        //     top: 0px;
+        //     left: 0px;
+        //     min-width: 100%;
+        //     min-height: 100%;
+        //     height: auto;
+        //     display: block;
+        //     max-width: none;
+        // }
     }
 
     .title {
@@ -39,19 +69,10 @@ $brown: #c4a674;
         }
     }
 
-    .image {
-        height: 100%;
-
-        img {
-            width: auto;
-            max-width: 100%;
-            height: 100%;
-        }
-    }
-
     @include breakpoint(mobile) {
         height: auto;
         // height: 370px;
+        margin-top: 50px;
 
         .information {
             padding-left: 20px;
@@ -68,7 +89,7 @@ $brown: #c4a674;
     }
     
     @include breakpoint(tablet) {
-        // height: auto;
-        height: 400px;
+        height: auto;
+        // height: 400px;
     }
 }

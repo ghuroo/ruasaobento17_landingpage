@@ -28,6 +28,7 @@ a, button {
 			color: #343434;
 			border-left: 0px;
     		border-right: 0px;
+            box-sizing: border-box;
 
 			&:before {
 				font-family: 'icomoon';
@@ -159,3 +160,17 @@ a, button {
 		}
 	}
 }
+
+// must target iOS Safari + Firefox
+
+// @media not all and (min-resolution:.001dpcm)
+// { @supports (-webkit-appearance:none) {
+
+//     a.button.type2:before,
+//     button.button.type2:before,
+//     a.button.type2:after,
+//     button.button.type2:after
+//     {
+//         top: 0px;
+//     }
+// }}

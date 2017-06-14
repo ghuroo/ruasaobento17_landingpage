@@ -8,7 +8,7 @@ exports = module.exports = function(req, res, next) {
     locals.user = req.user;
 
     locals.page = req.page;
-    locals.language = req.language;
+    locals.language = req.languageObject;
     locals.navigation = req.navigation;
 
     next();

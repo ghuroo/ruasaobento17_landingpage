@@ -11,6 +11,7 @@ var languages = [
     { value: 'pt', label: 'Português' },
     { value: 'en', label: 'English' },
     { value: 'fr', label: 'Français' },
+    { value: 'it', label: 'Italiano' },
 ];
 
 var locales = _.map(languages, (language) => { return language.value; });
@@ -21,9 +22,11 @@ i18n.configure({
     directory: __dirname + '/locales',
     defaultLocale: 'pt',
     autoReload: true,
-    syncFiles: false,
+    // syncFiles: false,
     objectNotation: true,
-    updateFiles: false
+    // updateFiles: false
+    updateFiles: true,
+    cookie: 'locale'
 });
 
 keystone.init({

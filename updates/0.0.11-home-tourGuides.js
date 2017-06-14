@@ -15,6 +15,7 @@ var items = [
     {
         name: 'Antonio Cardiello',
         text: '<p>Doutor em filosofia pela Faculdade de Letras da Universidade de Lisboa. É membro do Centro de Filosofia (CFUL) do mesmo instituto e membro do Nietzsche International Lab (NIL) do Instituto de Filosofia da Universidade Nova de Lisboa (IFILNOVA). Co-director do projecto da Biblioteca de Fernando Pessoa (on-line desde 2010), editou  Uma Stirpe incognita  (EDB Edizioni, 2016) e  co-editou  A Biblioteca particular de Fernando Pessoa  (D. Quixote, 2010) e  Nietzsche e Pessoa. Ensaios  (Tinta-da-china, 2016). Comissário de exposições internacionais sobre Fernando Pessoa, interessa-se pelo pensamento português contemporâneo e pela aproximação entre tradições filosóficas ocidentais e orientais.</p>',
+        footnote: 'No ato da reserva, é necessário indicar que se trata do passeio "Rua de São Bento 17"',
 
         idioms: 'pt',
 

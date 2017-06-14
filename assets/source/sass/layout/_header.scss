@@ -325,7 +325,7 @@ $height: 115px;
         }
 
         .burger-menu {
-            display: block;
+            display: block !important;
         }
 
         .circle.top,
@@ -396,11 +396,17 @@ $height: 115px;
         ul li.logo a {
             left: -5px;
         }
+
+        button.button {
+            line-height: 30px;
+            padding: 0px 10px;
+            font-size: 1.2em;
+        }
     }
 
     @include breakpoint(tablet) {
         .burger-menu {
-            display: block;
+            display: block !important;
         }
     }
 

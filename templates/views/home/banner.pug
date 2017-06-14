@@ -1,10 +1,10 @@
 if banners && banners.length > 0
-    .waypoint.banner.grid-100.mobile-grid-100(data-index="0")
+    .waypoint.banner.grid-100.mobile-grid-100(data-index="0" style="background-image: url('"+banners[0].images[0].url+"')")
         a(name="home")
         
-        img.image(src=banners[0].images[0].url)
+        //- img.image(src=banners[0].images[0].url)
 
-        .text-holder.grid-100.mobile-grid-100.fadein
+        .text-holder.grid-100.mobile-grid-100
             h3= banners[0].title
                 //- | Em Lisboa fique
                 //- br.hide-on-desktop
@@ -12,7 +12,7 @@ if banners && banners.length > 0
 
             h1= banners[0].subTitle
 
-        .button-holder.fadein
+        .button-holder
             button.button.transparent #{ __('view_pictures') }
 
         include ./slider

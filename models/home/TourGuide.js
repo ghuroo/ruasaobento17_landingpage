@@ -10,7 +10,29 @@ HomeTourGuide.add(
     {
         name: { type: Types.Text, initial: true, required: true, label: 'Nome' },
         text: { type: Types.Html, wysiwyg: true, label: 'Texto' },
+        footnote: { type: Types.Text, initial: true, label: 'Nota' },
         idioms: { type: Types.Relationship, ref: 'Language', many: true, label: 'Idiomas' },
+        logo: { type: Types.CloudinaryImage, initial: true, label: 'Logo' }
+    },
+    
+    'Contacto 1',
+    {
+        contact1: {
+            active: { type: Types.Boolean, label: 'Mostrar?' },
+            name: { type: Types.Text, label: 'Nome' },
+            phone: { type: Types.Text, label: 'Telemóvel' },
+            email: { type: Types.Email, label: 'E-mail' },
+        },
+    },
+
+    'Contacto 2',
+    {
+        contact2: {
+            active: { type: Types.Boolean, label: 'Mostrar?' },
+            name: { type: Types.Text, label: 'Nome' },
+            phone: { type: Types.Text, label: 'Telemóvel' },
+            email: { type: Types.Email, label: 'E-mail' },
+        },
     },
 
     'Localização',

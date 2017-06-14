@@ -1,3 +1,5 @@
+//- p current page
+//- br
 //- p= page.name
 //- p= page.slug
 //- p= page.url
@@ -5,9 +7,13 @@
 //- p= page.child
 //- br
 //- br
+//- p current language
+//- br
 //- p= language.name
 //- p= language.iso
 //- br
+//- br
+//- p navigation
 //- br
 //- if navigation
 //-     if navigation.variations
@@ -34,14 +40,14 @@
     .grid-container
         ul.mobile-grid-100
             li.hide-on-desktop.burger-menu: span
-            li.hide-on-mobile: a(href="#o-apartamento" data-index="1") O apartamento
-            li.hide-on-mobile: a(href="#localizacao" data-index="3") Localização
+            li.hide-on-mobile: a(href="#o-apartamento" data-index="1")= __('the_apartment')
+            li.hide-on-mobile: a(href="#localizacao" data-index="3")= __('location')
             li.logo
                 .circle.bottom
                 a(href="#home" data-index="0"): i.icon-logo
             li.hide-on-mobile: a(href="#fernando-pessoa" data-index="4") Fernando Pessoa
-            li.hide-on-mobile: a(href="#roteiros" data-index="5") Roteiros
-            li.button
+            li.hide-on-mobile: a(href="#roteiros" data-index="5")= __('tours')
+            li.button.locale
                 .va-parent
                     .va-child
                         .content
@@ -52,19 +58,18 @@
                                             a(href=item.url class=item.language.iso == language.iso ? 'active' : '')= item.language.iso
 
                             .bottom
-                                button(href="#reservar" data-index="8").button.type1.green Reservar
+                                a(href="#reservar" data-index="8").button.type1.green= __('book')
 
     .grid-100.mobile-grid-100.mobile
         ul.grid-100.mobile-grid-100
-            li: a(href="#o-apartamento" data-index="1") O apartamento
-            li: a(href="#localizacao" data-index="3") Localização
+            li: a(href="#o-apartamento" data-index="1")= __('the_apartment')
+            li: a(href="#localizacao" data-index="3")= __('location')
             li: a(href="#fernando-pessoa" data-index="4") Fernando Pessoa
-            li: a(href="#roteiros" data-index="5") Roteiros
-            li
+            li: a(href="#roteiros" data-index="5")= __('tours')
+            li.locale
                 .locale
                     if navigation && navigation.variations
                         each item in navigation.variations
                             a(href=item.url class=item.language.iso == language.iso ? 'active' : '')= item.language.iso
             li.no-border
-                .read-more.up Fechar
-            
+                .read-more.up= __('close')

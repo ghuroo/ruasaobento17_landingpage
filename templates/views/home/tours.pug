@@ -1,43 +1,48 @@
-.waypoint.grid-100.mobile-grid-100(data-index="5")
-    a(name="roteiros")
+if tour && tourGuides
 
-    .slogan.grid-100.mobile-grid-100
+    .waypoint.grid-100.mobile-grid-100(data-index="5")
+        a(name="roteiros")
 
-        .grid-container
-            span.title.type1.grid-100.mobile-grid-100.fadein: span.ornament.gold= tour.title
-            span.title.type2.grid-100.mobile-grid-100.fadein= tour.subTitle
-            span.body.type1.grid-100.mobile-grid-100.fadein!= tour.text
+        .slogan.grid-100.mobile-grid-100
 
-    .tours.grid-100.mobile-grid-100
-        .grid-container
+            .grid-container
+                span.title.type1.grid-100.mobile-grid-100: span.ornament.gold= tour.title
+                span.title.type2.grid-100.mobile-grid-100= tour.subTitle
+                span.body.type1.grid-100.mobile-grid-100!= tour.text
 
-            .note.grid-100.mobile-grid-100.fadein * importante fazer as marcações com antecedência
+        .tours.grid-100.mobile-grid-100
+            .grid-container
 
-            .box.grid-100.hide-on-mobile
-                each item in tourGuides
-                    .item.grid-50.mobile-grid-100.fadein
-                        .wrapper.mobile-grid-85
-                            .title.grid-100.mobile-grid-100= item.name
-                            .body.quote.grid-100.mobile-grid-100!= item.text
-                            .read-more.down.gold.grid-100.mobile-grid-100 Ler mais
-                            .flags.grid-100.mobile-grid-100
-                                each item2 in item.idioms
-                                    case item2.iso
-                                        when 'en'
-                                            .flag: img(src="/images/flag-uk.png")
-                                        when 'pt'
-                                            .flag: img(src="/images/flag-pt.png")
-                                        when 'fr'
-                                            .flag: img(src="/images/flag-fr.png")
-                            .contacts.grid-100.mobile-grid-100
-                                .body.grid-100.mobile-grid-100 Reservas
-                                each item3 in contacts
-                                    .element.grid-100.mobile-grid-100
-                                        a.phone(href="tel:+351968733859") #{ item3.name }: #{ item3.phone }
-                                        a.mail(href="mailto:"+item3.email)= item3.email
-            
-        .mobile-grid-100.hide-on-desktop
-            include ./slider
-    
-    script.
-        window.tourGuides = !{ JSON.stringify(tourGuides) || '' };
+                .note.grid-100.mobile-grid-100= __('tours_note')
+
+                .box.grid-100.mobile-grid-100
+                    each item in tourGuides
+                        .item.grid-50.mobile-grid-100
+                            .wrapper.mobile-grid-85
+                                .title.grid-100.mobile-grid-100= item.name
+                                .body.quote.grid-100.mobile-grid-100!= item.text
+                                .read-more.down.gold.grid-100.mobile-grid-100= __('tours_more_info')
+                                .flags.grid-100.mobile-grid-100
+                                    each item2 in item.idioms
+                                        .flag: img(src="/images/flag-"+item2.iso+".png")
+
+                                .contacts.grid-100.mobile-grid-100
+                                    .body.grid-100.mobile-grid-100= __('booking')
+                                    each item3 in [item.contact1, item.contact2]
+                                        if item3
+                                            .element.grid-100.mobile-grid-100
+                                                a.phone(href="tel:"+item3.phone) #{ item3.name } #{ item3.phone }
+                                                a.mail(href="mailto:"+item3.email)= item3.email
+
+                                if item.logo
+                                    .logo.grid-100.mobile-grid-100
+                                        img(src=item.logo.url)
+
+                                .footnote
+                                    .body.grid-100.mobile-grid-100= item.footnote
+                
+            .mobile-grid-100.hide-on-desktop
+                include ./slider
+        
+        //- script.
+        //-     window.tourGuides = !{ JSON.stringify(tourGuides) || '' };

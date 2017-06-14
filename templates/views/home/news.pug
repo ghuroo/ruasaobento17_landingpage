@@ -1,17 +1,18 @@
-.waypoint.news.grid-100.mobile-grid-100(data-index="7")
-    a(name="noticias")
-    
-    .grid-container
-        .title.type3.grid-100.mobile-grid-100.fadein
-            span.ornament.black Notícias sobre o nosso apartamento
+if articles.length > 0
+    .waypoint.news.grid-100.mobile-grid-100(data-index="7")
+        a(name="noticias")
+        
+        .grid-container
+            .title.type3.grid-100.mobile-grid-100
+                span.ornament.black= __('news_title')
 
-        .grid-100.mobile-grid-100
-            each item in articles
-                article.grid-33.mobile-grid-100
-                    .title.fadein= item.title
-                    .body.fadein= item.text
-                    .grid-100.mobile-grid-100.side-by-side.fadein
-                        .text-ornament.child: .object
-                        .read-more.right.brown.child ler mais
+            .grid-100.mobile-grid-100
+                each item in articles
+                    article.grid-33.mobile-grid-100
+                        .title= item.title
+                        .body= item.text
+                        .grid-100.mobile-grid-100.side-by-side
+                            .text-ornament.child: .object
+                            .read-more.right.brown.child= __('read_more')
 
-.separator
+    .separator

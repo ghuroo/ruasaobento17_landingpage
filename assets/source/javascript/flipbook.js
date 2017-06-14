@@ -9,7 +9,7 @@ var turn = {
         var pages = [];
         for (var index = 0; index < book.pages.length; index++) {
             if (index === 0 || index === book.pages.length) pages.push('<div class="hard"><img src="'+book.pages[index].url+'" /></div>');
-            pages.push('<img src="'+book.pages[index].url+'" />');
+            else pages.push('<img src="'+book.pages[index].url+'" />');
         }
 
         $(this.el).append(front);
@@ -121,4 +121,8 @@ function destroyFlipbook() {
 
 $('#flipbook .close').on('click', function() {
     destroyFlipbook();
+});
+
+$(window).on('orientationchange', function() {
+    $('#flipbook .close').click();
 });

@@ -15,19 +15,21 @@ exports = module.exports = function(req, res, next) {
     var view = new keystone.View(req, res);
     var locals = res.locals;
 
+    var languageId = req.languageObject._id;
+
     var query;
 
     query = Banner.model.find()
-    .where('language', req.language._id)
+    .where('language', languageId)
     .sort('dateStart')
     .exec();
 
     query
     .then((result) => {
-        locals.banners  = _.filter(result, function(object){ return object.isActive; });
+        locals.banners  = _.filter(result, function(object){ return object.isActive; }).reverse();
 
         query = Highlight.model.findOne()
-        .where('language', req.language._id)
+        .where('language', languageId)
         .lean()
         .exec();
 
@@ -36,7 +38,7 @@ exports = module.exports = function(req, res, next) {
         locals.highlights = result;
 
         query = Location.model.findOne()
-        .where('language', req.language._id)
+        .where('language', languageId)
         .lean()
         .exec();
 
@@ -45,7 +47,7 @@ exports = module.exports = function(req, res, next) {
         locals.location = result;
 
         query = About.model.findOne()
-        .where('language', req.language._id)
+        .where('language', languageId)
         .lean()
         .exec();
 
@@ -54,7 +56,7 @@ exports = module.exports = function(req, res, next) {
         locals.about = result;
 
         query = Manuscript.model.find()
-        .where('language', req.language._id)
+        .where('language', languageId)
         .lean()
         .exec();
 
@@ -63,7 +65,7 @@ exports = module.exports = function(req, res, next) {
         locals.manuscripts = result;
 
         query = Tour.model.findOne()
-        .where('language', req.language._id)
+        .where('language', languageId)
         .lean()
         .exec();
 
@@ -72,7 +74,7 @@ exports = module.exports = function(req, res, next) {
         locals.tour = result;
 
         query = TourGuide.model.find()
-        .where('language', req.language._id)
+        .where('language', languageId)
         .populate('idioms')
         .lean()
         .exec();
@@ -82,7 +84,7 @@ exports = module.exports = function(req, res, next) {
         locals.tourGuides = result;
 
         query = Article.model.find()
-        .where('language', req.language._id)
+        .where('language', languageId)
         .lean()
         .exec();
 
@@ -91,7 +93,7 @@ exports = module.exports = function(req, res, next) {
         locals.articles = result;
 
         query = Contact.model.find()
-        .where('language', req.language._id)
+        .where('language', languageId)
         .lean()
         .exec();
 

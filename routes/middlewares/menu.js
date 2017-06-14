@@ -4,10 +4,9 @@ var Promise = require('bluebird'),
     Language = keystone.list('Language'),
     Page = keystone.list('Page');
 
-function buildMenu(joint) {
+function buildMenu(joint, locale) {
 
-    var locale = i18n.getLocale(),
-        language,
+    var language,
         pages = [],
         newPages = {};
 
@@ -52,13 +51,13 @@ exports = module.exports = function(req, res, next) {
 
     var locals = res.locals;
 
-    var menu;
+    var menu, locale = res.getLocale();
 
-    return buildMenu('_')
+    return buildMenu('_', locale)
     .then((result) => {
         menu = result.menu;
 
-        req.language = result.language;
+        req.languageObject = result.language;
 
         if (req.navigation) req.navigation.menu = menu;
         else req.navigation = { menu: menu };

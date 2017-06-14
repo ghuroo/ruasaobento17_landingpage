@@ -10,7 +10,7 @@ mixin researchers(researchers)
                     span.mark.second ”
                 .grid-100.mobile-grid-100.side-by-side
                     .text-ornament.child: .object
-                    .read-more.down.brown.child ler mais
+                    .read-more.down.brown.child= __('read_more')
 
 mixin articles(articles)
     each item in articles
@@ -18,55 +18,84 @@ mixin articles(articles)
             a(href=item.file target="_blank")= item.name
 
 
-.apartment.grid-100.mobile-grid-100
+if about
+    .apartment.grid-100.mobile-grid-100
 
-    .background2
-    
-    .waypoint.grid-container(data-index="4")
-        a(name="fernando-pessoa")
+        .background2
+        
+        .waypoint.grid-container(data-index="4")
+            a(name="fernando-pessoa")
 
-        .wrapper.grid-100.mobile-grid-100
+            .wrapper.grid-100.mobile-grid-100
 
-            .picture.mobile-grid-100.hide-on-desktop.fadein
-                img(src=about.images[0].url)
+                .picture.mobile-grid-100.hide-on-desktop.one
+                    if about.images.length > 0
+                        //- img(src=about.images[0].url)
+                        //- include ./slider
+                        // Slider main container
+                        .swiper-container
+                            // Additional required wrapper
+                            .swiper-wrapper
+                                // Slides
+                                each item in about.images
+                                    .swiper-slide
+                                        img(src=item.url)
 
-            .copy.grid-60.mobile-grid-100.fadein
-                .title.type3.grid-100.mobile-grid-100
-                    span.ornament.black= about.name
-                        //- | Fernado Pessoa
-                        //- br
-                        //- | e este apartamento
-                .body.type1.grid-100.mobile-grid-100!= about.text
+                            // If we need pagination
+                            .swiper-pagination
+                            
+                            .swiper-button-prev
+                            .swiper-button-next
 
-            .picture.grid-40.hide-on-mobile.fadein
-                img(src=about.images[0].url)
+                .copy.grid-50.mobile-grid-100
+                    .title.type3.grid-100.mobile-grid-100
+                        span.ornament.black= about.name
+                        
+                    .body.type1.grid-100.mobile-grid-100!= about.text
 
-            .box.grid-100.mobile-grid-100.fadein
-                +researchers([about.researcher1, about.researcher2])
+                .picture.grid-50.hide-on-mobile.two
+                    if about.images.length > 0
+                        //- img(src=about.images[0].url)
+                        //- include ./slider
+                        // Slider main container
+                        .swiper-container
+                            // Additional required wrapper
+                            .swiper-wrapper
+                                // Slides
+                                each item in about.images
+                                    .swiper-slide
+                                        img(src=item.url)
 
-            .anchors.grid-100.mobile-grid-100.fadein
-                ul
-                    +articles([ about.article1, about.article2 ])
+                            // If we need pagination
+                            .swiper-pagination
+                            
+                            .swiper-button-prev
+                            .swiper-button-next
 
-    .waypoint.grid-container(data-index="9")
-        a(name="manuscritos")
+                .box.grid-100.mobile-grid-100
+                    +researchers([about.researcher1, about.researcher2])
 
-        .content-script.grid-100.mobile-grid-100
-            img.background(src="/images/scripts-background.png").hide-on-mobile
+                .anchors.grid-100.mobile-grid-100
+                    ul
+                        +articles([ about.article1, about.article2 ])
 
-            include ./flipbook
+        .waypoint.grid-container(data-index="9")
+            a(name="manuscritos")
 
-            .grid-50.mobile-grid-100.prefix-50.mobile-center
-                .title.type1.grid-100.mobile-grid-100.fadein: span.ornament.black Alguns manuscritos originais de Fernando Pessoa no período em que viveu na Rua de São bento, 17
-                .buttons.grid-100.mobile-grid-100
-                    each item in manuscripts
-                        button.button.type2(data-flipbook-target=item.name).fadein=item.name
-                    //- button.button.type2(data-flipbook-target="Diário Pessoal") Diário pessoal
-                    //- button.button.type2(data-flipbook-target="Diários de Leitura") Diário de Leitura
-                    //- button.button.type2(data-flipbook-target="Textos & Anotações") Alguns textos & anotações
-                .footnote.grid-100.mobile-grid-100
-                    span.
-                        *Todos os manuscritos encontrados aqui são reproduções de material encontrado na internet
-                        da cópia pública do espólio de Fernando Pessoa albergado na Biblioteca Nacional de Portugal.  
-    
-.separator
+            .content-script.grid-100.mobile-grid-100
+                img.background(src="/images/scripts-background.png").hide-on-mobile
+
+                include ./flipbook
+
+                .content.grid-50.mobile-grid-100.prefix-50.mobile-center
+                    .title.type1.grid-100.mobile-grid-100: span.ornament.black= __('scripts_title')
+                    .buttons.grid-100.mobile-grid-100
+                        each item in manuscripts
+                            button.button.type2(data-flipbook-target=item.name)=item.name
+                        //- button.button.type2(data-flipbook-target="Diário Pessoal") Diário pessoal
+                        //- button.button.type2(data-flipbook-target="Diários de Leitura") Diário de Leitura
+                        //- button.button.type2(data-flipbook-target="Textos & Anotações") Alguns textos & anotações
+                    .footnote.grid-100.mobile-grid-100
+                        span= __('scripts_footnote')
+        
+    .separator

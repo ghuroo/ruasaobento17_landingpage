@@ -5,7 +5,7 @@ var keystone = require('keystone'),
 
 var items = [
     {
-        name: 'Fernado Pessoa e este apartamento',
+        name: 'Fernando Pessoa e este apartamento',
         text: '<p>O período em que Fernando Pessoa morou neste apartamento (1905 – 1906 ) é extremamente importante na vida dele, pois marca o seu reencontro com Portugal depois de 9 anos vivendo em Durban - Africa do Sul, com a sua mãe, irmãos e o padrasto que havia sido transferido. Em 1905, Pessoa regressa sozinho á Lisboa a bordo do navio Herzog para frequentar o Curso Superior de Letras, indo morar com a irmã da sua mãe, a tia Anica, na Rua de São Bento nº 17, 2º andar esquerdo – exatamente neste mesmo apartamento que temos o prazer de lhe receber.</p>',
 
         images: [
