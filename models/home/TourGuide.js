@@ -12,7 +12,8 @@ HomeTourGuide.add(
         text: { type: Types.Html, wysiwyg: true, label: 'Texto' },
         footnote: { type: Types.Text, initial: true, label: 'Nota' },
         idioms: { type: Types.Relationship, ref: 'Language', many: true, label: 'Idiomas' },
-        logo: { type: Types.CloudinaryImage, initial: true, label: 'Logo' }
+        logo: { type: Types.CloudinaryImage, initial: true, label: 'Logo' },
+        readMore: { type: Types.Text, initial: true, label: 'Ler mais' },
     },
     
     'Contacto 1',

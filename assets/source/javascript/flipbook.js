@@ -82,7 +82,7 @@ var turn = {
         $(turn.el).css('opacity', 1);
 
         setTimeout(function() {
-            $(me.el).turn('page', pageIndex || 0);
+            $(me.el).turn('page', pageIndex || 1);
         }, 600);
     }
 };
