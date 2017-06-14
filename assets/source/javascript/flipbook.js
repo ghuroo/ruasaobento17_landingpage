@@ -37,7 +37,9 @@ var turn = {
             // on window resize, update the plugin size
             window.addEventListener('resize', function (e) {
                 var size = me.resize();
-                $(me.el).turn('size', size.width, size.height);
+                setTimeout(function() {
+                    $(me.el).turn('size', size.width, size.height);
+                }, 1);
             });
         }
     },
@@ -123,6 +125,6 @@ $('#flipbook .close').on('click', function() {
     destroyFlipbook();
 });
 
-$(window).on('orientationchange', function() {
-    $('#flipbook .close').click();
-});
+// $(window).on('orientationchange', function() {
+//     $('#flipbook .close').click();
+// });

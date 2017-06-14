@@ -1,3 +1,5 @@
+$(document).ready(function () {
+
 // banner swiper
 var bannerSwiper;
 function addBannerSlider(banner, activeIndex) {
@@ -27,49 +29,15 @@ function addBannerSlider(banner, activeIndex) {
     if (activeIndex) bannerSwiper.slideTo(activeIndex);
 }
 
-$(window).on('orientationchange', function() {
-    if (bannerSwiper) {
-        bannerSwiper.destroy(true, true);
-        addBannerSlider(window.banners[0], bannerSwiper.activeIndex);
-    }
-});
+function destroyBannerSwiper() {
+    bannerSwiper.destroy(true, true);
+    bannerSwiper = undefined;
 
-$('.banner .button').on('click', function() { addBannerSlider(window.banners[0]); });
-$('.banner .close').on('click', function() { bannerSwiper.destroy(true, true); });
-
-// // tours swiper
-// var tourSwiper;
-// function addTourSwiper(tourGuides) {
-//     $('.tours .swiper-container').addClass('visible');
-
-//     tourSwiper = new Swiper('.tours .swiper-container', {
-//         pagination: '.tours .swiper-pagination',
-//         paginationClickable: true,
-//         // autoHeight: true,
-//         // slidesPerView: 'auto',
-//         // spaceBetween: 0,
-//         centeredSlides: true,
-//         nextButton: '.tours .swiper-button-next',
-//         prevButton: '.tours .swiper-button-prev',
-//         onDestroy: function() {
-//             $('.tours .swiper-container').removeClass('visible');
-//         },
-//     });
-
-//     tourSwiper.removeAllSlides();
-
-//     for (var i=0; i<tourGuides.length; i++) {
-//         tourSwiper.appendSlide([
-//             '<div class="swiper-slide box"><div class="item">'+$('.tours .item').eq(i).html()+'</div></div>',
-//         ]);
-//     }
-// }
-
-// addTourSwiper(window.tourGuides);
+    return;
+}
 
 // about swiper
 var aboutSwiper1;
-$('.apartment .picture.one .swiper-container').addClass('visible');
 
 aboutSwiper1 = new Swiper('.apartment .picture.one .swiper-container', {
     pagination: '.apartment .picture.one .swiper-pagination',
@@ -85,8 +53,7 @@ aboutSwiper1 = new Swiper('.apartment .picture.one .swiper-container', {
 
 // about swiper
 var aboutSwiper2;
-$('.apartment .picture.two .swiper-container').addClass('visible');
-
+    
 aboutSwiper2 = new Swiper('.apartment .picture.two .swiper-container', {
     pagination: '.apartment .picture.two .swiper-pagination',
     paginationClickable: true,
@@ -97,4 +64,32 @@ aboutSwiper2 = new Swiper('.apartment .picture.two .swiper-container', {
     onDestroy: function() {
         $('.apartment .picture.two .swiper-container').removeClass('visible');
     },
+});
+
+window.resizing = false;
+function resizeBannerSwiper() {
+    if (!bannerSwiper && window.resizing) return false;
+
+    window.resizing = true;
+
+    var index = bannerSwiper.activeIndex;
+
+    setTimeout(function() {    
+        destroyBannerSwiper();
+        addBannerSlider(window.banners[0], index);
+
+        window.resizing = false;
+        return true;
+    }, 1);
+}
+
+$('.apartment .picture.one .swiper-container').addClass('visible');
+$('.apartment .picture.two .swiper-container').addClass('visible');
+
+$(window).on('orientationchange', function() { resizeBannerSwiper(); });
+$(window).on('resize', function() { resizeBannerSwiper(); });
+
+$('.banner .button').on('click', function() { addBannerSlider(window.banners[0]); });
+$('.banner .close').on('click', function() { destroyBannerSwiper(); });
+
 });
