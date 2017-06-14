@@ -1,5 +1,3 @@
-$(document).ready(function () {
-
 // banner swiper
 var bannerSwiper;
 function addBannerSlider(banner, activeIndex) {
@@ -38,6 +36,7 @@ function destroyBannerSwiper() {
 
 // about swiper
 var aboutSwiper1;
+$('.apartment .picture.one .swiper-container').addClass('visible');
 
 aboutSwiper1 = new Swiper('.apartment .picture.one .swiper-container', {
     pagination: '.apartment .picture.one .swiper-pagination',
@@ -53,7 +52,8 @@ aboutSwiper1 = new Swiper('.apartment .picture.one .swiper-container', {
 
 // about swiper
 var aboutSwiper2;
-    
+$('.apartment .picture.two .swiper-container').addClass('visible');
+
 aboutSwiper2 = new Swiper('.apartment .picture.two .swiper-container', {
     pagination: '.apartment .picture.two .swiper-pagination',
     paginationClickable: true,
@@ -68,7 +68,7 @@ aboutSwiper2 = new Swiper('.apartment .picture.two .swiper-container', {
 
 window.resizing = false;
 function resizeBannerSwiper() {
-    if (!bannerSwiper && window.resizing) return false;
+    if (!bannerSwiper || window.resizing) return false;
 
     window.resizing = true;
 
@@ -83,13 +83,15 @@ function resizeBannerSwiper() {
     }, 1);
 }
 
-$('.apartment .picture.one .swiper-container').addClass('visible');
-$('.apartment .picture.two .swiper-container').addClass('visible');
+$(document).ready(function () {
 
-$(window).on('orientationchange', function() { resizeBannerSwiper(); });
-$(window).on('resize', function() { resizeBannerSwiper(); });
+    $('.apartment .picture.one .swiper-container').addClass('visible');
+    $('.apartment .picture.two .swiper-container').addClass('visible');
 
-$('.banner .button').on('click', function() { addBannerSlider(window.banners[0]); });
-$('.banner .close').on('click', function() { destroyBannerSwiper(); });
+    $(window).on('orientationchange', function() { resizeBannerSwiper(); });
+    $(window).on('resize', function() { resizeBannerSwiper(); });
+
+    $('.banner .button').on('click', function() { addBannerSlider(window.banners[0]); });
+    $('.banner .close').on('click', function() { destroyBannerSwiper(); });
 
 });

@@ -18,10 +18,12 @@ var turn = {
     },
 
     destroy: function() {
+        $(turn.el).css('opacity', 0);
         $(this.el).turn("destroy");
+        this.el = undefined;
     },
 
-    init: function (book) {
+    init: function (book, pageIndex) {
         var me = this;
 
         // if older browser then don't run javascript
@@ -31,7 +33,7 @@ var turn = {
 
             setTimeout(function() {
                 me.resize();
-                me.plugins();
+                me.plugins(pageIndex);
             }, 300);
 
             // on window resize, update the plugin size
@@ -67,7 +69,7 @@ var turn = {
             height: height
         };
     },
-    plugins: function () {
+    plugins: function (pageIndex) {
         var me = this;
 
         // run the plugin
@@ -77,22 +79,16 @@ var turn = {
         });
 
         $('.book-container').addClass('opened');
+        $(turn.el).css('opacity', 1);
 
         setTimeout(function() {
-            // $(me.el).turn('page', 2);
+            $(me.el).turn('page', pageIndex || 0);
         }, 600);
     }
 };
 
 creatingFlipbook = false;
-$('.content-script button').on('click', function() {
-    if (creatingFlipbook) return;
-
-    creatingFlipbook = true;
-    createFlipbook($(this).data('flipbook-target'));
-});
-
-function createFlipbook(name) {
+function createFlipbook(name, pageIndex) {
     $('body').addClass('hide-overflow');
     $('#flipbook').addClass('visible');
 
@@ -102,7 +98,7 @@ function createFlipbook(name) {
         if (window.manuscripts[i].name == name) index = i;
     }
 
-    turn.init(window.manuscripts[index]);
+    turn.init(window.manuscripts[index], pageIndex);
 }
 
 function destroyFlipbook() {
@@ -121,10 +117,31 @@ function destroyFlipbook() {
     }, 500);
 }
 
-$('#flipbook .close').on('click', function() {
-    destroyFlipbook();
-});
+window.resizingF = false;
+function resizeFlipbook() {
+    if (!turn.el && window.resizingF) return false;
 
-// $(window).on('orientationchange', function() {
-//     $('#flipbook .close').click();
-// });
+    window.resizingF = true;
+
+    setTimeout(function() {
+        var index = $(turn.el).turn('page');
+
+        turn.destroy();
+
+        createFlipbook(window.flipbookTarget, index);
+
+        return true;
+    }, 1);
+}
+
+$('#flipbook .close').on('click', function() { destroyFlipbook(); });
+$(window).on('orientationchange', function() { resizeFlipbook(); });
+
+$('.content-script button').on('click', function() {
+    window.flipbookTarget = $(this).data('flipbook-target');
+
+    if (creatingFlipbook) return;
+
+    creatingFlipbook = true;
+    createFlipbook(window.flipbookTarget);
+});

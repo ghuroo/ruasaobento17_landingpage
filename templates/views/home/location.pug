@@ -10,7 +10,7 @@ if location
                             span.title.type1: span.ornament.white= location.name
                             span.body.type1!= location.text
                             .button-holder.grid-100.mobile-grid-100
-                                a(href="#").button.type1.transparent Google Maps
+                                a(href=location.gmaps target="_blank").button.type1.transparent Google Maps
 
                 .image.grid-50.hide-on-mobile(style="background-image: url('./images/_placeholders/google-maps.jpg')")
                     //- img(src="./images/_placeholders/google-maps.jpg")

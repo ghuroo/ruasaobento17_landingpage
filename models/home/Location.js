@@ -10,6 +10,7 @@ HomeLocation.add(
     {
         name: { type: Types.Text, initial: true, required: true, label: 'Título' },
         text: { type: Types.Html, wysiwyg: true, initial: true, label: 'Texto' },
+        gmaps: { type: Types.Url, initial: true, label: 'Google Maps Url' },
         image: { type: Types.CloudinaryImage, initial: true, label: 'Mapa' },
     },
     'Localização',
