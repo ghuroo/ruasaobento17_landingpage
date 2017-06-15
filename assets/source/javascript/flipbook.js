@@ -119,7 +119,7 @@ function destroyFlipbook() {
 
 window.resizingF = false;
 function resizeFlipbook() {
-    if (!turn.el && window.resizingF) return false;
+    if (!turn.el || window.resizingF) return false;
 
     window.resizingF = true;
 
@@ -129,6 +129,8 @@ function resizeFlipbook() {
         turn.destroy();
 
         createFlipbook(window.flipbookTarget, index);
+
+        window.resizingF = false;
 
         return true;
     }, 1);

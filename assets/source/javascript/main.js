@@ -74,13 +74,14 @@ function resizeBannerSwiper() {
 
     var index = bannerSwiper.activeIndex;
 
+    destroyBannerSwiper();
+
     setTimeout(function() {    
-        destroyBannerSwiper();
         addBannerSlider(window.banners[0], index);
 
         window.resizing = false;
         return true;
-    }, 1);
+    }, 300);
 }
 
 $(document).ready(function () {
