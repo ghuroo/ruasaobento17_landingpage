@@ -1,7 +1,3 @@
-# **Branches:**
-- ## Production: **master**
-- ## Feature: **feature_name**
-
 ## environment variables
 - NODE_ENV
 - PORT
