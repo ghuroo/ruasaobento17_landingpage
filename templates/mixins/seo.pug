@@ -1,0 +1,108 @@
+mixin seo(package, page, custom, seo)
+    
+    //- title
+    -
+        var title;
+        //- custom (article, product)
+        if (custom && custom.title) title = custom.title;
+        //- page model
+        else if (page && page.name) title = page.name;
+        //- seo
+        if (seo && seo.title) title += ' - ' + seo.title;
+        //- fallback
+        else if (package && package.title) title += ' - ' + package.title;
+
+    //- author
+    -
+        var author;
+        //- custom (article, product)
+        if (custom && custom.author) author = custom.author;
+        //- seo
+        else if (seo && seo.author) author = seo.author;
+        //- fallback
+        else if (package && package.author) author = package.author;
+
+    //- copyright
+    -
+        var copyright;
+        //- custom (article, product)
+        if (custom && custom.copyright) copyright = custom.copyright;
+        //- seo
+        else if (seo && seo.copyright) copyright = seo.copyright;
+        //- fallback
+        else if (package && package.copyright) copyright = package.copyright;
+
+    //- description
+    -
+        var description;
+        //- custom (article, product)
+        if (custom && custom.description) description = custom.description;
+        //- page model
+        else if (page && page.description) description = page.description;
+        //- seo
+        else if (seo && seo.description) description = seo.description;
+        //- fallback
+        else if (package && package.description) description = package.description;
+
+    //- keywords
+    -
+        var keywords;
+        if (custom && custom.keywords)
+            if (custom.keywords.constructor === Array) keywords = custom.keywords.join(',');
+            else keywords = page.keywords;
+        //- page model
+        if (page && page.keywords)
+            if (page.keywords.constructor === Array) keywords = page.keywords.join(',');
+            else keywords = page.keywords;
+        //- seo
+        else if (seo && seo.keywords)
+            if (seo.keywords.constructor === Array) keywords = seo.keywords.join(',');
+            else keywords = seo.keywords;
+        //- fallback
+        else if (package && package.keywords)
+            if (package.keywords.constructor === Array) keywords = package.keywords.join(',');
+            else keywords = package.keywords;
+    
+    //- image
+    -
+        var image, image_width, image_height, image_type;
+        //- custom (article, product)
+        if (custom && custom.image) {
+            image = custom.image;
+            image_width = custom.image_width; image_height = custom.image_height;
+            image_type = custom.image_type;
+        //- seo
+        } else if (seo && seo.image) {
+            image = seo.image.secure_url;
+            image_width = seo.image.width; image_height = seo.image.height;
+            image_type = seo.image.format;
+        //- fallback
+        } else {
+            image = url + '/favicon/favicon-310.png';
+            image_width = '310'; image_height = '310';
+            image_type = 'png';
+        }
+
+    title= title
+    meta(name='author' content=author)
+    meta(name='copyright' content=copyright)
+    meta(http-equiv='description' content=description)
+    meta(http-equiv='keywords' content=keywords)
+
+    //- facebook
+    meta(property='og:url', content= url)
+    meta(property='og:type', content='website')
+    meta(property='og:site_name' content= title)
+    meta(property='og:title', content= title)
+    meta(property='og:description', content= description)
+    meta(property='og:image', content= image)
+    meta(property='og:image:secure_url', content= image)
+    meta(property='og:image:type', content='image/' + image_type)
+    meta(property='og:image:width', content=image_width)
+    meta(property='og:image:height', content=image_height)
+
+    //- twitter
+    meta(name='twitter:title', content= title)
+    meta(name='twitter:description', content= description)
+    meta(name='twitter:image', content= image)
+    meta(name='twitter:card', content='summary_large_image')

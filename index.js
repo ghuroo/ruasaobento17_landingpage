@@ -84,11 +84,12 @@ keystone.set('nav', {
         'HomeTourGuide',
         'HomeManuscript',
         'HomeArticle',
-        'HomeContact'
+        'HomeContact',
     ],
     'definições': [
         'Page',
-        'Language'
+        'Language',
+        'Seo'
     ]
 });
 

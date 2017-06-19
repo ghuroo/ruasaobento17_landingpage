@@ -30,7 +30,7 @@ var items = [
                 "public_id" : "",
                 "version" : 1000000000,
                 "signature" : ""
-            },
+            }
         ],
 
         state: 'published',
