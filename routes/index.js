@@ -7,8 +7,9 @@ var flashMessages = require('./middlewares/flashMessages.js'), // flash messages
     // errors = require('./middlewares/errors.js'), // error handling
     dev = require('./middlewares/dev.js'), // setup dev variables
     page = require('./middlewares/page.js'), // setup dev variables
-    menu = require('./middlewares/menu.js'); // setup menu object
-    locals = require('./middlewares/locals.js'); // handle locals to front-end
+    menu = require('./middlewares/menu.js'), // setup menu object
+    locals = require('./middlewares/locals.js'), // handle locals to front-end
+    seo = require('./middlewares/seo'); // retrieve seo object
 
 keystone.pre('routes', passport.initialize());
 keystone.pre('routes', passport.session());
@@ -21,6 +22,7 @@ keystone.pre('routes', i18n.init);
 // keystone.pre('routes', dev);
 
 // keystone.pre('render', flashMessages);
+keystone.pre('render', seo);
 keystone.pre('render', locals);
 
 // load routes

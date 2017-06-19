@@ -1,5 +1,7 @@
 require('./Language.js');
 require('./Page.js');
+require('./Seo.js');
+
 require('./User.js');
 
 // home
