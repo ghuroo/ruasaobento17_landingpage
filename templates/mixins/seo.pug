@@ -3,14 +3,16 @@ mixin seo(package, page, custom, seo)
     //- title
     -
         var title;
-        //- custom (article, product)
-        if (custom && custom.title) title = custom.title;
-        //- page model
-        else if (page && page.name) title = page.name;
+        //- //- custom (article, product)
+        //- if (custom && custom.title) title = custom.title;
+        //- //- page model
+        //- else if (page && page.name) title = page.name;
         //- seo
-        if (seo && seo.title) title += ' - ' + seo.title;
+        //- if (seo && seo.title) title += ' - ' + seo.title;
+        if (seo && seo.title) title = seo.title;
         //- fallback
-        else if (package && package.title) title += ' - ' + package.title;
+        //- else if (package && package.title) title += ' - ' + package.title;
+        else if (package && package.title) title = package.title;
 
     //- author
     -
