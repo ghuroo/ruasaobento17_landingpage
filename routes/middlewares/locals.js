@@ -1,4 +1,5 @@
-var keystone = require('keystone');
+var keystone = require('keystone'),
+    url = require('url'); // built-in utility
 
 exports = module.exports = function(req, res, next) {
 
@@ -11,7 +12,8 @@ exports = module.exports = function(req, res, next) {
     locals.language = req.languageObject;
     locals.navigation = req.navigation;
 
-    locals.url = req.protocol + '://' + req.host + req.originalUrl;
+    // var url = url.parse(req.url).pathname;
+    locals.url = req.protocol + '://' + req.hostname + req.path;
 
     var package = require(keystone.get('path') + '/package.json');
     locals.package = {
