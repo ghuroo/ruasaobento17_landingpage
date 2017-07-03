@@ -1,5 +1,5 @@
 if banners && banners.length > 0
-    .waypoint.banner.grid-100.mobile-grid-100(data-index="0" style="background-image: url('"+banners[0].images[0].url+"')")
+    .waypoint.banner.grid-100.mobile-grid-100(data-index="0" style="background-image: url('"+filters.cloudinary(banners[0].images[0])+"')")
         a(name="home")
         
         //- img.image(src=banners[0].images[0].url)

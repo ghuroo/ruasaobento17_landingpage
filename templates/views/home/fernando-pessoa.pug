@@ -39,7 +39,8 @@ if about
                                 // Slides
                                 each item in about.images
                                     .swiper-slide
-                                        img(src=item.url)
+                                        //- img(src=item.url)
+                                        img(src=filters.cloudinary(item))
 
                             // If we need pagination
                             .swiper-pagination
@@ -64,7 +65,8 @@ if about
                                 // Slides
                                 each item in about.images
                                     .swiper-slide
-                                        img(src=item.url)
+                                        //- img(src=item.url)
+                                        img(src=filters.cloudinary(item))
 
                             // If we need pagination
                             .swiper-pagination

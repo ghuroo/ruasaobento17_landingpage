@@ -36,7 +36,8 @@ if tour && tourGuides
 
                                 if item.logo
                                     .logo.grid-100.mobile-grid-100
-                                        img(src=item.logo.url)
+                                        //- img(src=item.logo.url)
+                                        img(src=filters.cloudinary(item.logo))
 
                                 .footnote
                                     .body.grid-100.mobile-grid-100= item.footnote

@@ -54,4 +54,7 @@ exports = module.exports = function(app) {
 
     // admin
     app.get('/keystone', (req, res) =>  { res.redirect(301, '/admin'); });
+
+    // cloudinary importer
+    app.get('/cloudinary/:list/:field', routes.views.cloudinary);
 };

@@ -1,3 +1,7 @@
+var cloudinary = function(image) {
+    return window.cloudinaryPath + image.public_id + '.' + image.format;
+};
+
 // banner swiper
 var bannerSwiper;
 function addBannerSlider(banner, activeIndex) {
@@ -20,7 +24,7 @@ function addBannerSlider(banner, activeIndex) {
 
     for (var i=0; i<banner.images.length; i++) {
         bannerSwiper.appendSlide([
-            '<div class="swiper-slide"><div class="va-parent"><div class="va-child"><img src="'+banner.images[i].url+'" /></div></div></div>',
+            '<div class="swiper-slide"><div class="va-parent"><div class="va-child"><img src="'+cloudinary(banner.images[i])+'" /></div></div></div>',
         ]);
     }
 

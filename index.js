@@ -31,6 +31,8 @@ i18n.configure({
 
 keystone.init({
     'path': __dirname,
+    'cloudinary assets path':  __dirname + '/assets/public/images/uploads/',
+    'cloudinary public path':  '/images/uploads/',
 
     'port': process.env.PORT || 3000,
 

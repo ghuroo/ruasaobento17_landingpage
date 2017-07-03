@@ -15,6 +15,8 @@ exports = module.exports = function(req, res, next) {
     // var url = url.parse(req.url).pathname;
     locals.url = req.protocol + '://' + req.hostname + req.path;
 
+    locals.cloudinaryPath = keystone.get('cloudinary public path');
+
     var package = require(keystone.get('path') + '/package.json');
     locals.package = {
         "name": package.name,
@@ -24,6 +26,12 @@ exports = module.exports = function(req, res, next) {
         "copyright": package.copyright,
         "version": package.version,
         "author": package.author,
+    };
+
+    locals.filters = {
+        'cloudinary': function(image) {
+            return keystone.get('cloudinary public path') + image.public_id + '.' + image.format;
+        }
     };
 
     next();

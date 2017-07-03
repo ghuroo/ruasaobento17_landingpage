@@ -3,13 +3,13 @@ var turn = {
 
     addBook: function(book) {
 
-        var front = '<div class="hard"><img src="'+book.covers.front.url+'" /></div>',
-            back = '<div class="hard"><img src="'+book.covers.back.url+'" /></div>';
+        var front = '<div class="hard"><img src="'+cloudinary(book.covers.front)+'" /></div>',
+            back = '<div class="hard"><img src="'+cloudinary(book.covers.back)+'" /></div>';
 
         var pages = [];
         for (var index = 0; index < book.pages.length; index++) {
-            if (index === 0 || index === book.pages.length) pages.push('<div class="hard"><img src="'+book.pages[index].url+'" /></div>');
-            else pages.push('<img src="'+book.pages[index].url+'" />');
+            if (index === 0 || index === book.pages.length) pages.push('<div class="hard"><img src="'+cloudinary(book.pages[index])+'" /></div>');
+            else pages.push('<img src="'+cloudinary(book.pages[index])+'" />');
         }
 
         $(this.el).append(front);
