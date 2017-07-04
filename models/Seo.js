@@ -22,6 +22,19 @@ Seo.add(
     }
 );
 
+var cloudinarier = require('../libs/cloudinary');
+
+Seo.schema.post('save', function(document) {
+
+    return cloudinarier.backup(document, 'image')
+    .then(() => {
+        return;
+    }).catch((error) => {
+        console.log(error);
+        throw Error(error);
+    });
+});
+
 Seo.defaultColumns ='title, description, keywords, image, language';
 
 Seo.register();

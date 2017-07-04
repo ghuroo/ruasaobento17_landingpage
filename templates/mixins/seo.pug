@@ -70,12 +70,12 @@ mixin seo(package, page, custom, seo)
         var image, image_width, image_height, image_type;
         //- custom (article, product)
         if (custom && custom.image) {
-            image = custom.image;
+            image = url + filters.cloudinary(custom.image);
             image_width = custom.image_width; image_height = custom.image_height;
             image_type = custom.image_type;
         //- seo
         } else if (seo && seo.image) {
-            image = seo.image.secure_url;
+            image = url + filters.cloudinary(seo.image);
             image_width = seo.image.width; image_height = seo.image.height;
             image_type = seo.image.format;
         //- fallback
