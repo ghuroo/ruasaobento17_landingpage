@@ -12,7 +12,7 @@ HomeArticle.add(
     {
         title: { type: Types.Text, initial: true, required: true, label: 'Título' },
         text: { type: Types.Text, initial: true, label: 'Texto' },
-        file: { type: Types.Url, initial: true, label: 'Idiomas' },
+        url: { type: Types.Url, initial: true, label: 'Url' },
     },
 
     'Localização',
